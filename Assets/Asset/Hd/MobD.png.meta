@@ -1,0 +1,1171 @@
+fileFormatVersion: 2
+guid: 2829bd2a87566524195a2a1c9d787acd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -519636699714328649
+    second: MobD_0
+  - first:
+      213: 4174668421130277502
+    second: MobD_1
+  - first:
+      213: -6404582975914706144
+    second: MobD_2
+  - first:
+      213: -943126696891304262
+    second: MobD_3
+  - first:
+      213: 1684423798265325882
+    second: MobD_4
+  - first:
+      213: 1949849069521907218
+    second: MobD_5
+  - first:
+      213: -6694054879737137844
+    second: MobD_6
+  - first:
+      213: -4258364247827827218
+    second: MobD_7
+  - first:
+      213: 4004180676109952286
+    second: MobD_8
+  - first:
+      213: 2929176093910072051
+    second: MobD_9
+  - first:
+      213: 2754560943545617644
+    second: MobD_10
+  - first:
+      213: 5626336433198713259
+    second: MobD_11
+  - first:
+      213: -1861968759840264689
+    second: MobD_12
+  - first:
+      213: 1726185655588617494
+    second: MobD_13
+  - first:
+      213: 7838433998833003223
+    second: MobD_14
+  - first:
+      213: 1727891973594915405
+    second: MobD_15
+  - first:
+      213: -2447729613485871402
+    second: MobD_16
+  - first:
+      213: 6885339333138996303
+    second: MobD_17
+  - first:
+      213: -2423965389899795372
+    second: MobD_18
+  - first:
+      213: 71166250066868488
+    second: MobD_19
+  - first:
+      213: -8419587068790015650
+    second: MobD_20
+  - first:
+      213: 981980372230393748
+    second: MobD_21
+  - first:
+      213: -2017808291127148185
+    second: MobD_22
+  - first:
+      213: 8282489332869212192
+    second: MobD_23
+  - first:
+      213: 5371061969166816272
+    second: MobD_24
+  - first:
+      213: 5230309074092740894
+    second: MobD_25
+  - first:
+      213: -238012610726292873
+    second: MobD_26
+  - first:
+      213: 6741050862551093471
+    second: MobD_27
+  - first:
+      213: 1678134478799656155
+    second: MobD_28
+  - first:
+      213: -7306053968034154729
+    second: MobD_29
+  - first:
+      213: -1695968872258362498
+    second: MobD_30
+  - first:
+      213: -4224711292747992905
+    second: MobD_31
+  - first:
+      213: 1930796472611640237
+    second: MobD_32
+  - first:
+      213: -208600899996715562
+    second: MobD_33
+  - first:
+      213: 6007047486438921294
+    second: MobD_34
+  - first:
+      213: 7068136947421084645
+    second: MobD_35
+  - first:
+      213: -8928891068888999760
+    second: MobD_36
+  - first:
+      213: 4038559668454425787
+    second: MobD_37
+  - first:
+      213: 4420157998469560950
+    second: MobD_38
+  - first:
+      213: -6382976862513353267
+    second: MobD_39
+  - first:
+      213: 8098263847527369157
+    second: MobD_40
+  - first:
+      213: -2585777342181191131
+    second: MobD_41
+  - first:
+      213: 7059805991282785487
+    second: MobD_42
+  - first:
+      213: 5441937038933269471
+    second: MobD_43
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 1
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MobD_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 903
+        width: 75
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 828e105ba695d474e9011c1742bf150e
+      internalID: -519636699714328649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_1
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 904
+        width: 75
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0ef01f2d3cf19a44845d85761081c92
+      internalID: 4174668421130277502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_2
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 903
+        width: 75
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39cd4c9f6bd8b2f44b35176c83a9c944
+      internalID: -6404582975914706144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_3
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 904
+        width: 75
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0242732ddf34ccb4e9f54700bb4cbb45
+      internalID: -943126696891304262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_4
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 771
+        width: 75
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed269571d20a21945be6206b02373c2c
+      internalID: 1684423798265325882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_5
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 775
+        width: 75
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61e306fdd179d1840ba24f30974f8d69
+      internalID: 1949849069521907218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_6
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 776
+        width: 75
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c22ee355a90c0b64f87da4c12e67704b
+      internalID: -6694054879737137844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_7
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 777
+        width: 75
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fe788482997e1d4c9fc035c03239507
+      internalID: -4258364247827827218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_8
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 771
+        width: 75
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9075bc41288c16146b75965416cfc599
+      internalID: 4004180676109952286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_9
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 776
+        width: 75
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b78f0dadd86c23439103487b16a6838
+      internalID: 2929176093910072051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_10
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 777
+        width: 75
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c1bbf12678bd9b4698727e9f71d46e9
+      internalID: 2754560943545617644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_11
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 776
+        width: 75
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8010f4ced803f6f4f8c2288b48458b01
+      internalID: 5626336433198713259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_12
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 641
+        width: 75
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8d0358a99c35834dafc6dff430fd649
+      internalID: -1861968759840264689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_13
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 649
+        width: 75
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40260d72d31dee4e9799e554b29d794
+      internalID: 1726185655588617494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_14
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 647
+        width: 75
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 295cd9ed3a213ea408e5263ae0fd6c5e
+      internalID: 7838433998833003223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_15
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 649
+        width: 74
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d942d8e2a39d435489729603f851bf5e
+      internalID: 1727891973594915405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_16
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 641
+        width: 75
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e468f1fbd7f0854ea3559d190675c12
+      internalID: -2447729613485871402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_17
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 647
+        width: 75
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a2fad777c0b494a8e5c52d14a12bc1
+      internalID: 6885339333138996303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_18
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 647
+        width: 75
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f2d4fa665c2c74cb7bd7155b4da312
+      internalID: -2423965389899795372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_19
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 647
+        width: 75
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9ab15b95d2c3ae48ba489ec87674dc0
+      internalID: 71166250066868488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_20
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 512
+        width: 75
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2837a4a19f8ffda448571c4051ec0693
+      internalID: -8419587068790015650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_21
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 521
+        width: 75
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb464a9a2eeae75459ed7103bc300b29
+      internalID: 981980372230393748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_22
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 514
+        width: 75
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b2479acfea92440b32693ea8ae116c
+      internalID: -2017808291127148185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_23
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 521
+        width: 75
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b1b442a4969ef49a0da2f6ea26f2d7
+      internalID: 8282489332869212192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_24
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 512
+        width: 75
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1047418f1f09c1498105f857d38699b
+      internalID: 5371061969166816272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_25
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 520
+        width: 75
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7d9570926f46ac49916885f4c5323e9
+      internalID: 5230309074092740894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_26
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 514
+        width: 75
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89645e2c4a3261342908a2cffbb53aaf
+      internalID: -238012610726292873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_27
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 520
+        width: 75
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b5cb1c9f2ff624592d8d5a443cbdd7
+      internalID: 6741050862551093471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_28
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 385
+        width: 75
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1593caaa38133de49a36af881621feb2
+      internalID: 1678134478799656155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_29
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 391
+        width: 75
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8bf9eed37b17e418c6859bbfe08e74
+      internalID: -7306053968034154729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_30
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 387
+        width: 75
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aceeb6741e4792643981376e79b19ada
+      internalID: -1695968872258362498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_31
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 391
+        width: 75
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b9423d05f17787449ead7a2d81653aa
+      internalID: -4224711292747992905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_32
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 385
+        width: 75
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af24623e3ab0f094f99d5befd0b2663d
+      internalID: 1930796472611640237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_33
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 391
+        width: 75
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 891755182b523214684b6cae17f90c7a
+      internalID: -208600899996715562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_34
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 388
+        width: 75
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fd000cde4ca64047925b488bae521a8
+      internalID: 6007047486438921294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_35
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 391
+        width: 75
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abcce4270b158064aae8a20bb3c5467c
+      internalID: 7068136947421084645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_36
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 259
+        width: 75
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2a08f1eb147ad6418122a259911b627
+      internalID: -8928891068888999760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_37
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 263
+        width: 75
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df1b605cba5c8844b91d3be25fa1be30
+      internalID: 4038559668454425787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_38
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 261
+        width: 75
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cab08a4e511e5e74dba3ba1a73843586
+      internalID: 4420157998469560950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_39
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 263
+        width: 75
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92a830a46cca4b4ab363bbf68339cad
+      internalID: -6382976862513353267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_40
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 259
+        width: 75
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a98fd0b1d12174cb34b523d3801be7
+      internalID: 8098263847527369157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_41
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 264
+        width: 75
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e6e79f19b966b4e96f08c60569c236
+      internalID: -2585777342181191131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_42
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 261
+        width: 75
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c97aa6e7f929c64d8e3eae5d800adce
+      internalID: 7059805991282785487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobD_43
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 264
+        width: 75
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8fb0f7b84ef22c4ea4cbd2c56bc1ff0
+      internalID: 5441937038933269471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 445cb47dbe878404baed9fd58053515c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
