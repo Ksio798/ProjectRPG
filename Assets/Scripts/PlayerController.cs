@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using UnityEngine.SceneManagement;
 using System.Threading;
 using Unity.Mathematics;
 using UnityEngine;
@@ -247,6 +248,12 @@ public class PlayerController : BaseCharecter
         }
         else
             health = MaxHealth;
+    }
+    public override void Die()
+    {
+        base.Die();
+        health = -1;
+        SceneManager.LoadScene(0);
     }
 }
            
