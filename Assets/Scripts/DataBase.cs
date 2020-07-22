@@ -23,6 +23,6 @@ public class DataBase : MonoBehaviour
     public void AddMoney(int count)
     {
         Money += count;
-      
+        FindObjectOfType<PlayerUIController>().SetMoney(Money);
     }
 }

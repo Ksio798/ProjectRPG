@@ -7,8 +7,11 @@ public class BaseCharecter : MonoBehaviour
     protected float health;
    public float MaxHealth = 5;
     public float damageResistanceInPercent;
-
-
+   
+   public virtual void Start()
+    {
+        health = MaxHealth;
+    }
 
 
     public virtual void addHealth(float amount)
@@ -22,10 +25,13 @@ public class BaseCharecter : MonoBehaviour
     }
     public virtual void TakeDamage(float Dmg)
     {
-        Dmg -= Mathematics.GetPercent(damageResistanceInPercent, Dmg);
+        float a = Dmg;
+        Dmg -= Mathematics.GetPercent(damageResistanceInPercent, a);
         health -= Dmg;
+        
         if (health<=0)
         {
+           
             Die();
         }
     }

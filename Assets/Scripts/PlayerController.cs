@@ -8,6 +8,8 @@ using UnityEngine;
 
 public class PlayerController : BaseCharecter
 {
+   public float MaxshildCount = 5;
+    float shildCount = 5;
     public float Speed;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
@@ -16,8 +18,8 @@ public class PlayerController : BaseCharecter
     float hitDistanse = 0.3f;
     Collider2D currentCollider;
     GameObject interactingObject;
-    
-    int medicineChestCount = 0;
+    public PlayerUIController playerUIController;
+    int medicineChestCount = 1;
     public int MedicineChestCount
     {
         get { return medicineChestCount; }
@@ -39,12 +41,16 @@ public class PlayerController : BaseCharecter
 
 
         } }
-    void Start()
+  public override void Start()
     {
+        base.Start();
+        playerUIController.SetHp(MaxHealth, health);
+        playerUIController.SetShild(MaxshildCount, shildCount);
+        playerUIController.SetMedicineCount(medicineChestCount);
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         Move();
@@ -214,6 +220,7 @@ public class PlayerController : BaseCharecter
         if (interactable is IMedicineChest)
         {
             MedicineChestCount += (interactable as IMedicineChest).Count;
+            playerUIController.SetMedicineCount(medicineChestCount);
         }
         interactable.Interact();
     }
@@ -229,15 +236,18 @@ public class PlayerController : BaseCharecter
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            HealingByMedicineChest();
+           HealingByMedicineChest();
+           // TakeDamage(1);
         }
     }
     void HealingByMedicineChest()
     {
-        if (medicineChestCount!=0&& health!= MaxHealth)
+        if (medicineChestCount!=0)
         {
             float a = Mathematics.GetPercent(DataBase.HealingPercentByMedicineChest, MaxHealth);
+            medicineChestCount--;
             Healing(a);
+            playerUIController.SetMedicineCount(medicineChestCount);
         }
     }
     public void Healing(float hp)
@@ -251,9 +261,30 @@ public class PlayerController : BaseCharecter
     }
     public override void Die()
     {
-        base.Die();
-        health = -1;
-        SceneManager.LoadScene(0);
+       base.Die();
+        //health = -1;
+        //SceneManager.LoadScene(0);
+    }
+    public override void TakeDamage(float Dmg)
+    {
+        if(shildCount == 0)
+        {
+        base.TakeDamage(Dmg);
+           
+        }
+        else if(shildCount>=Dmg)
+        {
+            shildCount -= Dmg;
+          
+        }
+        else
+        {
+            Dmg -= shildCount;
+            base.TakeDamage(Dmg);
+           
+        }
+        playerUIController.SetHp(MaxHealth, health);
+        playerUIController.SetShild(MaxshildCount, shildCount);
     }
 }
            

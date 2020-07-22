@@ -11,5 +11,9 @@ using System.Threading.Tasks;
     {
         return (value / 100) * percent;
     }
+    public static float GetValueInPercent(float maxValue, float curentValue)
+    {
+        return (curentValue * 100) / maxValue;
+    }
 }
 
