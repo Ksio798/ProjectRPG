@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponData : MonoBehaviour
+public class WeaponData : MonoBehaviour, IInteractable
 {
     public GameObject ammo;
     public float Range;
@@ -13,4 +13,24 @@ public class WeaponData : MonoBehaviour
 
     // public Weapon Prefab;
     public Vector3 LocalPosition;
+
+    [SerializeField]
+     bool interactByKey;
+    [SerializeField]
+    KeyCode interactionKey;
+    public bool InteractingByKeyPressing { get { return interactByKey; } }
+
+    public KeyCode InteractableKey { get ; set; }
+
+    public void Interact(Transform other)
+    {
+
+        GunController gc = other.GetComponentInChildren<GunController>();
+
+       //transform.position = holdPoint.position;
+
+    
+            gc.SetNewWeapon(this);
+        
+    }
 }

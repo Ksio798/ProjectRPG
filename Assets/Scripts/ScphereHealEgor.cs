@@ -6,12 +6,31 @@ public class ScphereHealEgor : MonoBehaviour
 {
     public BaseCharecter charecter;
     public int AddHealth = 1;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public float Waittime;
+    private float timer;
+    private void Update()
     {
-        if (collision.tag == "Player")
+        if (timer > 0)
         {
-            charecter.addHealth(AddHealth);
+            timer -= Time.deltaTime;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+       if (timer <= 0)
+        {
+            if (collision.tag == "Player")
+           {
+  
+               Debug.Log("COLLISION");
+         
+                charecter = collision.GetComponent<BaseCharecter>();
 
+
+                Debug.Log(charecter);
+                charecter.addHealth(AddHealth);
+                timer = Waittime;
+            }
         }
     }
 }

@@ -18,6 +18,7 @@ public class GunController : MonoBehaviour
     public Transform crossHair;
 
     WeaponData CurrentWeapon;
+    public Transform holdPoint;
     // Start is called before the first frame update
     void Start()
     {

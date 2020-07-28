@@ -10,7 +10,7 @@ public class BaseCharecter : MonoBehaviour
    
    public virtual void Start()
     {
-        health = MaxHealth;
+        health = 1;
     }
 
 

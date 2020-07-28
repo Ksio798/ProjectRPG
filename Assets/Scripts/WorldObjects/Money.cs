@@ -9,7 +9,7 @@ public class Money : MonoBehaviour, IInteractable
     {
         cost = Random.Range(1, 51);
     }
-    public void Interact()
+    public void Interact(Transform other)
     {
         if (DataBase.Instance != null)
             DataBase.Instance.AddMoney(cost);
@@ -21,4 +21,6 @@ public class Money : MonoBehaviour, IInteractable
         Destroy(gameObject);
     }
    public bool InteractingByKeyPressing { get { return false; } }
+
+    public KeyCode InteractableKey { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 }

@@ -41,12 +41,16 @@ public class PlayerController : BaseCharecter
 
 
         } }
-  public override void Start()
+    public override void Start()
     {
         base.Start();
-        playerUIController.SetHp(MaxHealth, health);
-        playerUIController.SetShild(MaxshildCount, shildCount);
-        playerUIController.SetMedicineCount(medicineChestCount);
+        if (playerUIController != null)
+        {
+            playerUIController.SetHp(MaxHealth, health);
+
+            playerUIController.SetShild(MaxshildCount, shildCount);
+            playerUIController.SetMedicineCount(medicineChestCount);
+        }
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -222,7 +226,7 @@ public class PlayerController : BaseCharecter
             MedicineChestCount += (interactable as IMedicineChest).Count;
             playerUIController.SetMedicineCount(medicineChestCount);
         }
-        interactable.Interact();
+        interactable.Interact(transform);
     }
     void Interact()
     {
