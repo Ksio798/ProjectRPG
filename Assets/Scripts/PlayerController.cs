@@ -20,12 +20,16 @@ public class PlayerController : BaseCharecter
     GameObject interactingObject;
     public PlayerUIController playerUIController;
     int medicineChestCount = 1;
+
+
+
+    public DataBase Inventory;
     public int MedicineChestCount
     {
         get { return medicineChestCount; }
         set
         {
-            if (value <= DataBase.MaxMedicineChestCount)
+            if (value <= Inventory.MaxMedicineChestCount)
             {
                 medicineChestCount = value;
                 Debug.Log(medicineChestCount);
@@ -33,9 +37,9 @@ public class PlayerController : BaseCharecter
             else
             {
                 int a = value;
-                int b = DataBase.MaxMedicineChestCount - medicineChestCount;
+                int b = Inventory.MaxMedicineChestCount - medicineChestCount;
                 a -= b;
-                medicineChestCount = DataBase.MaxMedicineChestCount;
+                medicineChestCount = Inventory.MaxMedicineChestCount;
                 Debug.Log(medicineChestCount + "ErrorS");
             }
 
@@ -69,50 +73,50 @@ public class PlayerController : BaseCharecter
     {
         float hInput = Input.GetAxis("Horizontal");
         float vInput = Input.GetAxis("Vertical");
-        RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector3.left, hitDistanse, ObMask);
-        RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector3.right, hitDistanse, ObMask);
-        RaycastHit2D hitTop = Physics2D.Raycast(transform.position, Vector3.up, hitDistanse, ObMask);
-        RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector3.down, hitDistanse, ObMask);
-        RaycastHit2D hitRightDown = Physics2D.Raycast(transform.position, Vector3.down + Vector3.right, hitDistanse, ObMask);
-        RaycastHit2D hitRightUp = Physics2D.Raycast(transform.position, Vector3.up + Vector3.right, hitDistanse, ObMask);
-        RaycastHit2D hitLefttUp = Physics2D.Raycast(transform.position, Vector3.up + Vector3.left, hitDistanse, ObMask);
-        RaycastHit2D hitLefttDown = Physics2D.Raycast(transform.position, Vector3.down + Vector3.left, hitDistanse, ObMask);
-        if (hitLeft && hInput < 0)
-        {
-            hInput = 0;
-        }
-        if (hitRight && hInput > 0)
-        {
-            hInput = 0;
-        }
-        if (hitTop && vInput > 0)
-        {
-            vInput = 0;
-        }
-        if (hitDown && vInput < 0)
-        {
-            vInput = 0;
-        }
-        if (hitRightDown && vInput < 0 && hInput > 0)
-        {
-            vInput = 0;
-            hInput = 0;
-        }
-        if (hitRightUp && vInput > 0 && hInput > 0)
-        {
-            vInput = 0;
-            hInput = 0;
-        }
-        if (hitLefttUp && vInput > 0 && hInput < 0)
-        {
-            vInput = 0;
-            hInput = 0;
-        }
-        if (hitLefttDown && vInput < 0 && hInput < 0)
-        {
-            vInput = 0;
-            hInput = 0;
-        }
+        //RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector3.left, hitDistanse, ObMask);
+        //RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector3.right, hitDistanse, ObMask);
+        //RaycastHit2D hitTop = Physics2D.Raycast(transform.position, Vector3.up, hitDistanse, ObMask);
+        //RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector3.down, hitDistanse, ObMask);
+        //RaycastHit2D hitRightDown = Physics2D.Raycast(transform.position, Vector3.down + Vector3.right, hitDistanse, ObMask);
+        //RaycastHit2D hitRightUp = Physics2D.Raycast(transform.position, Vector3.up + Vector3.right, hitDistanse, ObMask);
+        //RaycastHit2D hitLefttUp = Physics2D.Raycast(transform.position, Vector3.up + Vector3.left, hitDistanse, ObMask);
+        //RaycastHit2D hitLefttDown = Physics2D.Raycast(transform.position, Vector3.down + Vector3.left, hitDistanse, ObMask);
+        //if (hitLeft && hInput < 0)
+        //{
+        //    hInput = 0;
+        //}
+        //if (hitRight && hInput > 0)
+        //{
+        //    hInput = 0;
+        //}
+        //if (hitTop && vInput > 0)
+        //{
+        //    vInput = 0;
+        //}
+        //if (hitDown && vInput < 0)
+        //{
+        //    vInput = 0;
+        //}
+        //if (hitRightDown && vInput < 0 && hInput > 0)
+        //{
+        //    vInput = 0;
+        //    hInput = 0;
+        //}
+        //if (hitRightUp && vInput > 0 && hInput > 0)
+        //{
+        //    vInput = 0;
+        //    hInput = 0;
+        //}
+        //if (hitLefttUp && vInput > 0 && hInput < 0)
+        //{
+        //    vInput = 0;
+        //    hInput = 0;
+        //}
+        //if (hitLefttDown && vInput < 0 && hInput < 0)
+        //{
+        //    vInput = 0;
+        //    hInput = 0;
+        //}
         Vector2 moveInput = new Vector2(hInput, vInput);
         moveVelocity = moveInput.normalized * Speed;
     }
@@ -248,7 +252,7 @@ public class PlayerController : BaseCharecter
     {
         if (medicineChestCount!=0)
         {
-            float a = Mathematics.GetPercent(DataBase.HealingPercentByMedicineChest, MaxHealth);
+            float a = Mathematics.GetPercent(Inventory.HealingPercentByMedicineChest, MaxHealth);
             medicineChestCount--;
             Healing(a);
             playerUIController.SetMedicineCount(medicineChestCount);
@@ -290,5 +294,6 @@ public class PlayerController : BaseCharecter
         playerUIController.SetHp(MaxHealth, health);
         playerUIController.SetShild(MaxshildCount, shildCount);
     }
+  
 }
            

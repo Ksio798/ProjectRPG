@@ -11,13 +11,16 @@ public class Money : MonoBehaviour, IInteractable
     }
     public void Interact(Transform other)
     {
-        if (DataBase.Instance != null)
-            DataBase.Instance.AddMoney(cost);
-        else
-            DataBase.Money += cost;
+        PlayerController pc = other.GetComponent<PlayerController>();
+
+
+        if (pc != null)
+            pc.Inventory.AddMoney(cost);
+        //else
+        //    DataBase.Money += cost;
 
         
-        Debug.Log(DataBase.Money);
+      //  Debug.Log(DataBase.Money);
         Destroy(gameObject);
     }
    public bool InteractingByKeyPressing { get { return false; } }

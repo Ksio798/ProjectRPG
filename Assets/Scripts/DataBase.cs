@@ -4,25 +4,30 @@ using UnityEngine;
 
 public class DataBase : MonoBehaviour
 {
-    public static int MaxMedicineChestCount = 3;
-    public static int HealingPercentByMedicineChest = 50;
-    public static int Money;
-    public static DataBase Instance;
+    public  int MaxMedicineChestCount = 3;
+    public  int HealingPercentByMedicineChest = 50;
+    public  int Money;
+    public GunController gc;
+   // public static DataBase Instance;
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //if (Instance == null)
+        //{
+        //    Instance = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
     }
     public void AddMoney(int count)
     {
         Money += count;
         FindObjectOfType<PlayerUIController>().SetMoney(Money);
+    }
+    public void AddAmmo(int count)
+    {
+        gc.Ammo +=count;
     }
 }
