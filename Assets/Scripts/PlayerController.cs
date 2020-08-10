@@ -20,7 +20,7 @@ public class PlayerController : BaseCharecter
     GameObject interactingObject;
     public PlayerUIController playerUIController;
     int medicineChestCount = 1;
-
+  
 
 
     public DataBase Inventory;
@@ -61,6 +61,7 @@ public class PlayerController : BaseCharecter
    
     void Update()
     {
+       
         Move();
         Interact();
         UseSkills();
@@ -122,7 +123,10 @@ public class PlayerController : BaseCharecter
     }
     void FixedUpdate()
     {
-       rb.velocity = moveVelocity * Time.fixedDeltaTime;
+        if (CanMove)
+            rb.velocity = moveVelocity * Time.fixedDeltaTime;
+        else
+            rb.velocity = Vector2.zero;
        
        // rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
     }
@@ -217,7 +221,8 @@ public class PlayerController : BaseCharecter
     }
      void OnTriggerExit2D(Collider2D collision)
     {
-
+        if (collision == currentCollider)
+            currentCollider = null;
         if (collision.gameObject == interactingObject)
         {
             interactingObject = null;

@@ -7,6 +7,7 @@ public class BaseCharecter : MonoBehaviour
     protected float health;
    public float MaxHealth = 5;
     public float damageResistanceInPercent;
+    public bool CanMove = true;
    
    public virtual void Start()
     {
