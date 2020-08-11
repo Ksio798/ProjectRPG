@@ -8,10 +8,10 @@ public class BaseCharecter : MonoBehaviour
    public float MaxHealth = 5;
     public float damageResistanceInPercent;
     public bool CanMove = true;
-   
-   public virtual void Start()
+    public float Speed;
+    public virtual void Start()
     {
-        health = 1;
+        health = MaxHealth;
     }
 
 

@@ -5,12 +5,19 @@ using UnityEngine.SceneManagement;
 using System.Threading;
 using Unity.Mathematics;
 using UnityEngine;
+public enum PlayerType
+{
+    Egor,
+    Dimitry,
+    Maxim,
+    Alex
+}
 
 public class PlayerController : BaseCharecter
 {
    public float MaxshildCount = 5;
     float shildCount = 5;
-    public float Speed;
+    public PlayerType CurrentptayerType = PlayerType.Egor;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
     public GameObject crossHair;
