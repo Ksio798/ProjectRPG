@@ -22,11 +22,6 @@ public abstract class AttackMethod : MonoBehaviour
     {
 
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-        { 
-        
-        
-        }
         if (timeShot > 0)
             timeShot -= Time.deltaTime;
     }
