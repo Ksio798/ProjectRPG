@@ -11,12 +11,16 @@ public class CarInventory : MonoBehaviour, IInteractable
     KeyCode key = KeyCode.E;
     public GameObject CanvCar;
     public static int MoneyCount;
-    public static int MutagenCount = 5;
+    public static int MutagenCount = 50;
     public static int SanorinCount;
     public static int MedChestCount;
     public static int BulletsCount;
-  public Transform UpdateParametrsPanel;
+ // public Transform UpdateParametrsPanel;
     public UIPanelUpdate HealthP;
+    public UIPanelUpdate DamageResistanceP;
+    public UIPanelUpdate SpeedP;
+    public UIPanelUpdate MaxShildCountP;
+    public UIPanelUpdate MaxMedChestCountP;
     public KeyCode InteractableKey { get { return key; } set { key = value; } }
 
     public bool InteractingByKeyPressing { get { return true; } }
@@ -28,13 +32,15 @@ public class CarInventory : MonoBehaviour, IInteractable
             CanvCar.SetActive(true);
             CurrentPlayer = other.gameObject.GetComponent<PlayerController>();
             CurrentPlayer.CanMove = false;
-            for (int i = 0; i < UpdateParametrsPanel.childCount; i++)
-            {
-                UpdateParametrsPanel.GetChild(i).GetComponent<UIPanelUpdate>().StartUpdateImages(CurrentPlayer.CurrentptayerType);
-            }
-           // HealthP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
-
-
+            //for (int i = 0; i < UpdateParametrsPanel.childCount; i++)
+            //{
+            //    UpdateParametrsPanel.GetChild(i).GetComponent<UIPanelUpdate>().StartUpdateImages(CurrentPlayer.CurrentptayerType);
+            //}
+           HealthP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
+            DamageResistanceP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
+            SpeedP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
+            MaxShildCountP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
+            MaxMedChestCountP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
         }
         else
         {
@@ -45,48 +51,58 @@ public class CarInventory : MonoBehaviour, IInteractable
     }
     public void AddMaxHealth()
     {
-        if (MutagenCount>0)
+        if (MutagenCount > 0 && HealthP.GetPlayerIndex(CurrentPlayer.CurrentptayerType)<10)
         {
             CurrentPlayer.MaxHealth+=Mathematics.GetPercent(5,CurrentPlayer.MaxHealth);
             MutagenCount--;
             HealthP.UpdateImages(CurrentPlayer.CurrentptayerType);
+            playerUIController.SetHp(CurrentPlayer.MaxHealth, CurrentPlayer.Health);
             playerUIController.SetMutagenCount(MutagenCount);
         }
     }
     public void AddDamageResistance()
     {
-        if (MutagenCount > 0)
+        if (MutagenCount > 0 && DamageResistanceP.GetPlayerIndex(CurrentPlayer.CurrentptayerType)<10)
         {
-
+            DamageResistanceP.UpdateImages(CurrentPlayer.CurrentptayerType);
             CurrentPlayer.damageResistanceInPercent += 5;
-        MutagenCount--;
+            MutagenCount--;
+            playerUIController.SetMutagenCount(MutagenCount);
         }
     }
     public void AddSpeed()
     {
-        if (MutagenCount > 0)
+        if (MutagenCount > 0 && SpeedP.GetPlayerIndex(CurrentPlayer.CurrentptayerType)<10)
         {
             CurrentPlayer.Speed += 10;
             MutagenCount--;
+            playerUIController.SetMutagenCount(MutagenCount);
+            SpeedP.UpdateImages(CurrentPlayer.CurrentptayerType);
         }
     }
     public void AddMaxShildCount()
     {
-        if (MutagenCount > 0)
+        if (MutagenCount > 0&& MaxShildCountP.GetPlayerIndex(CurrentPlayer.CurrentptayerType)<10)
         {
+
             CurrentPlayer.MaxshildCount++;
+            MaxShildCountP.UpdateImages(CurrentPlayer.CurrentptayerType);
             MutagenCount--;
+            playerUIController.SetShild(CurrentPlayer.MaxshildCount, CurrentPlayer.ShildCount);
+            playerUIController.SetMutagenCount(MutagenCount);
         }
     }
     public void AddMaxMedChestCount()
     {
-        if (MutagenCount > 0)
+        if (MutagenCount > 0&& MaxMedChestCountP.GetPlayerIndex(CurrentPlayer.CurrentptayerType)<10)
         {
             CurrentPlayer.GetComponent<DataBase>().MaxMedicineChestCount++;
             MutagenCount--;
+            playerUIController.SetMutagenCount(MutagenCount);
+            MaxMedChestCountP.UpdateImages(CurrentPlayer.CurrentptayerType);
         }
     }
-
+    
 
 
 

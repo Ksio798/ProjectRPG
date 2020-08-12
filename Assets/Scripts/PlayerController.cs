@@ -17,6 +17,7 @@ public class PlayerController : BaseCharecter
 {
    public float MaxshildCount = 5;
     float shildCount = 5;
+    public float ShildCount { get { return shildCount; } }
     public PlayerType CurrentptayerType = PlayerType.Egor;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;

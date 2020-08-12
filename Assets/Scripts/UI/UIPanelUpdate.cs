@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIPanelUpdate : MonoBehaviour
 {
-    int EgorIndex=5;
+    int EgorIndex=0;
     int AlexIndex = 0;
     int DimaIndex = 0;
     int MaximIndex = 0;
@@ -37,7 +37,7 @@ public class UIPanelUpdate : MonoBehaviour
 
 
 
-    int GetPlayerIndex(PlayerType playerType)
+   public int GetPlayerIndex(PlayerType playerType)
     {
         int p = 0;
         if (playerType == PlayerType.Alex)

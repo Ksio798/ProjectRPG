@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaseCharecter : MonoBehaviour
 {
     protected float health;
+    public float Health { get { return health; } }
    public float MaxHealth = 5;
     public float damageResistanceInPercent;
     public bool CanMove = true;
