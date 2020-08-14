@@ -8,7 +8,7 @@ public class AmmoBag : MonoBehaviour, IInteractable
 
     public KeyCode InteractableKey { get ; set ; }
 
-    public bool InteractingByKeyPressing { get; set; }
+    public bool InteractingByKeyPressing { get { return false; } }
 
     public void Interact(Transform other)
     {

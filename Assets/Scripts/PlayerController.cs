@@ -31,7 +31,7 @@ public class PlayerController : BaseCharecter
   
 
 
-    public DataBase Inventory;
+    public Inventory Inventory;
     public int MedicineChestCount
     {
         get { return medicineChestCount; }

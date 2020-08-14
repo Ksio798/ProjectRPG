@@ -8,6 +8,7 @@ using TMPro;
 //Скрипт служит общим инвентарем для всех персонажей и хранит в себе некоторые особые предметы
 public class CarInventory : MonoBehaviour, IInteractable
 {
+    public bool CanUse = true;
     PlayerController CurrentPlayer;
     KeyCode key = KeyCode.E;
     public GameObject CanvCar;
@@ -15,50 +16,48 @@ public class CarInventory : MonoBehaviour, IInteractable
     public static int MutagenCount = 50;
     public static int SanorinCount;
     public static int MedChestCount = 1;
-    public static int BulletsCount;
+    public static int BulletsCount = 5;
  // public Transform UpdateParametrsPanel;
     public UIPanelUpdate HealthP;
     public UIPanelUpdate DamageResistanceP;
     public UIPanelUpdate SpeedP;
     public UIPanelUpdate MaxShildCountP;
     public UIPanelUpdate MaxMedChestCountP;
-    int lastValue;
+    public UIPanelUpdate MaxBulletPanel;
+    int lastValueMed;
     public Slider MedSlider;
     public TextMeshProUGUI TextPlayerMedChest;
     public TextMeshProUGUI TextInInventiryMed;
+    int lastValueBullet;
+    public Slider BulletsSlider;
+    public TextMeshProUGUI TextPlayerBullets;
+    public TextMeshProUGUI TextInInventoryBullets;
+
+
     public KeyCode InteractableKey { get { return key; } set { key = value; } }
 
     public bool InteractingByKeyPressing { get { return true; } }
     public PlayerUIController playerUIController;
     public void Interact(Transform other)
     {
-        if (CanvCar.activeSelf == false)
-        {
-            CanvCar.SetActive(true);
-            CurrentPlayer = other.gameObject.GetComponent<PlayerController>();
-            CurrentPlayer.CanMove = false;
-            //for (int i = 0; i < UpdateParametrsPanel.childCount; i++)
-            //{
-            //    UpdateParametrsPanel.GetChild(i).GetComponent<UIPanelUpdate>().StartUpdateImages(CurrentPlayer.CurrentptayerType);
-            //}
-           HealthP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
-            DamageResistanceP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
-            SpeedP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
-            MaxShildCountP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
-            MaxMedChestCountP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
-            MedSlider.maxValue = CurrentPlayer.MedicineChestCount + MedChestCount;
-              lastValue = CurrentPlayer.MedicineChestCount;
-              MedSlider.value = CurrentPlayer.MedicineChestCount;
-          //  Debug.Log(MedSlider.maxValue+"    "+MedSlider.value+"    "+MedSlider.minValue+"   "+CurrentPlayer.MedicineChestCount);
-          //  MedSlider.value = 3;
-            TextPlayerMedChest.text = $"{CurrentPlayer.MedicineChestCount}";
-            TextInInventiryMed.text = $"{MedChestCount}";
-        }
-        else
-        {
-            CanvCar.SetActive(false);
-            CurrentPlayer.CanMove = true;
-            CurrentPlayer = null;
+        if(CanUse)
+            {
+            if (CanvCar.activeSelf == false)
+            {
+                CanvCar.SetActive(true);
+                CurrentPlayer = other.gameObject.GetComponent<PlayerController>();
+                CurrentPlayer.CanMove = false;
+
+                OnInteract();
+
+
+            }
+            else
+            {
+                CanvCar.SetActive(false);
+                CurrentPlayer.CanMove = true;
+                CurrentPlayer = null;
+            }
         }
     }
     public void AddMaxHealth()
@@ -108,49 +107,71 @@ public class CarInventory : MonoBehaviour, IInteractable
     {
         if (MutagenCount > 0&& MaxMedChestCountP.GetPlayerIndex(CurrentPlayer.CurrentptayerType)<10)
         {
-            CurrentPlayer.GetComponent<DataBase>().MaxMedicineChestCount++;
+            CurrentPlayer.GetComponent<Inventory>().MaxMedicineChestCount++;
             MutagenCount--;
             playerUIController.SetMutagenCount(MutagenCount);
             MaxMedChestCountP.UpdateImages(CurrentPlayer.CurrentptayerType);
         }
     }
+    public void AddMaxBulletCount()
+    {
+        if (MutagenCount > 0 && MaxBulletPanel.GetPlayerIndex(CurrentPlayer.CurrentptayerType) < 10)
+        {
+            CurrentPlayer.GetComponent<Inventory>().MaxAmmo+=5;
+            MutagenCount--;
+            playerUIController.SetMutagenCount(MutagenCount);
+            MaxBulletPanel.UpdateImages(CurrentPlayer.CurrentptayerType);
+        }
+    }
+
+
+
     public void OnValueCh(Slider slider)
     {
-        //if (slider.value>lastValue)
-        //{
-
-        //    Debug.Log("value <lastValue" + lastValue +"   "+ CurrentPlayer.MedicineChestCount +"  "+ CurrentPlayer.Inventory.MaxMedicineChestCount);
-
-        //    if (CurrentPlayer.MedicineChestCount == CurrentPlayer.Inventory.MaxMedicineChestCount)
-        //    {
-        //        slider.value = lastValue;
-        //    }
-        //    else
-        //    {
-        //        CurrentPlayer.MedicineChestCount += (int)slider.value - lastValue; 
-        //        MedChestCount -= (int)slider.value - lastValue; 
-        //    }
-        //}
-        //else if(slider.value<lastValue)
-        //{
-
-
-
-        //    CurrentPlayer.MedicineChestCount -=lastValue- (int)slider.value;
-        //    MedChestCount += lastValue - (int)slider.value;
-        //}
-        if (CurrentPlayer.MedicineChestCount == CurrentPlayer.Inventory.MaxMedicineChestCount&& slider.value > lastValue)
-            slider.value = lastValue;
+       
+        if (CurrentPlayer.MedicineChestCount == CurrentPlayer.Inventory.MaxMedicineChestCount&& slider.value > lastValueMed)
+            slider.value = lastValueMed;
        if(slider.value> CurrentPlayer.Inventory.MaxMedicineChestCount)
             slider.value = CurrentPlayer.Inventory.MaxMedicineChestCount;
-        CurrentPlayer.MedicineChestCount += (int)slider.value - lastValue;
-        MedChestCount += lastValue - (int)slider.value;
+        CurrentPlayer.MedicineChestCount += (int)slider.value - lastValueMed;
+        MedChestCount += lastValueMed - (int)slider.value;
         TextPlayerMedChest.text = $"{CurrentPlayer.MedicineChestCount}";
         TextInInventiryMed.text = $"{MedChestCount}";
-        lastValue = (int)slider.value;
+        lastValueMed = (int)slider.value;
         playerUIController.SetMedicineCount(CurrentPlayer.MedicineChestCount);
-        
-       
+    }
+      public void OnValueChBullets()
+    {
+        if (CurrentPlayer.Inventory.gc.Ammo == CurrentPlayer.Inventory.MaxAmmo && BulletsSlider.value > lastValueBullet)
+            BulletsSlider.value = lastValueBullet;
+        if (BulletsSlider.value > CurrentPlayer.Inventory.MaxAmmo)
+            BulletsSlider.value = CurrentPlayer.Inventory.MaxAmmo;
+        CurrentPlayer.Inventory.gc.Ammo += (int)BulletsSlider.value - lastValueBullet;
+        BulletsCount += lastValueBullet - (int)BulletsSlider.value;
+        TextPlayerBullets.text = $"{CurrentPlayer.Inventory.gc.Ammo}";
+        TextInInventoryBullets.text = $"{BulletsCount}";
+        lastValueBullet = (int)BulletsSlider.value;
+        playerUIController.SetBullet((int)CurrentPlayer.Inventory.gc.Ammo);
+    }  
+    void OnInteract()
+    {
+        HealthP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
+        DamageResistanceP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
+        SpeedP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
+        MaxShildCountP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
+        MaxMedChestCountP.StartUpdateImages(CurrentPlayer.CurrentptayerType);
+        MaxBulletPanel.StartUpdateImages(CurrentPlayer.CurrentptayerType);
+        MedSlider.maxValue = CurrentPlayer.MedicineChestCount + MedChestCount;
+        lastValueMed = CurrentPlayer.MedicineChestCount;
+        MedSlider.value = CurrentPlayer.MedicineChestCount;
+        TextPlayerMedChest.text = $"{CurrentPlayer.MedicineChestCount}";
+        TextInInventiryMed.text = $"{MedChestCount}";
+        BulletsSlider.maxValue = CurrentPlayer.Inventory.gc.Ammo + BulletsCount;
+        lastValueBullet = (int)CurrentPlayer.Inventory.gc.Ammo;
+        BulletsSlider.value = CurrentPlayer.Inventory.gc.Ammo;
+        TextPlayerBullets.text = $"{CurrentPlayer.Inventory.gc.Ammo}";
+        TextInInventoryBullets.text = $"{BulletsCount}";
+    }   
            
         
         
@@ -158,9 +179,7 @@ public class CarInventory : MonoBehaviour, IInteractable
 
 
 
-      //  Debug.Log(CurrentPlayer.MedicineChestCount+"     "+MedChestCount);
-     //   Debug.Log(MedSlider.maxValue + "    " + MedSlider.value + "    " + MedSlider.minValue + "   " + CurrentPlayer.MedicineChestCount);
-    }
+     
 
 
 
