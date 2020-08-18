@@ -48,7 +48,7 @@ public class PlayerController : BaseCharecter
                 int a = value;
                 int b =a- Inventory.MaxMedicineChestCount ;
            
-                Debug.Log(b);
+               // Debug.Log(b);
                 CarInventory.MedChestCount += b;
 
                // Debug.Log(medicineChestCount + "ErrorS");
