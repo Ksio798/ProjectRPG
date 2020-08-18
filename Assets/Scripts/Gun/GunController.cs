@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunController : AttackMethod
 {
     public float offset;
-    public float Ammo;
+    public float Ammo = 10;
     private Transform shotDir;
 
     public Transform crossHair;
@@ -13,11 +13,11 @@ public class GunController : AttackMethod
     WeaponData CurrentWeapon;
     public Transform holdPoint;
     // Start is called before the first frame update
-    void Start()
-    {
+    //void Start()
+    //{
 
-        Ammo = 5;
-    }
+    //    Ammo = 5;
+    //}
 
 
     public override void OnFire()

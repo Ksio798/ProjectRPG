@@ -498,8 +498,8 @@ GameObject:
   - component: {fileID: 302234516}
   - component: {fileID: 302234518}
   - component: {fileID: 302234514}
-  - component: {fileID: 302234517}
   - component: {fileID: 302234519}
+  - component: {fileID: 302234517}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -690,12 +690,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 302234509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46752c128e1a6ad4c83c6bf29ff806e1, type: 3}
+  m_Script: {fileID: 11500000, guid: ff3f3a562720d14498c0569ef9a92df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxMedicineChestCount: 3
   HealingPercentByMedicineChest: 50
   Money: 0
+  MaxAmmo: 30
   gc: {fileID: 270576559}
 --- !u!58 &302234518
 CircleCollider2D:

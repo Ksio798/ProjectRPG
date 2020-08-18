@@ -27,11 +27,11 @@ public class PlayerController : BaseCharecter
     Collider2D currentCollider;
     GameObject interactingObject;
     public PlayerUIController playerUIController;
-    int medicineChestCount = 1;
+    int medicineChestCount = 3;
   
 
 
-    public DataBase Inventory;
+    public Inventory Inventory;
     public int MedicineChestCount
     {
         get { return medicineChestCount; }
@@ -40,15 +40,18 @@ public class PlayerController : BaseCharecter
             if (value <= Inventory.MaxMedicineChestCount)
             {
                 medicineChestCount = value;
-                Debug.Log(medicineChestCount);
+              //  Debug.Log(medicineChestCount);
             }
             else
             {
-                int a = value;
-                int b = Inventory.MaxMedicineChestCount - medicineChestCount;
-                a -= b;
                 medicineChestCount = Inventory.MaxMedicineChestCount;
-                Debug.Log(medicineChestCount + "ErrorS");
+                int a = value;
+                int b =a- Inventory.MaxMedicineChestCount ;
+           
+                Debug.Log(b);
+                CarInventory.MedChestCount += b;
+
+               // Debug.Log(medicineChestCount + "ErrorS");
             }
 
 
