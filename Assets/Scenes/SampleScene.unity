@@ -522,8 +522,9 @@ MonoBehaviour:
   MaxHealth: 5
   damageResistanceInPercent: 0
   CanMove: 1
-  MaxshildCount: 5
   Speed: 100
+  MaxshildCount: 5
+  CurrentptayerType: 0
   crossHair: {fileID: 338934585}
   ObMask:
     serializedVersion: 2
@@ -827,6 +828,7 @@ MonoBehaviour:
   MaxHealth: 5
   damageResistanceInPercent: 0
   CanMove: 1
+  Speed: 0
 --- !u!61 &319189039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1231,7 +1233,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663213407}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1285,6 +1287,7 @@ MonoBehaviour:
   MaxHealth: 5
   damageResistanceInPercent: 0
   CanMove: 1
+  Speed: 0
 --- !u!212 &663213411
 SpriteRenderer:
   m_ObjectHideFlags: 0
