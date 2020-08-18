@@ -7,7 +7,7 @@ public class AttackManager : MonoBehaviour
 {
     public AttackMethod[] AttackMethods;
     public AttackMethod CurentAttack;
-
+    public BaseCharecter CurrentCharacter;
     int index = 0;
     void Start()
     {
@@ -36,7 +36,7 @@ public class AttackManager : MonoBehaviour
         {
             if(CurentAttack.AttackInput())
             {
-                CurentAttack.OnFire();
+                CurentAttack.OnFire(CurrentCharacter.stats.Damage);
             }
         }
     }

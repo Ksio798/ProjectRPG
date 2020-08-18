@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class AttackMethod : MonoBehaviour
 {
     protected float timeShot;
-    public abstract void OnFire();
+    public abstract void OnFire(float damage);
     public virtual bool AttackInput()
     {
         return Input.GetButtonDown("Fire1");

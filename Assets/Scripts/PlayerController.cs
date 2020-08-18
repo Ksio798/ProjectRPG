@@ -15,7 +15,7 @@ public enum PlayerType
 
 public class PlayerController : BaseCharecter
 {
-   public float MaxshildCount = 5;
+   
     float shildCount = 5;
     public float ShildCount { get { return shildCount; } }
     public PlayerType CurrentptayerType = PlayerType.Egor;
@@ -61,9 +61,9 @@ public class PlayerController : BaseCharecter
         base.Start();
         if (playerUIController != null)
         {
-            playerUIController.SetHp(MaxHealth, health);
+            playerUIController.SetHp(stats.MaxHealth, health);
 
-            playerUIController.SetShild(MaxshildCount, shildCount);
+            playerUIController.SetShild(stats.MaxShield, shildCount);
             playerUIController.SetMedicineCount(medicineChestCount);
         }
         rb = GetComponent<Rigidbody2D>();
@@ -130,7 +130,7 @@ public class PlayerController : BaseCharecter
         //    hInput = 0;
         //}
         Vector2 moveInput = new Vector2(hInput, vInput);
-        moveVelocity = moveInput.normalized * Speed;
+        moveVelocity = moveInput.normalized * stats.Speed;
     }
     void FixedUpdate()
     {
@@ -268,7 +268,7 @@ public class PlayerController : BaseCharecter
     {
         if (medicineChestCount!=0)
         {
-            float a = Mathematics.GetPercent(Inventory.HealingPercentByMedicineChest, MaxHealth);
+            float a = Mathematics.GetPercent(Inventory.HealingPercentByMedicineChest, stats.MaxHealth);
             medicineChestCount--;
             Healing(a);
             playerUIController.SetMedicineCount(medicineChestCount);
@@ -276,12 +276,12 @@ public class PlayerController : BaseCharecter
     }
     public void Healing(float hp)
     {
-        if (health + hp <= MaxHealth)
+        if (health + hp <= stats.MaxHealth)
         {
             health += hp;
         }
         else
-            health = MaxHealth;
+            health = stats.MaxHealth;
     }
     public override void Die()
     {
@@ -307,8 +307,8 @@ public class PlayerController : BaseCharecter
             base.TakeDamage(Dmg);
            
         }
-        playerUIController.SetHp(MaxHealth, health);
-        playerUIController.SetShild(MaxshildCount, shildCount);
+        playerUIController.SetHp(stats.MaxHealth, health);
+        playerUIController.SetShild(stats.MaxShield, shildCount);
     }
   
 }

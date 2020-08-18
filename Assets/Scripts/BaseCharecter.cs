@@ -6,29 +6,29 @@ public class BaseCharecter : MonoBehaviour
 {
     protected float health;
     public float Health { get { return health; } }
-   public float MaxHealth = 5;
-    public float damageResistanceInPercent;
+    public Stats stats;
+    
     public bool CanMove = true;
-    public float Speed;
+    
     public virtual void Start()
     {
-        health = MaxHealth;
+        health = stats.MaxHealth;
     }
 
 
     public virtual void addHealth(float amount)
     {
-        if (health + amount <= MaxHealth)
+        if (health + amount <= stats.MaxHealth)
         {
             health += amount;
         }
         else
-            health = MaxHealth;
+            health = stats.MaxHealth;
     }
     public virtual void TakeDamage(float Dmg)
     {
         float a = Dmg;
-        Dmg -= Mathematics.GetPercent(damageResistanceInPercent, a);
+        Dmg -= Mathematics.GetPercent(stats.damageResistanceInPercent, a);
         health -= Dmg;
         
         if (health<=0)

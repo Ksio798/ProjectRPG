@@ -9,7 +9,7 @@ public class SkillAttack : AttackMethod
     public Transform crossHair;
 
     public Animator SkillAnimation;
-    public override void OnFire()
+    public override void OnFire(float damage)
     {
 
 

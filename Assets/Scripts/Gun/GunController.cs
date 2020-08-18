@@ -20,7 +20,7 @@ public class GunController : AttackMethod
     //}
 
 
-    public override void OnFire()
+    public override void OnFire(float damage)
     {
         if (CurrentWeapon != null)
         {
@@ -32,7 +32,7 @@ public class GunController : AttackMethod
                     GameObject bullet = Instantiate(CurrentWeapon.ammo, shotDir.position, transform.rotation);
 
                     bullet.GetComponent<BulletScipt>().TargetTag = "Enemy";
-                    bullet.GetComponent<BulletScipt>().Damage = CurrentWeapon.Damage;
+                    bullet.GetComponent<BulletScipt>().Damage = CurrentWeapon.Damage+(int)damage;
                     if (transform.parent.localScale.x > 0)
                         bullet.GetComponent<Rigidbody2D>().AddForce(direction * CurrentWeapon.Force);// затем прикладываем к  компоненту Rigidbody2D выктор силы: вправо от объекта Shooter с силой shootForce
                     else

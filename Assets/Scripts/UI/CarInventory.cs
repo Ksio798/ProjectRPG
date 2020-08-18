@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-//Не трогать этот скрипт!!!!
+//Не трогать этот скрипт!!!!(ок)
 //Тут всё так и задуманно
 //Скрипт служит общим инвентарем для всех персонажей и хранит в себе некоторые особые предметы
 public class CarInventory : MonoBehaviour, IInteractable
@@ -32,6 +32,7 @@ public class CarInventory : MonoBehaviour, IInteractable
     public Slider BulletsSlider;
     public TextMeshProUGUI TextPlayerBullets;
     public TextMeshProUGUI TextInInventoryBullets;
+    
 
 
     public KeyCode InteractableKey { get { return key; } set { key = value; } }
@@ -64,10 +65,10 @@ public class CarInventory : MonoBehaviour, IInteractable
     {
         if (MutagenCount > 0 && HealthP.GetPlayerIndex(CurrentPlayer.CurrentptayerType)<10)
         {
-            CurrentPlayer.MaxHealth+=Mathematics.GetPercent(5,CurrentPlayer.MaxHealth);
+            CurrentPlayer.stats.MaxHealth+=Mathematics.GetPercent(5,CurrentPlayer.stats.MaxHealth);
             MutagenCount--;
             HealthP.UpdateImages(CurrentPlayer.CurrentptayerType);
-            playerUIController.SetHp(CurrentPlayer.MaxHealth, CurrentPlayer.Health);
+            playerUIController.SetHp(CurrentPlayer.stats.MaxHealth, CurrentPlayer.Health);
             playerUIController.SetMutagenCount(MutagenCount);
         }
     }
@@ -76,7 +77,7 @@ public class CarInventory : MonoBehaviour, IInteractable
         if (MutagenCount > 0 && DamageResistanceP.GetPlayerIndex(CurrentPlayer.CurrentptayerType)<10)
         {
             DamageResistanceP.UpdateImages(CurrentPlayer.CurrentptayerType);
-            CurrentPlayer.damageResistanceInPercent += 5;
+            CurrentPlayer.stats.damageResistanceInPercent += 5;
             MutagenCount--;
             playerUIController.SetMutagenCount(MutagenCount);
         }
@@ -85,7 +86,7 @@ public class CarInventory : MonoBehaviour, IInteractable
     {
         if (MutagenCount > 0 && SpeedP.GetPlayerIndex(CurrentPlayer.CurrentptayerType)<10)
         {
-            CurrentPlayer.Speed += 7;
+            CurrentPlayer.stats.Speed += 7;
             MutagenCount--;
             playerUIController.SetMutagenCount(MutagenCount);
             SpeedP.UpdateImages(CurrentPlayer.CurrentptayerType);
@@ -96,10 +97,10 @@ public class CarInventory : MonoBehaviour, IInteractable
         if (MutagenCount > 0&& MaxShildCountP.GetPlayerIndex(CurrentPlayer.CurrentptayerType)<10)
         {
 
-            CurrentPlayer.MaxshildCount++;
+            CurrentPlayer.stats.MaxShield++;
             MaxShildCountP.UpdateImages(CurrentPlayer.CurrentptayerType);
             MutagenCount--;
-            playerUIController.SetShild(CurrentPlayer.MaxshildCount, CurrentPlayer.ShildCount);
+            playerUIController.SetShild(CurrentPlayer.stats.MaxShield, CurrentPlayer.ShildCount);
             playerUIController.SetMutagenCount(MutagenCount);
         }
     }
