@@ -16,8 +16,7 @@ public enum PlayerType
 public class PlayerController : BaseCharecter
 {
    
-    float shildCount = 5;
-    public float ShildCount { get { return shildCount; } }
+   
     public PlayerType CurrentptayerType = PlayerType.Egor;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
@@ -27,35 +26,12 @@ public class PlayerController : BaseCharecter
     Collider2D currentCollider;
     GameObject interactingObject;
     public PlayerUIController playerUIController;
-    int medicineChestCount = 3;
+  
   
 
 
     public Inventory Inventory;
-    public int MedicineChestCount
-    {
-        get { return medicineChestCount; }
-        set
-        {
-            if (value <= Inventory.MaxMedicineChestCount)
-            {
-                medicineChestCount = value;
-              //  Debug.Log(medicineChestCount);
-            }
-            else
-            {
-                medicineChestCount = Inventory.MaxMedicineChestCount;
-                int a = value;
-                int b =a- Inventory.MaxMedicineChestCount ;
-           
-               // Debug.Log(b);
-                CarInventory.MedChestCount += b;
-
-               // Debug.Log(medicineChestCount + "ErrorS");
-            }
-
-
-        } }
+   
     public override void Start()
     {
         base.Start();
@@ -63,8 +39,8 @@ public class PlayerController : BaseCharecter
         {
             playerUIController.SetHp(stats.MaxHealth, health);
 
-            playerUIController.SetShild(stats.MaxShield, shildCount);
-            playerUIController.SetMedicineCount(medicineChestCount);
+          
+            playerUIController.SetMedicineCount(Inventory.MedicineChestCount);
         }
         rb = GetComponent<Rigidbody2D>();
     }
@@ -85,50 +61,7 @@ public class PlayerController : BaseCharecter
     {
         float hInput = Input.GetAxis("Horizontal");
         float vInput = Input.GetAxis("Vertical");
-        //RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector3.left, hitDistanse, ObMask);
-        //RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector3.right, hitDistanse, ObMask);
-        //RaycastHit2D hitTop = Physics2D.Raycast(transform.position, Vector3.up, hitDistanse, ObMask);
-        //RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector3.down, hitDistanse, ObMask);
-        //RaycastHit2D hitRightDown = Physics2D.Raycast(transform.position, Vector3.down + Vector3.right, hitDistanse, ObMask);
-        //RaycastHit2D hitRightUp = Physics2D.Raycast(transform.position, Vector3.up + Vector3.right, hitDistanse, ObMask);
-        //RaycastHit2D hitLefttUp = Physics2D.Raycast(transform.position, Vector3.up + Vector3.left, hitDistanse, ObMask);
-        //RaycastHit2D hitLefttDown = Physics2D.Raycast(transform.position, Vector3.down + Vector3.left, hitDistanse, ObMask);
-        //if (hitLeft && hInput < 0)
-        //{
-        //    hInput = 0;
-        //}
-        //if (hitRight && hInput > 0)
-        //{
-        //    hInput = 0;
-        //}
-        //if (hitTop && vInput > 0)
-        //{
-        //    vInput = 0;
-        //}
-        //if (hitDown && vInput < 0)
-        //{
-        //    vInput = 0;
-        //}
-        //if (hitRightDown && vInput < 0 && hInput > 0)
-        //{
-        //    vInput = 0;
-        //    hInput = 0;
-        //}
-        //if (hitRightUp && vInput > 0 && hInput > 0)
-        //{
-        //    vInput = 0;
-        //    hInput = 0;
-        //}
-        //if (hitLefttUp && vInput > 0 && hInput < 0)
-        //{
-        //    vInput = 0;
-        //    hInput = 0;
-        //}
-        //if (hitLefttDown && vInput < 0 && hInput < 0)
-        //{
-        //    vInput = 0;
-        //    hInput = 0;
-        //}
+        
         Vector2 moveInput = new Vector2(hInput, vInput);
         moveVelocity = moveInput.normalized * stats.Speed;
     }
@@ -167,19 +100,7 @@ public class PlayerController : BaseCharecter
         crossHair.transform.position = Vector2.Lerp(crossHair.transform.position, aim,10); 
         }
 
-        //if (aim.magnitude> 0.0f)
-        //{
-        //   aim.Normalize();
-        //    aim *= 0.5f;
-        //    crossHair.transform.localPosition = aim;
-        //    crossHair.SetActive(true);
-
-
-        //}
-        //else
-        //    {
-        //        crossHair.SetActive(false);
-        //    }
+      
         
     }
      void OnTriggerEnter2D(Collider2D collision)
@@ -243,8 +164,8 @@ public class PlayerController : BaseCharecter
     {
         if (interactable is IMedicineChest)
         {
-            MedicineChestCount += (interactable as IMedicineChest).Count;
-            playerUIController.SetMedicineCount(medicineChestCount);
+            Inventory.MedicineChestCount += (interactable as IMedicineChest).Count;
+            playerUIController.SetMedicineCount(Inventory.MedicineChestCount);
         }
         interactable.Interact(transform);
     }
@@ -266,12 +187,12 @@ public class PlayerController : BaseCharecter
     }
     void HealingByMedicineChest()
     {
-        if (medicineChestCount!=0)
+        if (Inventory.MedicineChestCount != 0&&health<stats.MaxHealth)
         {
             float a = Mathematics.GetPercent(Inventory.HealingPercentByMedicineChest, stats.MaxHealth);
-            medicineChestCount--;
+            Inventory.MedicineChestCount--;
             Healing(a);
-            playerUIController.SetMedicineCount(medicineChestCount);
+            playerUIController.SetMedicineCount(Inventory.MedicineChestCount);
         }
     }
     public void Healing(float hp)
@@ -282,6 +203,7 @@ public class PlayerController : BaseCharecter
         }
         else
             health = stats.MaxHealth;
+        playerUIController.SetHp(stats.MaxHealth,health);
     }
     public override void Die()
     {
@@ -291,24 +213,24 @@ public class PlayerController : BaseCharecter
     }
     public override void TakeDamage(float Dmg)
     {
-        if(shildCount == 0)
+        if(Inventory.ShildCount == 0)
         {
         base.TakeDamage(Dmg);
            
         }
-        else if(shildCount>=Dmg)
+        else if(Inventory.ShildCount >=Dmg)
         {
-            shildCount -= Dmg;
+            Inventory.ShildCount -= Dmg;
           
         }
         else
         {
-            Dmg -= shildCount;
+            Dmg -= Inventory.ShildCount;
             base.TakeDamage(Dmg);
            
         }
         playerUIController.SetHp(stats.MaxHealth, health);
-        playerUIController.SetShild(stats.MaxShield, shildCount);
+       
     }
   
 }

@@ -4,28 +4,44 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public  int MaxMedicineChestCount = 3;
-    public  int HealingPercentByMedicineChest = 50;
+    public  int MaxMedicineChestCount = 1;
+    public  int HealingPercentByMedicineChest = 30;
     public  int Money;
     public int MaxAmmo = 30;
+   public float ShildCount = 0;
+    [SerializeField]
+    int medicineChestCount = 1;
+    public int MedicineChestCount
+    {
+        get { return medicineChestCount; }
+        set
+        {
+            if (value <= MaxMedicineChestCount)
+            {
+                medicineChestCount = value;
+               
+            }
+            else
+            {
+                medicineChestCount = MaxMedicineChestCount;
+                int a = value;
+                int b = a - MaxMedicineChestCount;
+
+               
+                CarInventory.MedChestCount += b;
+
+              
+            }
+
+
+        }
+    }
     public GunController gc;
-   // public static DataBase Instance;
-    //void Awake()
-    //{
-    //    //if (Instance == null)
-    //    //{
-    //    //    Instance = this;
-    //    //    DontDestroyOnLoad(gameObject);
-    //    //}
-    //    //else
-    //    //{
-    //    //    Destroy(gameObject);
-    //    //}
-    //}
+  
     public void AddMoney(int count)
     {
-        Money += count;
-        FindObjectOfType<PlayerUIController>().SetMoney(Money);
+        CarInventory.MoneyCount += count;
+        GetComponent<PlayerController>().playerUIController.SetMoney(CarInventory.MoneyCount);
     }
     public void AddAmmo(int count)
     {
@@ -43,6 +59,6 @@ public class Inventory : MonoBehaviour
 
         }
         }
-
+        GetComponent<PlayerController>().playerUIController.SetBullet(gc.Ammo);
     }
 }

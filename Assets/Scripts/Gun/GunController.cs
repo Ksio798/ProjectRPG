@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunController : AttackMethod
 {
     public float offset;
-    public float Ammo = 10;
+    public int Ammo = 10;
     private Transform shotDir;
 
     public Transform crossHair;

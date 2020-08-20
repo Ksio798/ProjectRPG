@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     protected Transform followTarget;
     NavMeshAgent agent;
     public float PlayerAttackDistance;
+    public float Damage = 1;
     //  В МЕТОДЕ СТАРТ ПОСТАВИМ ВРАГА В НАЧАЛЬНУЮ ТОЧКУ МАРШРУТА
     virtual protected void Start()
     {

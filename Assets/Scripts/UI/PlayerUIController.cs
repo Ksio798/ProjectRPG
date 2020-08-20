@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerUIController : MonoBehaviour
 {
     public TextMeshProUGUI HPText;
-    public TextMeshProUGUI ShildText;
+  
     public TextMeshProUGUI BulletsText;
     public TextMeshProUGUI MoneyText;
     public TextMeshProUGUI MutagenText;
@@ -15,18 +15,14 @@ public class PlayerUIController : MonoBehaviour
     public TextMeshProUGUI MedText;
     public Image WeaponImagine;
     public Image HPImagine;
-    public Image ShildImagine;
+  
     public Image SteelArmsImage;
     public void SetHp(float MaxHp, float curentHP)
     {
         HPImagine.fillAmount = curentHP / MaxHp;
-        HPText.text = $"{Mathematics.GetValueInPercent(MaxHp, curentHP)}%";
+        HPText.text = $"{(int)Mathematics.GetValueInPercent(MaxHp, curentHP)}%";
     }
-    public void SetShild(float maxShild, float curentShild)
-    {
-        ShildImagine.fillAmount = curentShild / maxShild;
-        ShildText.text = $"{Mathematics.GetValueInPercent(maxShild, curentShild)}%";
-    }
+   
     public void SetBullet(int bullets)
     {
         BulletsText.text = $"{bullets}";
