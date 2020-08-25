@@ -25,7 +25,7 @@ public class WeaponData : MonoBehaviour, IInteractable
     public void Interact(Transform other)
     {
 
-        GunController gc = other.GetComponentInChildren<GunController>();
+        RangeAttack gc = other.GetComponentInChildren<RangeAttack>();
 
        //transform.position = holdPoint.position;
 

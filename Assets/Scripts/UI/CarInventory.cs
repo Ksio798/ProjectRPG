@@ -141,16 +141,16 @@ public class CarInventory : MonoBehaviour, IInteractable
     }
       public void OnValueChBullets()
     {
-        if (CurrentPlayer.Inventory.gc.Ammo == CurrentPlayer.Inventory.MaxAmmo && BulletsSlider.value > lastValueBullet)
+        if (CurrentPlayer.Inventory.Ammo == CurrentPlayer.Inventory.MaxAmmo && BulletsSlider.value > lastValueBullet)
             BulletsSlider.value = lastValueBullet;
         if (BulletsSlider.value > CurrentPlayer.Inventory.MaxAmmo)
             BulletsSlider.value = CurrentPlayer.Inventory.MaxAmmo;
-        CurrentPlayer.Inventory.gc.Ammo += (int)BulletsSlider.value - lastValueBullet;
+        CurrentPlayer.Inventory.Ammo += (int)BulletsSlider.value - lastValueBullet;
         BulletsCount += lastValueBullet - (int)BulletsSlider.value;
-        TextPlayerBullets.text = $"{CurrentPlayer.Inventory.gc.Ammo}";
+        TextPlayerBullets.text = $"{CurrentPlayer.Inventory.Ammo}";
         TextInInventoryBullets.text = $"{BulletsCount}";
         lastValueBullet = (int)BulletsSlider.value;
-        playerUIController.SetBullet((int)CurrentPlayer.Inventory.gc.Ammo);
+        playerUIController.SetBullet((int)CurrentPlayer.Inventory.Ammo);
     }  
     void OnInteract()
     {
@@ -165,10 +165,10 @@ public class CarInventory : MonoBehaviour, IInteractable
         MedSlider.value = CurrentPlayer.Inventory.MedicineChestCount;
         TextPlayerMedChest.text = $"{CurrentPlayer.Inventory.MedicineChestCount}";
         TextInInventiryMed.text = $"{MedChestCount}";
-        BulletsSlider.maxValue = CurrentPlayer.Inventory.gc.Ammo + BulletsCount;
-        lastValueBullet = (int)CurrentPlayer.Inventory.gc.Ammo;
-        BulletsSlider.value = CurrentPlayer.Inventory.gc.Ammo;
-        TextPlayerBullets.text = $"{CurrentPlayer.Inventory.gc.Ammo}";
+        BulletsSlider.maxValue = CurrentPlayer.Inventory.Ammo + BulletsCount;
+        lastValueBullet = (int)CurrentPlayer.Inventory.Ammo;
+        BulletsSlider.value = CurrentPlayer.Inventory.Ammo;
+        TextPlayerBullets.text = $"{CurrentPlayer.Inventory.Ammo}";
         TextInInventoryBullets.text = $"{BulletsCount}";
     }   
            

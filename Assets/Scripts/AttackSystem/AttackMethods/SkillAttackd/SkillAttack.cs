@@ -21,3 +21,4 @@ public class SkillAttack : AttackMethod
         timeShot = 2;
     }
 }
+

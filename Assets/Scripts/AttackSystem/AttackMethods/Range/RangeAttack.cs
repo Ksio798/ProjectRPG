@@ -2,22 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunController : AttackMethod
+public class RangeAttack : AttackMethod
 {
-    public float offset;
-    public int Ammo = 10;
+    public float offset;  
     private Transform shotDir;
-
     public Transform crossHair;
-
     WeaponData CurrentWeapon;
     public Transform holdPoint;
-    // Start is called before the first frame update
-    //void Start()
-    //{
 
-    //    Ammo = 5;
-    //}
 
 
     public override void OnFire(float damage)
@@ -26,7 +18,7 @@ public class GunController : AttackMethod
         {
             if (timeShot <= 0)
             {
-                if (Ammo > 0)
+                if (GetComponentInParent<Inventory>().Ammo > 0)
                 {
                     Vector3 direction = crossHair.position - shotDir.position;
                     GameObject bullet = Instantiate(CurrentWeapon.ammo, shotDir.position, transform.rotation);
@@ -41,7 +33,7 @@ public class GunController : AttackMethod
                     Destroy(bullet.gameObject, CurrentWeapon.BulletDestroyTime); // уничтожаем копию пули с задержкой
                     timeShot = CurrentWeapon.CoolDown;
 
-                    Ammo--;
+                    GetComponentInParent<Inventory>().Ammo--;
 
                 }
 

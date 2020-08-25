@@ -8,9 +8,16 @@ public class Inventory : MonoBehaviour
     public  int HealingPercentByMedicineChest = 30;
     public  int Money;
     public int MaxAmmo = 30;
+
+    int currentAmmo;
    public float ShildCount = 0;
     [SerializeField]
     int medicineChestCount = 1;
+
+
+
+
+    public int Ammo {  get { return currentAmmo; } set { currentAmmo = value; } }
     public int MedicineChestCount
     {
         get { return medicineChestCount; }
@@ -36,7 +43,7 @@ public class Inventory : MonoBehaviour
 
         }
     }
-    public GunController gc;
+  //  public RangeAttack gc;
   
     public void AddMoney(int count)
     {
@@ -45,20 +52,22 @@ public class Inventory : MonoBehaviour
     }
     public void AddAmmo(int count)
     {
-        if (gc!=null)
-        {
+       // if (gc!=null)
+     //   {
 
-        if (gc.Ammo+count<=MaxAmmo)
+        if (currentAmmo+count<=MaxAmmo)
         {
-        gc.Ammo +=count;
+            currentAmmo += count;
         }
         else
         {
-            gc.Ammo = MaxAmmo;
+            currentAmmo = MaxAmmo;
             CarInventory.BulletsCount += count - MaxAmmo;
 
         }
-        }
-        GetComponent<PlayerController>().playerUIController.SetBullet(gc.Ammo);
+      //  }
+
+        if (GetComponent<PlayerController>().playerUIController != null)
+        GetComponent<PlayerController>().playerUIController.SetBullet(currentAmmo);
     }
 }

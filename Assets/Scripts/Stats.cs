@@ -8,6 +8,9 @@ public class Stats : MonoBehaviour
     public float Damage;
     public float MaxHealth;
     public float damageResistanceInPercent;
+    public float manna;
+    public float MaxManna;
+    public float MannaEarnPerSecond;
 
 
   
