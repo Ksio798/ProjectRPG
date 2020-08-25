@@ -5,15 +5,13 @@ using UnityEngine;
 public class ShootingEnemy : EnemyController
 {
     Animator animator;
-    public float TimeToAttack;
-    float timer;
-    public EnemyBulletScript bulletPrefab;
-    public Transform ShootPos;
    
-    public float shootForce = 500f;
   
-    public float BulletDestroyTime = 2f;
+   
+   
+    
     public string PlayerTeg = "Player";
+    public EnemyShooter shooter;
     override protected void Start()
     {
         base.Start();
@@ -21,8 +19,9 @@ public class ShootingEnemy : EnemyController
         if (animator != null)
             animator.SetInteger("Movement", 1);
     }
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         if (followTarget != null)
         {
             FollowTarget();
@@ -31,24 +30,14 @@ public class ShootingEnemy : EnemyController
         }
         else
             MoveByRoute();
-        if (timer < TimeToAttack)
-        {
-            timer += Time.deltaTime;
-        }
+       
     }
     void Attack()
     {
         //Доделать анимацию!!!
         if (timer >= TimeToAttack)
         {
-            EnemyBulletScript bullet = Instantiate(bulletPrefab); // создается копия пули на сцене. 
-            bullet.transform.position = ShootPos.position; // пулю ставят в позицию Shooter
-            bullet.Damage = Damage;
-            bullet.TargetTag = PlayerTeg;
-
-
-            bullet.GetComponent<Rigidbody2D>().AddForce((followTarget.position-transform.position )* shootForce); 
-            Destroy(bullet.gameObject, BulletDestroyTime);
+            shooter.Shoot(stats.Damage, PlayerTeg, followTarget.position-transform.position);
             
 
             timer = 0;

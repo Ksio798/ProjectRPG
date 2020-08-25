@@ -32,7 +32,7 @@ public class PlayerController : BaseCharecter
 
     public Inventory Inventory;
    
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
         if (playerUIController != null)

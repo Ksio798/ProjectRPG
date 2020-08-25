@@ -14,8 +14,7 @@ public class EnemyBulletScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        Debug.Log(collision.gameObject.tag);
-        Debug.Log(TargetTag);
+      
 
         if (collision.gameObject.tag == TargetTag) // если тег столкновения равен тегу цели, то нанести урон персонажу и уничтожить пулю
         {
@@ -31,11 +30,16 @@ public class EnemyBulletScript : MonoBehaviour
             }
             if (Player != null)
                 Player.TakeDamage(Damage);
-            Destroy(gameObject);
+            // Destroy(gameObject);
+            StartCoroutine(WaitToDestroy());
         }
             
 
         
     }
-
+    IEnumerator WaitToDestroy()
+    {
+        yield return new WaitForSeconds(0.01f);
+        Destroy(gameObject);
+    }
 }

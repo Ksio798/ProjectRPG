@@ -2,21 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class EnemyController : MonoBehaviour
+public class EnemyController : BaseCharecter
 {
-    public float MovementSpeed = 2;
+  //  public float MovementSpeed = 2;
     float movementDelta = 0.5f;
      List<Transform> WalkingPoints = new List<Transform>();
     int currentWalkingPoint = 0;
     public Transform PointParent;
     public float FollowStopDistance = 2;
     protected Transform followTarget;
-    NavMeshAgent agent;
+    [HideInInspector]
+   public NavMeshAgent agent;
     public float PlayerAttackDistance;
-    public float Damage = 1;
+   // public float Damage = 1;
+    public float TimeToAttack;
+  protected float timer;
     //  В МЕТОДЕ СТАРТ ПОСТАВИМ ВРАГА В НАЧАЛЬНУЮ ТОЧКУ МАРШРУТА
-    virtual protected void Start()
+    override protected void Start()
     {
+        base.Start();
         for (int i = 0; i < PointParent.childCount; i++)
         {
             WalkingPoints.Add(PointParent.GetChild(i));
@@ -27,11 +31,18 @@ public class EnemyController : MonoBehaviour
 
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-
+        agent.speed = stats.Speed;
         transform.position = WalkingPoints[currentWalkingPoint].position;
         currentWalkingPoint++;
-    }
 
+    }
+    virtual protected void Update()
+    {
+        if (timer < TimeToAttack)
+        {
+            timer += Time.deltaTime;
+        }
+    }
 
     // Защищенный метод движения по маршруту
     protected virtual void MoveByRoute()
@@ -51,20 +62,20 @@ public class EnemyController : MonoBehaviour
 
 
     }
-    protected void FollowTarget()
+    protected virtual void FollowTarget()
     {
 
         if (Vector2.Distance(transform.position, followTarget.position) > PlayerAttackDistance)
             agent.SetDestination(followTarget.position);
         else
             agent.SetDestination(transform.position);
-           // agent.isStopped = true;
+          
 
         if (Vector3.Distance(transform.position, followTarget.position) > FollowStopDistance)
         {
 
             followTarget = null;
-
+            Debug.Log("followTarget = null");
         }
 
 
@@ -77,7 +88,7 @@ public class EnemyController : MonoBehaviour
         if (other.tag == "Player")
         {
             followTarget = other.transform;
-            Debug.Log("followTarget");
+            Debug.Log("followTarget ");
         }
         
     }

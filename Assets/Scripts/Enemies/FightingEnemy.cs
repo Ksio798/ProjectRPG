@@ -5,8 +5,7 @@ using UnityEngine;
 public class FightingEnemy : EnemyController
 {
     Animator animator;
-    public float TimeToAttack;
-    float timer;
+   
     override protected void Start()
     {
         base.Start();
@@ -14,8 +13,9 @@ public class FightingEnemy : EnemyController
         if(animator != null)
         animator.SetInteger("Movement", 1);
     }
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         if (followTarget != null)
         {
             FollowTarget();
@@ -24,17 +24,14 @@ public class FightingEnemy : EnemyController
         }
         else
             MoveByRoute();
-        if (timer<TimeToAttack)
-        {
-            timer += Time.deltaTime;
-        }
+       
     }
     void Attack()
     {
         //Доделать анимацию!!!
         if (timer>=TimeToAttack)
         {
-            followTarget.GetComponent<PlayerController>().TakeDamage(Damage);
+            followTarget.GetComponent<PlayerController>().TakeDamage(stats.Damage);
             timer = 0;
         }
     }

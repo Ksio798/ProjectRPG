@@ -10,7 +10,7 @@ public class BaseCharecter : MonoBehaviour
     
     public bool CanMove = true;
     
-    public virtual void Start()
+    protected virtual void Start()
     {
         health = stats.MaxHealth;
     }
@@ -18,16 +18,21 @@ public class BaseCharecter : MonoBehaviour
 
     public virtual void addHealth(float amount)
     {
+        if (stats!=null)
+        {
+
         if (health + amount <= stats.MaxHealth)
         {
             health += amount;
         }
         else
             health = stats.MaxHealth;
+        }
     }
     public virtual void TakeDamage(float Dmg)
     {
         float a = Dmg;
+        if(stats!=null)
         Dmg -= Mathematics.GetPercent(stats.damageResistanceInPercent, a);
         health -= Dmg;
         
