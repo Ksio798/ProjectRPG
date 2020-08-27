@@ -19,4 +19,5 @@ public class MoneyPickup : MonoBehaviour
     {
         crystallConter.text = "X" + crystallCount;
     }
+
 }

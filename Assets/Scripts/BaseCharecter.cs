@@ -15,7 +15,10 @@ public class BaseCharecter : MonoBehaviour
         health = stats.MaxHealth;
     }
 
+    protected virtual void MannaRefil()
+    {
 
+    }
     public virtual void addHealth(float amount)
     {
         if (stats!=null)
@@ -46,5 +49,6 @@ public class BaseCharecter : MonoBehaviour
     {
         Destroy(gameObject);
     }
-   
+ 
+ 
 }

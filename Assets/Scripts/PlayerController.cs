@@ -232,6 +232,7 @@ public class PlayerController : BaseCharecter
         playerUIController.SetHp(stats.MaxHealth, health);
        
     }
+
   
 }
            
