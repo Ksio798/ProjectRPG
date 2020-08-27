@@ -32,7 +32,7 @@ public class ShootingEnemy : EnemyController
             MoveByRoute();
        
     }
-    void Attack()
+   protected virtual void Attack()
     {
         //Доделать анимацию!!!
         if (timer >= TimeToAttack)
