@@ -13,6 +13,7 @@ public class BaseCharecter : MonoBehaviour
     protected virtual void Start()
     {
         health = stats.MaxHealth;
+        StartCoroutine(WaitToMannaRegen());
     }
 
 
@@ -46,5 +47,19 @@ public class BaseCharecter : MonoBehaviour
     {
         Destroy(gameObject);
     }
-   
+    IEnumerator WaitToMannaRegen()
+    {
+        while (true)
+        {
+
+            yield return new WaitForSeconds(1);
+            if (stats.manna < stats.MaxManna)
+            {
+                stats.manna += stats.MannaEarnPerSecond;
+                if (stats.manna > stats.MaxManna)
+                    stats.manna = stats.MaxManna;
+           // Debug.Log(stats.manna);
+            }
+        }
+    }
 }
