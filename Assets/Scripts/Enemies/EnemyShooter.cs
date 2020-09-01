@@ -28,8 +28,9 @@ public class EnemyShooter : MonoBehaviour
         bomb.PlayerPos = PlayerPos;
        // Vector2 dir = target.position - transform.position;
         float time = 70 * Time.fixedDeltaTime;
-        Vector2 start = new Vector2(vector.x, vector.y) / time + 0.5f * Physics2D.gravity * time;
-        start.y *= -1;
+        Vector2 start = new Vector2(vector.x, vector.y) / time - 0.5f * Physics2D.gravity * time;
+      //  start.y *= -1;
         bomb.GetComponent<Rigidbody2D>().velocity = start;
+        bomb.GetComponent<Rigidbody2D>().AddTorque(500);
     }
 }

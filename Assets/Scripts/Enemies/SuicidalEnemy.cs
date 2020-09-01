@@ -5,20 +5,20 @@ using UnityEngine.AI;
 
 public class SuicidalEnemy : EnemyController
 {
-    protected override void Update()
-    {
-        base.Update();
-        if (followTarget != null)
-        {
-            FollowTarget();
-            if (followTarget != null && Vector2.Distance(transform.position, followTarget.position) <= PlayerAttackDistance)
-                Attack();
-        }
-        else
-            MoveByRoute();
+    //protected override void Update()
+    //{
+    //    base.Update();
+    //    if (followTarget != null)
+    //    {
+    //        FollowTarget();
+    //        if (followTarget != null && Vector2.Distance(transform.position, followTarget.position) <= PlayerAttackDistance)
+    //            Attack();
+    //    }
+    //    else
+    //        MoveByRoute();
 
-    }
-    void Attack()
+    //}
+   protected override void Attack()
     {
         followTarget.GetComponent<PlayerController>().TakeDamage(stats.Damage);
         Die();

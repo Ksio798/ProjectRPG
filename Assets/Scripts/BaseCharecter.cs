@@ -13,12 +13,10 @@ public class BaseCharecter : MonoBehaviour
     protected virtual void Start()
     {
         health = stats.MaxHealth;
+        StartCoroutine(WaitToMannaRegen());
     }
 
-    protected virtual void MannaRefil()
-    {
-
-    }
+   
     public virtual void addHealth(float amount)
     {
         if (stats!=null)
@@ -49,6 +47,19 @@ public class BaseCharecter : MonoBehaviour
     {
         Destroy(gameObject);
     }
- 
+ IEnumerator WaitToMannaRegen()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            if (stats.manna<stats.MaxHealth)
+            {
+                stats.manna += stats.MannaEarnPerSecond;
+                if (stats.manna > stats.MaxHealth)
+                    stats.manna = stats.MaxHealth;
+            }
+            Debug.Log(stats.manna);
+        }
+    }
  
 }

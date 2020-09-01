@@ -19,20 +19,20 @@ public class ShootingEnemy : EnemyController
         if (animator != null)
             animator.SetInteger("Movement", 1);
     }
-    protected override void Update()
-    {
-        base.Update();
-        if (followTarget != null)
-        {
-            FollowTarget();
-            if (followTarget != null && Vector2.Distance(transform.position, followTarget.position) <= PlayerAttackDistance)
-                Attack();
-        }
-        else
-            MoveByRoute();
+    //protected override void Update()
+    //{
+    //    base.Update();
+    //    if (followTarget != null)
+    //    {
+    //        FollowTarget();
+    //        if (followTarget != null && Vector2.Distance(transform.position, followTarget.position) <= PlayerAttackDistance)
+    //            Attack();
+    //    }
+    //    else
+    //        MoveByRoute();
        
-    }
-   protected virtual void Attack()
+    //}
+   protected override void Attack()
     {
         //Доделать анимацию!!!
         if (timer >= TimeToAttack)

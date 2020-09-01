@@ -8,16 +8,24 @@ public class EnemyBomb : EnemyBulletScript
     public Vector2 PlayerPos;
     // public Collider2D collider;
     List<PlayerController> players = new List<PlayerController>();
-    void Update()
+     Animator animator;
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+    void FixedUpdate()
     {
 
 
         float dit = Vector2.Distance(transform.position, PlayerPos);
-        if (dit<0.5f)
+        Debug.Log("transform.position = PlayerPos.position"+dit);
+
+        if (dit<0.5f && GetComponent<Rigidbody2D>().bodyType != RigidbodyType2D.Static)
         {
-            Debug.Log("transform.position = PlayerPos.position");
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+               animator.SetTrigger("Wait");
+            transform.rotation = Quaternion.Euler(0,0,0);
             StartCoroutine(WaitToExplosion());
         }
     }
@@ -33,7 +41,7 @@ public class EnemyBomb : EnemyBulletScript
         Collider2D[] ob = Physics2D.OverlapCircleAll(transform.position, 1);
         for (int i = 0; i < ob.Length; i++)
         {
-            if (ob[i].tag ==TargetTag)
+            if (ob[i].tag ==TargetTag&& !players.Contains(ob[i].GetComponent<PlayerController>()))
             {
                 players.Add(ob[i].GetComponent<PlayerController>());
             }
@@ -46,7 +54,11 @@ public class EnemyBomb : EnemyBulletScript
         {
             players[i].GetComponent<PlayerController>().TakeDamage(Damage);
         }
+      animator.SetTrigger("Explosion");
+       // Destroy(gameObject);
+    }
+    public void Destroy()
+    {
         Destroy(gameObject);
     }
-    
 }

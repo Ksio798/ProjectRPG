@@ -38,6 +38,14 @@ public class EnemyController : BaseCharecter
     }
     virtual protected void Update()
     {
+        if (followTarget != null)
+        {
+            FollowTarget();
+            if (followTarget != null && Vector2.Distance(transform.position, followTarget.position) <= PlayerAttackDistance)
+                Attack();
+        }
+        else
+            MoveByRoute();
         if (timer < TimeToAttack)
         {
             timer += Time.deltaTime;
@@ -92,7 +100,10 @@ public class EnemyController : BaseCharecter
         }
         
     }
+    protected virtual void Attack()
+    {
 
+    }
 }
 
 
