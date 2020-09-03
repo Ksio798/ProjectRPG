@@ -16,6 +16,8 @@ public class HealingEnemy : EnemyController
     }
     protected override void Update()
     {
+
+       // healtLevelBehave();
         base.Update();
         if (Input.GetKeyDown(KeyCode.X))
         {
@@ -38,7 +40,7 @@ public class HealingEnemy : EnemyController
             yield return new WaitForSeconds(1);
             if(canHealing)
             addHealth(HealinInSecond);
-            Debug.Log(health);
+            UpdateHp();
         }
     }
     IEnumerator WaitTocanHeal()
@@ -46,28 +48,28 @@ public class HealingEnemy : EnemyController
         yield return new WaitForSeconds(7);
         canHealing = true;
     }
-    protected override void FollowTarget()
+
+   
+    protected override void Move()
     {
-        if (health>Mathematics.GetPercent(50,stats.MaxHealth))
+        if (health > Mathematics.GetPercent(50, stats.MaxHealth))
         {
             agent.speed = stats.Speed;
-            base.FollowTarget();
+            base.Move();
         }
         else
         {
+
             agent.speed = stats.Speed * 2;
             agent.SetDestination(HomePoint.position);
-        if (Vector3.Distance(transform.position, followTarget.position) > FollowStopDistance)
-            {
-                agent.speed = stats.Speed;
-                followTarget = null;
-            }
+           
         }
-        
 
-          
-        
     }
+          
+
+
+
     protected override void Attack()
     {
         if (timer >= TimeToAttack)

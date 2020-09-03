@@ -38,9 +38,12 @@ public class PlayerController : BaseCharecter
         if (playerUIController != null)
         {
             playerUIController.SetHp(stats.MaxHealth, health);
-
-          
             playerUIController.SetMedicineCount(Inventory.MedicineChestCount);
+            playerUIController.SetBullet(Inventory.Ammo);
+            playerUIController.SetMoney(CarInventory.MoneyCount);
+            playerUIController.SetMutagenCount(CarInventory.MutagenCount);
+            playerUIController.SetSanorinCount(CarInventory.SanorinCount);
+          
         }
         rb = GetComponent<Rigidbody2D>();
     }

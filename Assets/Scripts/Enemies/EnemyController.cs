@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
+
 public class EnemyController : BaseCharecter
 {
-  //  public float MovementSpeed = 2;
+ 
     float movementDelta = 0.5f;
      List<Transform> WalkingPoints = new List<Transform>();
     int currentWalkingPoint = 0;
@@ -14,8 +16,8 @@ public class EnemyController : BaseCharecter
     [HideInInspector]
    public NavMeshAgent agent;
     public float PlayerAttackDistance;
-   // public float Damage = 1;
     public float TimeToAttack;
+    public Image image;
   protected float timer;
     //  В МЕТОДЕ СТАРТ ПОСТАВИМ ВРАГА В НАЧАЛЬНУЮ ТОЧКУ МАРШРУТА
     override protected void Start()
@@ -38,18 +40,10 @@ public class EnemyController : BaseCharecter
     }
     virtual protected void Update()
     {
-        if (followTarget != null)
-        {
-            FollowTarget();
-            if (followTarget != null && Vector2.Distance(transform.position, followTarget.position) <= PlayerAttackDistance)
-                Attack();
-        }
-        else
-            MoveByRoute();
-        if (timer < TimeToAttack)
-        {
-            timer += Time.deltaTime;
-        }
+        if (followTarget != null && Vector2.Distance(transform.position, followTarget.position) <= PlayerAttackDistance)
+            Attack();
+        Move();
+        TimerMath();
     }
 
     // Защищенный метод движения по маршруту
@@ -102,7 +96,32 @@ public class EnemyController : BaseCharecter
     }
     protected virtual void Attack()
     {
-
+    }
+    protected virtual void Move()
+    {
+        if (followTarget != null)
+        {
+            FollowTarget();
+           
+        }
+        else
+            MoveByRoute();
+    }
+    protected virtual void TimerMath()
+    {
+        if (timer < TimeToAttack)
+        {
+            timer += Time.deltaTime;
+        }
+    }
+    public override void TakeDamage(float Dmg)
+    {
+        base.TakeDamage(Dmg);
+        UpdateHp();
+    }
+   protected void UpdateHp()
+    {
+        image.fillAmount = health / stats.MaxHealth;
     }
 }
 

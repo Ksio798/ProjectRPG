@@ -58,7 +58,7 @@ public class BaseCharecter : MonoBehaviour
                 if (stats.manna > stats.MaxHealth)
                     stats.manna = stats.MaxHealth;
             }
-            Debug.Log(stats.manna);
+           // Debug.Log(stats.manna);
         }
     }
  
