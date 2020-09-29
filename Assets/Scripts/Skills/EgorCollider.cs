@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EgorAttack : MonoBehaviour
+public class EgorCollider : MonoBehaviour
 {
 
     public int Damage = 2;

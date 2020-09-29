@@ -6,38 +6,59 @@ using UnityEngine;
 public class AttackManager : MonoBehaviour
 {
     public AttackMethod[] AttackMethods;
-    public AttackMethod CurentAttack;
+    public AttackMethod CurrentPassiveAttack;
+    public AttackMethod[] PassiveAttack;
+
+    public AttackMethod CurrentActiveAttack;
     public BaseCharecter CurrentCharacter;
-    int index = 0;
+    int currentActiveIndex = 0;
+    int currentPassiveIndex = 0;
+
     void Start()
     {
-        CurentAttack = AttackMethods[0];
+
+        //Добавить проерку на null - отсутствие аттак
+        if(PassiveAttack!=null)
+        CurrentPassiveAttack = PassiveAttack[0];
+
+
+
+        CurrentActiveAttack = AttackMethods[0];
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        currentActiveIndex = changeAttack(CurrentActiveAttack, AttackMethods, KeyCode.Tab, currentActiveIndex);
+        currentPassiveIndex = changeAttack(CurrentPassiveAttack, PassiveAttack, KeyCode.LeftControl, currentPassiveIndex);
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+
+    }
+
+    int changeAttack(AttackMethod attackSlot, AttackMethod[] possibleAttacks, KeyCode key, int attackIndex)
+    {
+
+        if (Input.GetKeyDown(key))
         {
 
-            index++;
+            attackIndex++;
 
-            if (index >= AttackMethods.Length)
-                index = 0;
+            if (attackIndex >= possibleAttacks.Length)
+                attackIndex = 0;
 
-            CurentAttack = AttackMethods[index];
+            attackSlot = possibleAttacks[attackIndex];
 
         }
 
 
-        if (CurentAttack != null)
+        if (attackSlot != null)
         {
-            if(CurentAttack.AttackInput())
+            if (attackSlot.AttackInput())
             {
-                CurentAttack.OnFire(CurrentCharacter.stats.Damage);
+                attackSlot.OnFire(CurrentCharacter.stats.Damage);
             }
         }
+        return attackIndex;
     }
 }

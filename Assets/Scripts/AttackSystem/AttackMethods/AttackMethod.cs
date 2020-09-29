@@ -11,6 +11,10 @@ public abstract class AttackMethod : MonoBehaviour
         return Input.GetButtonDown("Fire1");
       
     }
+    public virtual void ClearAttackEffects()
+    {
+
+    }
     // Start is called before the first frame update
    protected void Start()
     {

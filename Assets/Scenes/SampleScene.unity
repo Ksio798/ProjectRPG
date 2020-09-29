@@ -745,8 +745,8 @@ MonoBehaviour:
   Damage: 2
   MaxHealth: 10
   damageResistanceInPercent: 2
-  manna: 1
-  MaxManna: 2
+  manna: 100
+  MaxManna: 100
   MannaEarnPerSecond: 1
 --- !u!1 &319189035
 GameObject:
@@ -2657,6 +2657,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crossHair: {fileID: 338934587}
   SkillAnimation: {fileID: 1885985426}
+  stats: {fileID: 302234520}
+  mannaMinus: 50
 --- !u!95 &1885985426
 Animator:
   serializedVersion: 3
