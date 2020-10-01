@@ -46,6 +46,7 @@ public class PlayerController : BaseCharecter
           
         }
         rb = GetComponent<Rigidbody2D>();
+        Inventory.Ammo = 10;
     }
 
    
@@ -233,6 +234,7 @@ public class PlayerController : BaseCharecter
            
         }
         playerUIController.SetHp(stats.MaxHealth, health);
+
        
     }
 

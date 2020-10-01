@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AttackManager : MonoBehaviour
 {
-    public AttackMethod[] AttackMethods;
+    public AttackMethod[] ActiveAttacks;
     public AttackMethod CurrentPassiveAttack;
     public AttackMethod[] PassiveAttack;
 
@@ -18,21 +18,34 @@ public class AttackManager : MonoBehaviour
     {
 
         //Добавить проерку на null - отсутствие аттак
-        if(PassiveAttack!=null)
+        if(PassiveAttack!=null&&PassiveAttack.Length!=0)
         CurrentPassiveAttack = PassiveAttack[0];
 
 
+        if(ActiveAttacks!=null&&ActiveAttacks.Length!=0)
+        CurrentActiveAttack = ActiveAttacks[0];
 
-        CurrentActiveAttack = AttackMethods[0];
+
+
+      
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (ActiveAttacks != null && ActiveAttacks.Length != 0)
+        {
+            currentActiveIndex = changeAttack(CurrentActiveAttack, ActiveAttacks, KeyCode.Tab, currentActiveIndex);
+            CurrentActiveAttack = ActiveAttacks[currentActiveIndex];
 
-        currentActiveIndex = changeAttack(CurrentActiveAttack, AttackMethods, KeyCode.Tab, currentActiveIndex);
-        currentPassiveIndex = changeAttack(CurrentPassiveAttack, PassiveAttack, KeyCode.LeftControl, currentPassiveIndex);
-
+        }
+        if (PassiveAttack != null && PassiveAttack.Length != 0)
+        {
+            currentPassiveIndex = changeAttack(CurrentPassiveAttack, PassiveAttack, KeyCode.LeftControl, currentPassiveIndex);
+            CurrentPassiveAttack = PassiveAttack[currentPassiveIndex];
+        }
+        attackInput(CurrentActiveAttack);
+        attackInput(CurrentPassiveAttack);
 
     }
 
@@ -47,10 +60,17 @@ public class AttackManager : MonoBehaviour
             if (attackIndex >= possibleAttacks.Length)
                 attackIndex = 0;
 
-            attackSlot = possibleAttacks[attackIndex];
-
+        
         }
 
+
+
+        return attackIndex;
+    }
+
+
+    void attackInput(AttackMethod attackSlot)
+    {
 
         if (attackSlot != null)
         {
@@ -59,6 +79,6 @@ public class AttackManager : MonoBehaviour
                 attackSlot.OnFire(CurrentCharacter.stats.Damage);
             }
         }
-        return attackIndex;
     }
+    
 }
