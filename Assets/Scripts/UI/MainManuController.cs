@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainManuController : MonoBehaviour
 {
+    
     public GameObject SavePanel;
     public GameObject SettingsPanel;
    public void LoadS(int index)
