@@ -11,10 +11,11 @@ using UnityEngine.UI;
 [System.Serializable]
 public class SaveData
 {
-    public Texture2D SaveImagine;
+    //public Texture2D SaveImagine;
     public string SaveName;
     public string Date;
     public int LevelID;
+    public string TexturePath;
 
 }
 public class SaveController : MonoBehaviour
@@ -34,16 +35,19 @@ public class SaveController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void CreateSave(int levelId, string SaveName, Texture2D image, string date)
+    public void CreateSave(int levelId, string SaveName, string date, string TexturePath)
     {
         SaveData newSD = new SaveData();
         newSD.LevelID = levelId;
         newSD.SaveName = SaveName;
-
-        newSD.SaveImagine = image;
+        newSD.TexturePath = TexturePath;
+       // newSD.SaveImagine = image;
         newSD.Date = date;
         saves.Add(newSD);
-
+        if (saves.Count>8)
+        {
+            saves.RemoveAt(0);
+        }
     }
     public void SaveData()
     {
@@ -86,6 +90,45 @@ public class SaveController : MonoBehaviour
         }
 
 
+
+    }
+    public void DeleteAllSaves()
+    {
+        saves.Clear();
+    }
+
+    public void DeleteSave(int levelId)
+    {
+
+        int index = saves.FindIndex(x => x.LevelID == levelId);
+
+        if (index != -1)
+            saves.RemoveAt(index);
+    }
+    public Texture2D LoadTexture(string imgName)
+    {
+        var filePath = getTextureFilePath(imgName);
+        if (File.Exists(filePath))
+        {
+        Debug.Log(filePath);
+            byte[] bytes = File.ReadAllBytes(filePath);
+            Texture2D tex = new Texture2D(1920, 1080, TextureFormat.ARGB32, true);
+            tex.LoadImage(bytes);
+            tex.Apply();
+            return tex;
+        }
+        return null;
+    }
+           
+           
+
+            
+    public string getTextureFilePath(string imgName)
+    {
+
+         //string filePath = Path.Combine(Application.persistentDataPath, imgName + ".png");
+       string filePath = Path.Combine(Application.persistentDataPath, imgName );
+        return filePath;
 
     }
     string getFilePath()

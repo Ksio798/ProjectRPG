@@ -500,10 +500,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75044a9e0a79e54f9efaa516ff58b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resWidth: 1920
+  resHeight: 1080
   PausPanel: {fileID: 740761553}
   LoadSavePanel: {fileID: 1920306309}
   CreateSavePanel: {fileID: 1819171355}
   SettingsPanel: {fileID: 255075476}
+  ScreenShot: {fileID: 2110241365}
+  texture: {fileID: 0}
 --- !u!1 &36153488
 GameObject:
   m_ObjectHideFlags: 0
@@ -2497,7 +2501,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 209991026}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1819171360}
+        m_MethodName: CreateSave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &209991026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19462,6 +19477,7 @@ GameObject:
   - component: {fileID: 1819171359}
   - component: {fileID: 1819171358}
   - component: {fileID: 1819171357}
+  - component: {fileID: 1819171360}
   m_Layer: 5
   m_Name: CreateSavePanel
   m_TagString: Untagged
@@ -19551,6 +19567,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819171355}
   m_CullTransparentMesh: 0
+--- !u!114 &1819171360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819171355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40cb386494d1c54b88c33715cd62339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField: {fileID: 999539418}
+  pausMenuController: {fileID: 14901577}
 --- !u!1 &1848022429
 GameObject:
   m_ObjectHideFlags: 0
