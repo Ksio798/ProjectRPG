@@ -7,21 +7,25 @@ using UnityEngine.UI;
 
 public class OneSavePanel : MonoBehaviour
 {
+    public Image image;
     int levelID;
-    public void SetInfo(string name, string date, int levelId,string path)
+    int num;
+    public static int SaveNum;
+    public void SetInfo(string name, string date, int levelId,string path, int saveNum)
     {
         GetComponentInChildren<TextMeshProUGUI>().text = $"{name}\n{date}";
-        
-           
-        
-        GetComponentInChildren<Image>().sprite = Sprite.Create(SaveController.Instance.LoadTexture(path),
-                new Rect(0, 0, 1920, 1080),
-                  Vector2.zero, 100);
+
+
+
+       
+        image.sprite = Sprite.Create(SaveController.Instance.LoadTexture(path), new Rect(0, 0, 1920, 1080), Vector2.one * 0.5f);
+        num = saveNum;
         levelID = levelId;
         
     }
     public void onClick()
     {
+        SaveNum = num;
         SceneManager.LoadScene(levelID);
     }
 

@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beeaf3c57fd085442b238bb74edf16a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FileName: saves.svs
+  FileName: save.flame
 --- !u!4 &1174477438
 Transform:
   m_ObjectHideFlags: 0

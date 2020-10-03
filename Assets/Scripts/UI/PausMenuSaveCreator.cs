@@ -18,9 +18,11 @@ public class PausMenuSaveCreator : MonoBehaviour
 
         if (inputField.text!=""&& inputField.text != " ")
         {
-        string path = SaveController.Instance.getTextureFilePath($"{UnityEngine.Random.Range(1,10000000)}" + ".png");
+            PlayerController player = FindObjectOfType<PlayerController>();
+        string path = SaveController.Instance.getTextureFilePath($"{UnityEngine.Random.Range(1,10000000)}" +".png");
         File.WriteAllBytes(path, (byte[])pausMenuController.texture.EncodeToPNG());
-            SaveController.Instance.CreateSave(SceneManager.GetActiveScene().buildIndex, inputField.text,  DateTime.Today.ToString("dd.MM.yyyy"), path);
+            SaveController.Instance.CreateSave(SceneManager.GetActiveScene().buildIndex, inputField.text,  DateTime.Today.ToString("dd.MM.yyyy"), path, player.transform.position,
+             player.stats, (int)player.CurrentptayerType);
             inputField.text = "";
             gameObject.SetActive(false);
             Time.timeScale = 1;

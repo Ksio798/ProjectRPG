@@ -24,7 +24,7 @@ public class MainManuController : MonoBehaviour
             for (int i = SaveController.saves.Count-1; i > -1; i--)
             {
                 OneSavePanel panel = Instantiate(oneSavePanelPrefab);
-                panel.SetInfo(SaveController.saves[i].SaveName, SaveController.saves[i].Date, SaveController.saves[i].LevelID, SaveController.saves[i].TexturePath);
+                panel.SetInfo(SaveController.saves[i].SaveName, SaveController.saves[i].Date, SaveController.saves[i].LevelID, SaveController.saves[i].TexturePath, i);
                 panel.GetComponent<Button>().onClick.AddListener(() => { panel.onClick(); });
                 panel.transform.SetParent(SavePanel.transform);
             }

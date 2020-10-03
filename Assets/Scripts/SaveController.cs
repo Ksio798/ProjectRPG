@@ -11,13 +11,29 @@ using UnityEngine.UI;
 [System.Serializable]
 public class SaveData
 {
-    //public Texture2D SaveImagine;
+  
     public string SaveName;
     public string Date;
     public int LevelID;
     public string TexturePath;
+  public float PlayerPosX;
+    public float PlayerPosY;
+    public int PlayerType;
+   public statsToSave stats;
 
 }
+[System.Serializable]
+public struct statsToSave
+{
+    public float Speed;
+    public float Damage;
+    public float MaxHealth;
+    public float damageResistanceInPercent;
+    public float manna;
+    public float MaxManna;
+    public float MannaEarnPerSecond;
+}
+
 public class SaveController : MonoBehaviour
 {
     public string FileName = "saves.svs";
@@ -35,14 +51,19 @@ public class SaveController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void CreateSave(int levelId, string SaveName, string date, string TexturePath)
+    public void CreateSave(int levelId, string SaveName, string date, string TexturePath, Vector2 pos, Stats stats, int playerType)
     {
         SaveData newSD = new SaveData();
         newSD.LevelID = levelId;
         newSD.SaveName = SaveName;
         newSD.TexturePath = TexturePath;
-       // newSD.SaveImagine = image;
         newSD.Date = date;
+        newSD.PlayerPosX = pos.x;
+        newSD.PlayerPosY = pos.y;
+        newSD.PlayerType = playerType;
+        newSD.stats = SaveHelper.CreateStructStats(stats);
+
+
         saves.Add(newSD);
         if (saves.Count>8)
         {
@@ -112,21 +133,22 @@ public class SaveController : MonoBehaviour
         {
         Debug.Log(filePath);
             byte[] bytes = File.ReadAllBytes(filePath);
-            Texture2D tex = new Texture2D(1920, 1080, TextureFormat.ARGB32, true);
+            // Texture2D tex = new Texture2D(1920, 1080, TextureFormat.ARGB32, true);
+            Texture2D tex = new Texture2D(1920, 1080);
             tex.LoadImage(bytes);
-            tex.Apply();
+           // tex.Apply();
             return tex;
         }
         return null;
     }
-           
-           
+    
 
-            
+
+
     public string getTextureFilePath(string imgName)
     {
 
-         //string filePath = Path.Combine(Application.persistentDataPath, imgName + ".png");
+        
        string filePath = Path.Combine(Application.persistentDataPath, imgName );
         return filePath;
 
@@ -143,4 +165,6 @@ public class SaveController : MonoBehaviour
         return filePath;
 
     }
+
+  
 }

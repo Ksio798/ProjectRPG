@@ -35,6 +35,15 @@ public class PlayerController : BaseCharecter
     protected override void Start()
     {
         base.Start();
+            if (SaveController.saves!=null&& SaveController.saves.Count!=0)
+            {
+                transform.position = new Vector2(SaveController.saves[OneSavePanel.SaveNum].PlayerPosX, SaveController.saves[OneSavePanel.SaveNum].PlayerPosY);
+            
+            SaveHelper.loadStats(SaveController.saves[OneSavePanel.SaveNum].stats, stats);
+
+            Debug.Log(stats.Speed);
+            }
+        Inventory.Ammo = 10;
         if (playerUIController != null)
         {
             playerUIController.SetHp(stats.MaxHealth, health);
@@ -43,10 +52,8 @@ public class PlayerController : BaseCharecter
             playerUIController.SetMoney(CarInventory.MoneyCount);
             playerUIController.SetMutagenCount(CarInventory.MutagenCount);
             playerUIController.SetSanorinCount(CarInventory.SanorinCount);
-          
         }
         rb = GetComponent<Rigidbody2D>();
-        Inventory.Ammo = 10;
     }
 
    
