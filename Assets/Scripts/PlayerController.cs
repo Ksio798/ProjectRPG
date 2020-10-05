@@ -15,8 +15,8 @@ public enum PlayerType
 
 public class PlayerController : BaseCharecter
 {
-   
-   
+
+
     public PlayerType CurrentptayerType = PlayerType.Egor;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
@@ -26,24 +26,30 @@ public class PlayerController : BaseCharecter
     Collider2D currentCollider;
     GameObject interactingObject;
     public PlayerUIController playerUIController;
-  
-  
+
+
 
 
     public Inventory Inventory;
-   
+
     protected override void Start()
     {
         base.Start();
-            if (SaveController.saves!=null&& SaveController.saves.Count!=0)
-            {
-                transform.position = new Vector2(SaveController.saves[OneSavePanel.SaveNum].PlayerPosX, SaveController.saves[OneSavePanel.SaveNum].PlayerPosY);
-            
-            SaveHelper.loadStats(SaveController.saves[OneSavePanel.SaveNum].stats, stats);
+        if (SaveController.saves != null && SaveController.saves.Count != 0)
+        {
+            transform.position = new Vector2(SaveController.saves[OneSavePanel.SaveNum].PlayerPosX, SaveController.saves[OneSavePanel.SaveNum].PlayerPosY);
+            SaveHelper.loadStats(SaveHelper.GetStats(CurrentptayerType), stats);
 
-            Debug.Log(stats.Speed);
+            if ((PlayerType)SaveController.saves[OneSavePanel.SaveNum].PlayerType != CurrentptayerType)
+            {
+            
+                gameObject.SetActive(false);
             }
+
+        }
         Inventory.Ammo = 10;
+        playerUIController = FindObjectOfType<PlayerUIController>();
+
         if (playerUIController != null)
         {
             playerUIController.SetHp(stats.MaxHealth, health);
@@ -56,15 +62,15 @@ public class PlayerController : BaseCharecter
         rb = GetComponent<Rigidbody2D>();
     }
 
-   
+
     void Update()
     {
-       
+
         Move();
         Interact();
         UseSkills();
         moveCrossHair();
-       
+
 
 
     }
@@ -72,7 +78,7 @@ public class PlayerController : BaseCharecter
     {
         float hInput = Input.GetAxis("Horizontal");
         float vInput = Input.GetAxis("Vertical");
-        
+
         Vector2 moveInput = new Vector2(hInput, vInput);
         moveVelocity = moveInput.normalized * stats.Speed;
     }
@@ -82,39 +88,39 @@ public class PlayerController : BaseCharecter
             rb.velocity = moveVelocity * Time.fixedDeltaTime;
         else
             rb.velocity = Vector2.zero;
-       
-       // rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+
+        // rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
     }
     private void moveCrossHair()
     {
-        if (crossHair!=null)
+        if (crossHair != null)
         {
 
-        Vector3 aim = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        aim.z = 0;
-        float dist = Vector3.Distance(aim, transform.position);
+            Vector3 aim = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            aim.z = 0;
+            float dist = Vector3.Distance(aim, transform.position);
 
 
 
 
 
-        if (dist > 2)
-        {
+            if (dist > 2)
+            {
 
-            Vector3 offset = aim - transform.position;
-            offset = offset.normalized;
+                Vector3 offset = aim - transform.position;
+                offset = offset.normalized;
 
-            aim.x = offset.x * 2 + transform.position.x;
-            aim.y = offset.y * 2 + transform.position.y;
+                aim.x = offset.x * 2 + transform.position.x;
+                aim.y = offset.y * 2 + transform.position.y;
 
+            }
+            crossHair.transform.position = Vector2.Lerp(crossHair.transform.position, aim, 10);
         }
-        crossHair.transform.position = Vector2.Lerp(crossHair.transform.position, aim,10); 
-        }
 
-      
-        
+
+
     }
-     void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (currentCollider != collision)
         {
@@ -128,11 +134,11 @@ public class PlayerController : BaseCharecter
                 }
                 else
                 {
-                   
+
 
                     // иначе запомнить объект столкновения
                     interactingObject = collision.gameObject;
-                 
+
                 }
 
             }
@@ -162,7 +168,7 @@ public class PlayerController : BaseCharecter
             }
         }
     }
-     void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
         if (collision == currentCollider)
             currentCollider = null;
@@ -186,19 +192,19 @@ public class PlayerController : BaseCharecter
         {
             interaction(interactingObject.GetComponent<IInteractable>());
         }
-        
+
     }
     void UseSkills()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-           HealingByMedicineChest();
-           // TakeDamage(1);
+            HealingByMedicineChest();
+            // TakeDamage(1);
         }
     }
     void HealingByMedicineChest()
     {
-        if (Inventory.MedicineChestCount != 0&&health<stats.MaxHealth)
+        if (Inventory.MedicineChestCount != 0 && health < stats.MaxHealth)
         {
             float a = Mathematics.GetPercent(Inventory.HealingPercentByMedicineChest, stats.MaxHealth);
             Inventory.MedicineChestCount--;
@@ -214,37 +220,37 @@ public class PlayerController : BaseCharecter
         }
         else
             health = stats.MaxHealth;
-        playerUIController.SetHp(stats.MaxHealth,health);
+        playerUIController.SetHp(stats.MaxHealth, health);
     }
     public override void Die()
     {
-       base.Die();
+        base.Die();
         //health = -1;
         //SceneManager.LoadScene(0);
     }
     public override void TakeDamage(float Dmg)
     {
-        if(Inventory.ShildCount == 0)
+        if (Inventory.ShildCount == 0)
         {
-        base.TakeDamage(Dmg);
-           
+            base.TakeDamage(Dmg);
+
         }
-        else if(Inventory.ShildCount >=Dmg)
+        else if (Inventory.ShildCount >= Dmg)
         {
             Inventory.ShildCount -= Dmg;
-          
+
         }
         else
         {
             Dmg -= Inventory.ShildCount;
             base.TakeDamage(Dmg);
-           
+
         }
         playerUIController.SetHp(stats.MaxHealth, health);
 
-       
+
     }
 
-  
+
 }
-           
+

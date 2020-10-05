@@ -508,6 +508,7 @@ MonoBehaviour:
   SettingsPanel: {fileID: 255075476}
   ScreenShot: {fileID: 2110241365}
   texture: {fileID: 0}
+  gameController: {fileID: 146216089}
 --- !u!1 &36153488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,6 +1413,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143099617}
   m_CullTransparentMesh: 0
+--- !u!1 &146216088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 146216090}
+  - component: {fileID: 146216089}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &146216089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146216088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90118091429e8f4ab3e66728b9fbc46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EgorPrefab: {fileID: 2578257753770919492, guid: 5eef18a1720bf18409066f6df1356053,
+    type: 3}
+  DimaPrefab: {fileID: 4097633024173524633, guid: 09885417f54541447a83d98fffa6a2f1,
+    type: 3}
+  MaxPrefab: {fileID: 213176759403986595, guid: c6978780ce468a347b83a984a348e300,
+    type: 3}
+  AlexPrefab: {fileID: 5186556991032378305, guid: 42ed0cd9c087dc14aa5c058e43e9f0e1,
+    type: 3}
+  StartPoint: {fileID: 912796412}
+  Egor: {fileID: 0}
+  Dima: {fileID: 0}
+  Max: {fileID: 0}
+  Alex: {fileID: 0}
+--- !u!4 &146216090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146216088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9308248, y: 0.22313058, z: -0.3491211}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &149510727
 GameObject:
   m_ObjectHideFlags: 0
@@ -16440,12 +16497,12 @@ GameObject:
   - component: {fileID: 1504997384}
   - component: {fileID: 1504997385}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerTestAlex
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1504997379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16460,7 +16517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 1504997385}
   CanMove: 1
-  CurrentptayerType: 0
+  CurrentptayerType: 3
   crossHair: {fileID: 0}
   ObMask:
     serializedVersion: 2

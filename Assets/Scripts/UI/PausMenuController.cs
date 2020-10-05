@@ -15,6 +15,7 @@ public class PausMenuController : MonoBehaviour
     public GameObject SettingsPanel;
     public Image ScreenShot;
   public  Texture2D texture;
+    public GameController gameController;
    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -19,8 +19,10 @@ public class SaveData
   public float PlayerPosX;
     public float PlayerPosY;
     public int PlayerType;
-   public statsToSave stats;
-
+   public statsToSave statsEgor;
+    public statsToSave statsDima;
+    public statsToSave statsMax;
+    public statsToSave statsAlex;
 }
 [System.Serializable]
 public struct statsToSave
@@ -51,7 +53,8 @@ public class SaveController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void CreateSave(int levelId, string SaveName, string date, string TexturePath, Vector2 pos, Stats stats, int playerType)
+    public void CreateSave(int levelId, string SaveName, string date, string TexturePath, Vector2 pos, int playerType,
+        Stats EgorS, Stats DimaS, Stats MaxS, Stats AlexS)
     {
         SaveData newSD = new SaveData();
         newSD.LevelID = levelId;
@@ -61,9 +64,10 @@ public class SaveController : MonoBehaviour
         newSD.PlayerPosX = pos.x;
         newSD.PlayerPosY = pos.y;
         newSD.PlayerType = playerType;
-        newSD.stats = SaveHelper.CreateStructStats(stats);
-
-
+        newSD.statsEgor = SaveHelper.CreateStructStats(EgorS);
+        newSD.statsDima = SaveHelper.CreateStructStats(DimaS);
+        newSD.statsMax = SaveHelper.CreateStructStats(MaxS);
+        newSD.statsAlex = SaveHelper.CreateStructStats(AlexS);
         saves.Add(newSD);
         if (saves.Count>8)
         {

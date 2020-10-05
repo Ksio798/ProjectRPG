@@ -28,4 +28,27 @@ public class SaveHelper : MonoBehaviour
         statsToSave.Speed = stats.Speed;
         return statsToSave;
     }
+    public static statsToSave GetStats(PlayerType playerType)
+    {
+        statsToSave stats = new statsToSave();
+        if (playerType == PlayerType.Egor)
+        {
+            stats = SaveController.saves[OneSavePanel.SaveNum].statsEgor;
+        }
+        else if (playerType == PlayerType.Dimitry)
+        {
+            stats = SaveController.saves[OneSavePanel.SaveNum].statsDima;
+        }
+        else if (playerType == PlayerType.Maxim)
+        {
+            stats = SaveController.saves[OneSavePanel.SaveNum].statsMax;
+        }
+        else if (playerType == PlayerType.Alex)
+        {
+            stats = SaveController.saves[OneSavePanel.SaveNum].statsAlex;
+        }
+        return stats;
+    }
+
+
 }
