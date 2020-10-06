@@ -21,7 +21,7 @@ public class OneSavePanel : MonoBehaviour
         image.sprite = Sprite.Create(SaveController.Instance.LoadTexture(path), new Rect(0, 0, 1920, 1080), Vector2.one * 0.5f);
         num = saveNum;
         levelID = levelId;
-        
+        GameController.ActiveLevelID = levelId;
     }
     public void onClick()
     {

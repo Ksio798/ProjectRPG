@@ -24,7 +24,9 @@ public class PausMenuSaveCreator : MonoBehaviour
             SaveController.Instance.CreateSave(SceneManager.GetActiveScene().buildIndex, inputField.text,  DateTime.Today.ToString("dd.MM.yyyy"), path,
                 pausMenuController.gameController.ActivePlayer.transform.position,
            (int)pausMenuController.gameController.ActivePlayer.CurrentptayerType, pausMenuController.gameController.Egor.stats, pausMenuController.gameController.Dima.stats,
-           pausMenuController.gameController.Max.stats, pausMenuController.gameController.Alex.stats);
+           pausMenuController.gameController.Max.stats, pausMenuController.gameController.Alex.stats,
+            pausMenuController.gameController.Egor.Inventory, pausMenuController.gameController.Dima.Inventory, pausMenuController.gameController.Max.Inventory,
+            pausMenuController.gameController.Alex.Inventory);
          
             inputField.text = "";
             gameObject.SetActive(false);

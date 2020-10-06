@@ -39,6 +39,20 @@ public class CarInventory : MonoBehaviour, IInteractable
 
     public bool InteractingByKeyPressing { get { return true; } }
     public PlayerUIController playerUIController;
+    void Start()
+    {
+        if (SaveController.saves != null&& SaveController.saves.Count !=0)
+        {
+
+        BulletsCount = SaveController.saves[OneSavePanel.SaveNum].carInv.BulletsCount;
+        MedChestCount = SaveController.saves[OneSavePanel.SaveNum].carInv.MedChestCount;
+        SanorinCount = SaveController.saves[OneSavePanel.SaveNum].carInv.SanorinCount;
+        MutagenCount = SaveController.saves[OneSavePanel.SaveNum].carInv.MutagenCount;
+        MoneyCount = SaveController.saves[OneSavePanel.SaveNum].carInv.MoneyCount;
+        }
+
+
+    }
     public void Interact(Transform other)
     {
         if(CanUse)
@@ -68,7 +82,7 @@ public class CarInventory : MonoBehaviour, IInteractable
             CurrentPlayer.stats.MaxHealth+=Mathematics.GetPercent(5,CurrentPlayer.stats.MaxHealth);
             MutagenCount--;
             HealthP.UpdateImages(CurrentPlayer.CurrentptayerType);
-            playerUIController.SetHp(CurrentPlayer.stats.MaxHealth, CurrentPlayer.Health);
+            playerUIController.SetHp(CurrentPlayer.stats.MaxHealth, CurrentPlayer.stats.health);
             playerUIController.SetMutagenCount(MutagenCount);
         }
     }

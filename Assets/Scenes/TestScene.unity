@@ -1455,6 +1455,8 @@ MonoBehaviour:
   Dima: {fileID: 0}
   Max: {fileID: 0}
   Alex: {fileID: 0}
+  ActivePlayer: {fileID: 0}
+  playerUIController: {fileID: 494756077}
 --- !u!4 &146216090
 Transform:
   m_ObjectHideFlags: 0
@@ -6446,6 +6448,7 @@ MonoBehaviour:
   manna: 0
   MaxManna: 0
   MannaEarnPerSecond: 0
+  health: 0
 --- !u!61 &569690201
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9224,6 +9227,7 @@ MonoBehaviour:
   manna: 0
   MaxManna: 0
   MannaEarnPerSecond: 0
+  health: 0
 --- !u!1 &871654161
 GameObject:
   m_ObjectHideFlags: 0
@@ -16651,8 +16655,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxMedicineChestCount: 1
   HealingPercentByMedicineChest: 30
-  Money: 0
   MaxAmmo: 30
+  currentAmmo: 0
   ShildCount: 0
   medicineChestCount: 1
 --- !u!114 &1504997385
@@ -16674,6 +16678,7 @@ MonoBehaviour:
   manna: 0
   MaxManna: 10
   MannaEarnPerSecond: 3
+  health: 0
 --- !u!1 &1526021777
 GameObject:
   m_ObjectHideFlags: 0
@@ -17676,6 +17681,7 @@ MonoBehaviour:
   manna: 0
   MaxManna: 0
   MannaEarnPerSecond: 0
+  health: 0
 --- !u!114 &1602335364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18693,6 +18699,7 @@ MonoBehaviour:
   manna: 0
   MaxManna: 0
   MannaEarnPerSecond: 0
+  health: 0
 --- !u!1 &1712779143
 GameObject:
   m_ObjectHideFlags: 0
@@ -18950,6 +18957,7 @@ MonoBehaviour:
   manna: 0
   MaxManna: 5
   MannaEarnPerSecond: 1
+  health: 0
 --- !u!61 &1734678950
 BoxCollider2D:
   m_ObjectHideFlags: 0

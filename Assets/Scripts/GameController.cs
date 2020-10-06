@@ -22,15 +22,22 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public PlayerController Alex;
     [HideInInspector]
-  public  PlayerController ActivePlayer;
-
+    public PlayerController ActivePlayer;
+    public PlayerUIController playerUIController;
+    public CarInventory carInventory;
+        [HideInInspector]
+   public bool CanSelect = true;
+    public static int ActiveLevelID;
     void Start()
     {
         Egor = Instantiate(EgorPrefab);
         Dima = Instantiate(DimaPrefab);
         Max = Instantiate(MaxPrefab);
         Alex = Instantiate(AlexPrefab);
-
+        Egor.playerUIController = playerUIController;
+        Dima.playerUIController = playerUIController;
+        Max.playerUIController = playerUIController;
+        Alex.playerUIController = playerUIController;
         if (SaveController.saves.Count == 0 || SaveController.saves == null)
         {
             Dima.transform.position = StartPoint.position;
@@ -51,47 +58,60 @@ public class GameController : MonoBehaviour
     }
     void PlayerSelect()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (CanSelect)
         {
-            if (Egor != ActivePlayer)
-            {
-                Egor.transform.position = ActivePlayer.transform.position;
-                Egor.gameObject.SetActive(true);
-                ActivePlayer.gameObject.SetActive(false);
-                ActivePlayer = Egor;
 
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            if (Dima != ActivePlayer)
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                Dima.transform.position = ActivePlayer.transform.position;
-                Dima.gameObject.SetActive(true);
-                ActivePlayer.gameObject.SetActive(false);
-                ActivePlayer = Dima;
+                if (Egor != ActivePlayer)
+                {
+                    Egor.transform.position = ActivePlayer.transform.position;
+                    Egor.gameObject.SetActive(true);
+                    ActivePlayer.gameObject.SetActive(false);
+                    ActivePlayer = Egor;
+                    CanSelect = false;
+                    StartCoroutine(WaitToCanS());
+                }
             }
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            if (Max != ActivePlayer)
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                Max.transform.position = ActivePlayer.transform.position;
-                Max.gameObject.SetActive(true);
-                ActivePlayer.gameObject.SetActive(false);
-                ActivePlayer = Max;
+                if (Dima != ActivePlayer)
+                {
+                    Dima.transform.position = ActivePlayer.transform.position;
+                    Dima.gameObject.SetActive(true);
+                    ActivePlayer.gameObject.SetActive(false);
+                    ActivePlayer = Dima;
+                    CanSelect = false;
+                    StartCoroutine(WaitToCanS());
+                }
             }
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            if (Alex != ActivePlayer)
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                Alex.transform.position = ActivePlayer.transform.position;
-                Alex.gameObject.SetActive(true);
-                ActivePlayer.gameObject.SetActive(false);
-                ActivePlayer = Alex;
-      
+                if (Max != ActivePlayer)
+                {
+                    Max.transform.position = ActivePlayer.transform.position;
+                    Max.gameObject.SetActive(true);
+                    ActivePlayer.gameObject.SetActive(false);
+                    ActivePlayer = Max;
+                    CanSelect = false;
+                    StartCoroutine(WaitToCanS());
+                }
             }
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                if (Alex != ActivePlayer)
+                {
+                    Alex.transform.position = ActivePlayer.transform.position;
+                    Alex.gameObject.SetActive(true);
+                    ActivePlayer.gameObject.SetActive(false);
+                    ActivePlayer = Alex;
+                    CanSelect = false;
+                    StartCoroutine(WaitToCanS());
+                }
+            }
+
+            ActivePlayer.UpdateUI();
         }
     }
 
@@ -114,6 +134,10 @@ public class GameController : MonoBehaviour
             ActivePlayer = Alex;
         }
     }
-
+    IEnumerator WaitToCanS()
+    {
+        yield return new WaitForSeconds(10);
+        CanSelect = true;
+    }
 
 }
