@@ -10,7 +10,10 @@ public class RangeAttack : AttackMethod
     WeaponData CurrentWeapon;
     public Transform holdPoint;
 
-
+    private void Start()
+    {
+        
+    }
 
     public override void OnFire(float damage)
     {
