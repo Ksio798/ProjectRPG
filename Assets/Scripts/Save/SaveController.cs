@@ -11,18 +11,27 @@ using UnityEngine.UI;
 [System.Serializable]
 public class SaveData
 {
-  
+
     public string SaveName;
     public string Date;
     public int LevelID;
     public string TexturePath;
-  public float PlayerPosX;
+    public float PlayerPosX;
     public float PlayerPosY;
     public int PlayerType;
-   public statsToSave statsEgor;
+    public statsToSave statsEgor;
     public statsToSave statsDima;
     public statsToSave statsMax;
     public statsToSave statsAlex;
+    public InventoryToSave InvEgor;
+    public InventoryToSave InvDima;
+    public InventoryToSave InvMax;
+    public InventoryToSave InvAlex;
+    public CarInvToSave carInv;
+    public int[] ObjToDestroy;
+
+
+
 }
 [System.Serializable]
 public struct statsToSave
@@ -34,13 +43,37 @@ public struct statsToSave
     public float manna;
     public float MaxManna;
     public float MannaEarnPerSecond;
+    public float health;
 }
+[System.Serializable]
+public struct InventoryToSave
+{
+    public int MaxMedicineChestCount;
+    public int HealingPercentByMedicineChest;
+    public int MaxAmmo;
+    public int currentAmmo;
+    public float ShildCount;
+    public int medicineChestCount;
+}
+[System.Serializable]
+public struct CarInvToSave
+{
+    public int MoneyCount;
+    public int MutagenCount;
+    public int SanorinCount;
+    public int MedChestCount;
+    public int BulletsCount;
+}
+
 
 public class SaveController : MonoBehaviour
 {
     public string FileName = "saves.svs";
     public static List<SaveData> saves = new List<SaveData>();
     public static SaveController Instance;
+    public List<int> ObjToDesrtoy;
+
+
     void Awake()
     {
         if (Instance == null)
@@ -51,10 +84,11 @@ public class SaveController : MonoBehaviour
         else
         {
             Destroy(gameObject);
+
         }
     }
     public void CreateSave(int levelId, string SaveName, string date, string TexturePath, Vector2 pos, int playerType,
-        Stats EgorS, Stats DimaS, Stats MaxS, Stats AlexS)
+        Stats EgorS, Stats DimaS, Stats MaxS, Stats AlexS, Inventory EgorInv, Inventory DimaInv, Inventory MaxInv, Inventory AlexInv)
     {
         SaveData newSD = new SaveData();
         newSD.LevelID = levelId;
@@ -68,8 +102,14 @@ public class SaveController : MonoBehaviour
         newSD.statsDima = SaveHelper.CreateStructStats(DimaS);
         newSD.statsMax = SaveHelper.CreateStructStats(MaxS);
         newSD.statsAlex = SaveHelper.CreateStructStats(AlexS);
+        newSD.InvEgor = SaveHelper.CreateSctructInv(EgorInv); ;
+        newSD.InvDima = SaveHelper.CreateSctructInv(DimaInv);
+        newSD.InvMax = SaveHelper.CreateSctructInv(MaxInv);
+        newSD.InvAlex = SaveHelper.CreateSctructInv(AlexInv);
+        newSD.carInv = SaveHelper.CreateSctructCarInv();
+        newSD.ObjToDestroy = SaveHelper.CreateM();
         saves.Add(newSD);
-        if (saves.Count>8)
+        if (saves.Count > 8)
         {
             saves.RemoveAt(0);
         }
@@ -135,25 +175,25 @@ public class SaveController : MonoBehaviour
         var filePath = getTextureFilePath(imgName);
         if (File.Exists(filePath))
         {
-        Debug.Log(filePath);
+            Debug.Log(filePath);
             byte[] bytes = File.ReadAllBytes(filePath);
             // Texture2D tex = new Texture2D(1920, 1080, TextureFormat.ARGB32, true);
             Texture2D tex = new Texture2D(1920, 1080);
             tex.LoadImage(bytes);
-           // tex.Apply();
+            // tex.Apply();
             return tex;
         }
         return null;
     }
-    
+
 
 
 
     public string getTextureFilePath(string imgName)
     {
 
-        
-       string filePath = Path.Combine(Application.persistentDataPath, imgName );
+
+        string filePath = Path.Combine(Application.persistentDataPath, imgName);
         return filePath;
 
     }
@@ -170,5 +210,5 @@ public class SaveController : MonoBehaviour
 
     }
 
-  
+
 }

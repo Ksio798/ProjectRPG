@@ -52,7 +52,7 @@ public class HealingEnemy : EnemyController
    
     protected override void Move()
     {
-        if (health > Mathematics.GetPercent(50, stats.MaxHealth))
+        if (stats.health > Mathematics.GetPercent(50, stats.MaxHealth))
         {
             agent.speed = stats.Speed;
             base.Move();

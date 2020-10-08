@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class BaseCharecter : MonoBehaviour
 {
-    protected float health;
-    public float Health { get { return health; } }
+    //protected float health;
+    //public float Health { get { return health; } }
     public Stats stats;
     
     public bool CanMove = true;
     
     protected virtual void Start()
     {
-        health = stats.MaxHealth;
+        if(SaveController.saves ==null|| SaveController.saves.Count == 0)
+        stats.health = stats.MaxHealth;
         StartCoroutine(WaitToMannaRegen());
     }
 
@@ -22,12 +23,12 @@ public class BaseCharecter : MonoBehaviour
         if (stats!=null)
         {
 
-        if (health + amount <= stats.MaxHealth)
+        if (stats.health + amount <= stats.MaxHealth)
         {
-            health += amount;
+                stats.health += amount;
         }
         else
-            health = stats.MaxHealth;
+                stats.health = stats.MaxHealth;
         }
     }
     public virtual void TakeDamage(float Dmg)
@@ -35,9 +36,9 @@ public class BaseCharecter : MonoBehaviour
         float a = Dmg;
         if(stats!=null)
         Dmg -= Mathematics.GetPercent(stats.damageResistanceInPercent, a);
-        health -= Dmg;
+        stats.health -= Dmg;
         
-        if (health<=0)
+        if (stats.health <= 0)
         {
            
             Die();

@@ -37,27 +37,15 @@ public class PlayerController : BaseCharecter
         base.Start();
         if (SaveController.saves != null && SaveController.saves.Count != 0)
         {
-            transform.position = new Vector2(SaveController.saves[OneSavePanel.SaveNum].PlayerPosX, SaveController.saves[OneSavePanel.SaveNum].PlayerPosY);
-            SaveHelper.loadStats(SaveHelper.GetStats(CurrentptayerType), stats);
-
-            if ((PlayerType)SaveController.saves[OneSavePanel.SaveNum].PlayerType != CurrentptayerType)
-            {
-            
-                gameObject.SetActive(false);
-            }
-
+            LoadSave(); 
         }
-        Inventory.Ammo = 10;
-        playerUIController = FindObjectOfType<PlayerUIController>();
 
+       // Inventory.Ammo = 10;
+       // playerUIController = FindObjectOfType<PlayerUIController>();
+       // Debug.Log((playerUIController == null)+"    "+CurrentptayerType);
         if (playerUIController != null)
         {
-            playerUIController.SetHp(stats.MaxHealth, health);
-            playerUIController.SetMedicineCount(Inventory.MedicineChestCount);
-            playerUIController.SetBullet(Inventory.Ammo);
-            playerUIController.SetMoney(CarInventory.MoneyCount);
-            playerUIController.SetMutagenCount(CarInventory.MutagenCount);
-            playerUIController.SetSanorinCount(CarInventory.SanorinCount);
+            UpdateUI();
         }
         rb = GetComponent<Rigidbody2D>();
     }
@@ -204,7 +192,7 @@ public class PlayerController : BaseCharecter
     }
     void HealingByMedicineChest()
     {
-        if (Inventory.MedicineChestCount != 0 && health < stats.MaxHealth)
+        if (Inventory.MedicineChestCount != 0 && stats.health < stats.MaxHealth)
         {
             float a = Mathematics.GetPercent(Inventory.HealingPercentByMedicineChest, stats.MaxHealth);
             Inventory.MedicineChestCount--;
@@ -214,13 +202,13 @@ public class PlayerController : BaseCharecter
     }
     public void Healing(float hp)
     {
-        if (health + hp <= stats.MaxHealth)
+        if (stats.health + hp <= stats.MaxHealth)
         {
-            health += hp;
+            stats.health += hp;
         }
         else
-            health = stats.MaxHealth;
-        playerUIController.SetHp(stats.MaxHealth, health);
+            stats.health = stats.MaxHealth;
+        playerUIController.SetHp(stats.MaxHealth, stats.health);
     }
     public override void Die()
     {
@@ -246,11 +234,31 @@ public class PlayerController : BaseCharecter
             base.TakeDamage(Dmg);
 
         }
-        playerUIController.SetHp(stats.MaxHealth, health);
+        playerUIController.SetHp(stats.MaxHealth, stats.health);
 
 
     }
+    void LoadSave()
+    {
+        transform.position = new Vector2(SaveController.saves[OneSavePanel.SaveNum].PlayerPosX, SaveController.saves[OneSavePanel.SaveNum].PlayerPosY);
+        SaveHelper.loadStats(SaveHelper.GetStats(CurrentptayerType), stats);
+        SaveHelper.LoadInv(SaveHelper.GetInv(CurrentptayerType), Inventory);
+        if ((PlayerType)SaveController.saves[OneSavePanel.SaveNum].PlayerType != CurrentptayerType)
+        {
 
+            gameObject.SetActive(false);
+        }
+    }
+    public void UpdateUI()
+    {
+
+        playerUIController.SetHp(stats.MaxHealth, stats.health);
+        playerUIController.SetMedicineCount(Inventory.MedicineChestCount);
+        playerUIController.SetBullet(Inventory.Ammo);
+        playerUIController.SetMoney(CarInventory.MoneyCount);
+        playerUIController.SetMutagenCount(CarInventory.MutagenCount);
+        playerUIController.SetSanorinCount(CarInventory.SanorinCount);
+    }
 
 }
 

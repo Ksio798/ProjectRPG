@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Fungus;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +16,20 @@ public class SaveHelper : MonoBehaviour
              stats.MaxHealth = savedStats.MaxHealth;
              stats.MaxManna = savedStats.MaxManna;
              stats.Speed = savedStats.Speed;
+        stats.health = savedStats.health;
     }
+    public static void LoadInv(InventoryToSave inventoryToSave, Inventory inventory)
+    {
+        inventory.currentAmmo = inventoryToSave.currentAmmo;
+        inventory.ShildCount = inventoryToSave.ShildCount;
+        inventory.MaxAmmo = inventoryToSave.MaxAmmo;
+        inventory.MaxMedicineChestCount = inventoryToSave.MaxMedicineChestCount;
+        inventory.medicineChestCount = inventoryToSave.medicineChestCount;
+        inventory.HealingPercentByMedicineChest = inventoryToSave.HealingPercentByMedicineChest;
+
+
+    }
+
     public static statsToSave CreateStructStats(Stats stats)
     {
         statsToSave statsToSave = new statsToSave();
@@ -26,8 +40,34 @@ public class SaveHelper : MonoBehaviour
         statsToSave.MaxHealth = stats.MaxHealth;
         statsToSave.MaxManna = stats.MaxManna;
         statsToSave.Speed = stats.Speed;
+        statsToSave.health = stats.health;
         return statsToSave;
     }
+    public static InventoryToSave CreateSctructInv(Inventory inventory)
+    {
+        InventoryToSave inventoryToSave = new InventoryToSave();
+        inventoryToSave.HealingPercentByMedicineChest = inventory.HealingPercentByMedicineChest;
+        inventoryToSave.MaxAmmo = inventory.MaxAmmo;
+        inventoryToSave.MaxMedicineChestCount = inventory.MaxMedicineChestCount;
+        inventoryToSave.ShildCount = inventory.ShildCount;
+        inventoryToSave.medicineChestCount = inventory.medicineChestCount;
+        inventoryToSave.currentAmmo = inventory.currentAmmo;
+        return inventoryToSave;
+
+
+    }
+    public static CarInvToSave CreateSctructCarInv()
+    {
+        CarInvToSave carInvToSave = new CarInvToSave();
+        carInvToSave.BulletsCount = CarInventory.BulletsCount;
+        carInvToSave.MedChestCount = CarInventory.MedChestCount;
+        carInvToSave.MoneyCount = CarInventory.MoneyCount;
+        carInvToSave.MutagenCount = CarInventory.MutagenCount;
+        carInvToSave.SanorinCount = CarInventory.SanorinCount;
+        return carInvToSave;
+
+    }
+
     public static statsToSave GetStats(PlayerType playerType)
     {
         statsToSave stats = new statsToSave();
@@ -49,6 +89,35 @@ public class SaveHelper : MonoBehaviour
         }
         return stats;
     }
-
+    public static InventoryToSave GetInv(PlayerType playerType)
+    {
+        InventoryToSave stats = new InventoryToSave();
+        if (playerType == PlayerType.Egor)
+        {
+            stats = SaveController.saves[OneSavePanel.SaveNum].InvEgor;
+        }
+        else if (playerType == PlayerType.Dimitry)
+        {
+            stats = SaveController.saves[OneSavePanel.SaveNum].InvDima;
+        }
+        else if (playerType == PlayerType.Maxim)
+        {
+            stats = SaveController.saves[OneSavePanel.SaveNum].InvMax;
+        }
+        else if (playerType == PlayerType.Alex)
+        {
+            stats = SaveController.saves[OneSavePanel.SaveNum].InvAlex;
+        }
+        return stats;
+    }
+    public static int[] CreateM()
+    {
+        int[] m = new int[SaveController.Instance.ObjToDesrtoy.Count + 1];
+        for (int i = 0; i < SaveController.Instance.ObjToDesrtoy.Count; i++)
+        {
+            m[i] = SaveController.Instance.ObjToDesrtoy[i];
+        }
+        return m;
+    }
 
 }

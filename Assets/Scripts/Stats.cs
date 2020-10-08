@@ -11,7 +11,8 @@ public class Stats : MonoBehaviour
     public float manna;
     public float MaxManna;
     public float MannaEarnPerSecond;
+    public float health;
+   // public float Health { get { return health; } }
 
 
-  
 }

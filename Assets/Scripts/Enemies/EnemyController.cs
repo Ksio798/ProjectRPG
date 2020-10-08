@@ -121,7 +121,7 @@ public class EnemyController : BaseCharecter
     }
    protected void UpdateHp()
     {
-        image.fillAmount = health / stats.MaxHealth;
+        image.fillAmount = stats.health / stats.MaxHealth;
     }
 }
 

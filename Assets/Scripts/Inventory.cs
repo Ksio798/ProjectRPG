@@ -6,13 +6,13 @@ public class Inventory : MonoBehaviour
 {
     public  int MaxMedicineChestCount = 1;
     public  int HealingPercentByMedicineChest = 30;
- //   public  int Money;
+
     public int MaxAmmo = 30;
-    [SerializeField]
-    int currentAmmo;
+    
+   public int currentAmmo;
    public float ShildCount = 0;
-    [SerializeField]
-    int medicineChestCount = 1;
+   
+    public int medicineChestCount = 1;
 
 
 
