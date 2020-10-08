@@ -28,7 +28,7 @@ public class SaveData
     public InventoryToSave InvMax;
     public InventoryToSave InvAlex;
     public CarInvToSave carInv;
-    public int[] ObjToDestroy;
+    public Vector2D[] ObjToDestroy;
 
 
 
@@ -64,14 +64,19 @@ public struct CarInvToSave
     public int MedChestCount;
     public int BulletsCount;
 }
-
+[System.Serializable]
+public struct Vector2D
+{
+    public float X;
+    public float Y;
+}
 
 public class SaveController : MonoBehaviour
 {
     public string FileName = "saves.svs";
     public static List<SaveData> saves = new List<SaveData>();
     public static SaveController Instance;
-    public List<int> ObjToDesrtoy;
+    public List<Vector2D> ObjToDesrtoy = new List<Vector2D>();
 
 
     void Awake()
@@ -87,6 +92,7 @@ public class SaveController : MonoBehaviour
 
         }
     }
+    
     public void CreateSave(int levelId, string SaveName, string date, string TexturePath, Vector2 pos, int playerType,
         Stats EgorS, Stats DimaS, Stats MaxS, Stats AlexS, Inventory EgorInv, Inventory DimaInv, Inventory MaxInv, Inventory AlexInv)
     {

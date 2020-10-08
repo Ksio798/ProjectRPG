@@ -3,25 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-
+using System.Linq;
 public class EnemyController : BaseCharecter
 {
- 
+
     float movementDelta = 0.5f;
-     List<Transform> WalkingPoints = new List<Transform>();
+    List<Transform> WalkingPoints = new List<Transform>();
     int currentWalkingPoint = 0;
     public Transform PointParent;
     public float FollowStopDistance = 2;
     protected Transform followTarget;
     [HideInInspector]
-   public NavMeshAgent agent;
+    public NavMeshAgent agent;
     public float PlayerAttackDistance;
     public float TimeToAttack;
     public Image image;
-  protected float timer;
+    protected float timer;
     //  В МЕТОДЕ СТАРТ ПОСТАВИМ ВРАГА В НАЧАЛЬНУЮ ТОЧКУ МАРШРУТА
     override protected void Start()
     {
+
+        if (SaveController.saves != null && SaveController.saves.Count != 0)
+        {
+
+            if (SaveController.saves[OneSavePanel.SaveNum].ObjToDestroy.Contains(SaveHelper.CreateVector2D(transform.position))
+                    && GameController.ActiveLevelID == SaveController.saves[OneSavePanel.SaveNum].LevelID)
+                Destroy(gameObject);
+        }
+
+
         base.Start();
         for (int i = 0; i < PointParent.childCount; i++)
         {
@@ -52,7 +62,7 @@ public class EnemyController : BaseCharecter
 
         if (Vector2.Distance(transform.position, WalkingPoints[currentWalkingPoint].position) > movementDelta)
         {
-            
+
             agent.SetDestination(WalkingPoints[currentWalkingPoint].position);
         }
         else
@@ -71,7 +81,7 @@ public class EnemyController : BaseCharecter
             agent.SetDestination(followTarget.position);
         else
             agent.SetDestination(transform.position);
-          
+
 
         if (Vector3.Distance(transform.position, followTarget.position) > FollowStopDistance)
         {
@@ -92,7 +102,7 @@ public class EnemyController : BaseCharecter
             followTarget = other.transform;
             Debug.Log("followTarget ");
         }
-        
+
     }
     protected virtual void Attack()
     {
@@ -102,7 +112,7 @@ public class EnemyController : BaseCharecter
         if (followTarget != null)
         {
             FollowTarget();
-           
+
         }
         else
             MoveByRoute();
@@ -119,10 +129,16 @@ public class EnemyController : BaseCharecter
         base.TakeDamage(Dmg);
         UpdateHp();
     }
-   protected void UpdateHp()
+    protected void UpdateHp()
     {
         image.fillAmount = stats.health / stats.MaxHealth;
     }
+    public override void Die()
+    {
+        base.Die();
+        SaveController.Instance.ObjToDesrtoy.Add(SaveHelper.CreateVector2D(transform.position));
+    }
+
 }
 
 

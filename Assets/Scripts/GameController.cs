@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
         Dima.playerUIController = playerUIController;
         Max.playerUIController = playerUIController;
         Alex.playerUIController = playerUIController;
-        if (SaveController.saves.Count == 0 || SaveController.saves == null)
+        if (OneSavePanel.SaveNum==-1)
         {
             Dima.transform.position = StartPoint.position;
             ActivePlayer = Dima;
