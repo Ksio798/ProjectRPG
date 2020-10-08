@@ -35,7 +35,7 @@ public class PlayerController : BaseCharecter
     protected override void Start()
     {
         base.Start();
-        if (SaveController.saves != null && SaveController.saves.Count != 0)
+        if (OneSavePanel.SaveNum != -1)
         {
             LoadSave(); 
         }

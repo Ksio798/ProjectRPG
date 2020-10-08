@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class SaveHelper : MonoBehaviour
 {
-   
-   public static void loadStats(statsToSave savedStats, Stats stats)
+
+    public static void loadStats(statsToSave savedStats, Stats stats)
     {
 
         stats.Damage = savedStats.Damage;
-           stats.damageResistanceInPercent = savedStats.damageResistanceInPercent;
-             stats.manna = savedStats.manna;
-             stats.MannaEarnPerSecond = savedStats.MannaEarnPerSecond;
-             stats.MaxHealth = savedStats.MaxHealth;
-             stats.MaxManna = savedStats.MaxManna;
-             stats.Speed = savedStats.Speed;
+        stats.damageResistanceInPercent = savedStats.damageResistanceInPercent;
+        stats.manna = savedStats.manna;
+        stats.MannaEarnPerSecond = savedStats.MannaEarnPerSecond;
+        stats.MaxHealth = savedStats.MaxHealth;
+        stats.MaxManna = savedStats.MaxManna;
+        stats.Speed = savedStats.Speed;
         stats.health = savedStats.health;
     }
     public static void LoadInv(InventoryToSave inventoryToSave, Inventory inventory)
@@ -110,14 +110,48 @@ public class SaveHelper : MonoBehaviour
         }
         return stats;
     }
-    public static int[] CreateM()
+    public static Vector2D[] CreateM()
     {
-        int[] m = new int[SaveController.Instance.ObjToDesrtoy.Count + 1];
+        Vector2D[] m;
+
+        Debug.Log(OneSavePanel.SaveNum);
+        if (OneSavePanel.SaveNum>=0)
+        {
+            m = new Vector2D[SaveController.Instance.ObjToDesrtoy.Count + SaveController.saves[OneSavePanel.SaveNum].ObjToDestroy.Length + 10];
+            for (int i = 0; i < SaveController.saves[OneSavePanel.SaveNum].ObjToDestroy.Length; i++)
+            {
+                SaveController.Instance.ObjToDesrtoy.Add ( SaveController.saves[OneSavePanel.SaveNum].ObjToDestroy[i]);
+
+            }
+            Debug.Log("Added");
+        }
+        else
+            m = new Vector2D[SaveController.Instance.ObjToDesrtoy.Count + 1];
+           
+       
+
+
+        
         for (int i = 0; i < SaveController.Instance.ObjToDesrtoy.Count; i++)
         {
             m[i] = SaveController.Instance.ObjToDesrtoy[i];
         }
         return m;
     }
+    public static Vector2D CreateVector2D(Vector2 vector)
+    {
+        Vector2D vector2D = new Vector2D();
+        vector2D.X = vector.x;
+        vector2D.Y = vector.y;
 
+        return vector2D;
+    }
+    //public static Vector2 CreateVector(Vector2D vector)
+    //{
+    //    Vector2 vector2 = new Vector2();
+    //    vector2.x = vector.X;
+    //    vector2.x = vector.Y;
+
+    //    return vector2;
+    //}
 }

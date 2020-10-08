@@ -66,6 +66,7 @@ public class PausMenuController : MonoBehaviour
     }
     public void LeaveToMainMenu()
     {
+        OneSavePanel.SaveNum = -1;
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }

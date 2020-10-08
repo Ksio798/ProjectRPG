@@ -10,7 +10,7 @@ public class OneSavePanel : MonoBehaviour
     public Image image;
     int levelID;
     int num;
-    public static int SaveNum;
+    public static int SaveNum = -1;
     public void SetInfo(string name, string date, int levelId,string path, int saveNum)
     {
         GetComponentInChildren<TextMeshProUGUI>().text = $"{name}\n{date}";
