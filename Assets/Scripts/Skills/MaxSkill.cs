@@ -4,41 +4,38 @@ using UnityEngine;
 
 public class MaxSkill : AttackMethod
 {
-    int SkinIndex;
-    List<Sprite> skins;
-    public SpriteRenderer PlayerCurrentSkin;
-    public Stats stats;
-    public int SpeedLow = 10;
-    float baseSpeed;
-    float LeaseSpeedCurrent = 50;
-    public override void ClearAttackEffects()
-    {
-        stats.Speed = baseSpeed;
-        baseSpeed = 0;
-    }
+    public GameObject TurretPrefab;
+    public GameObject TurretMask;
+
+
+    public GameObject CrossHair;
+
+    public int MaxTurretsCount;
+    int countOfSpawned;
     public override void OnFire(float damage)
     {
-        if (baseSpeed == 0)
-        {
-            baseSpeed = stats.Speed;
+        GameObject newTurret = Instantiate(TurretPrefab);
+        newTurret.transform.position = TurretMask.transform.position;
+      //  newTurret.transform.localScale = Vector3.one;
 
-        }
-        stats.Speed = baseSpeed + SpeedLow;
-        stats.manna--;
-    }
-    public override bool AttackInput()
-    {
-        return Input.GetKey(KeyCode.Space);
-    }
-    public void SpeedLease()
-    {
-        stats.Speed -= LeaseSpeedCurrent;
     }
 
 
-    public void ChangeSkin()
+    protected override void Update()
     {
-        SkinIndex++;
-        PlayerCurrentSkin.sprite = skins[SkinIndex];
+      base.Update();
+        Debug.Log("ferfer");
+        TurretMask.transform.position = CrossHair.transform.position;
+    }
+
+  void  onTurretDied()
+    { }
+    private void OnEnable()
+    {
+        TurretMask.SetActive(true);
+    }
+    private void OnDisable()
+    {
+        TurretMask.SetActive(false);
     }
 }

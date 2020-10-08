@@ -1055,6 +1055,7 @@ MonoBehaviour:
   manna: 20
   MaxManna: 2
   MannaEarnPerSecond: 2
+  health: 0
 --- !u!1 &704019665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,14 +1640,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686962960}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12ed55ed00623864ab1ce8ec1c63f25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerCurrentSkin: {fileID: 1686962967}
-  stats: {fileID: 1686962962}
-  SpeedLow: 10
+  TurretPrefab: {fileID: 799913481882627655, guid: abea0c81d774d3e4384db7598fa6de81,
+    type: 3}
+  TurretMask: {fileID: 2660922445706179467}
+  CrossHair: {fileID: 912762780}
 --- !u!114 &1686962962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1666,6 +1668,7 @@ MonoBehaviour:
   manna: 100
   MaxManna: 100
   MannaEarnPerSecond: 2
+  health: 0
 --- !u!114 &1686962963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1696,10 +1699,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3050cfdb252446847b13c73c6b8b6e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActiveAttacks: []
+  ActiveAttacks:
+  - {fileID: 39981269}
+  - {fileID: 1686962961}
   CurrentPassiveAttack: {fileID: 0}
   PassiveAttack:
-  - {fileID: 1686962961}
+  - {fileID: 0}
   CurrentActiveAttack: {fileID: 0}
   CurrentCharacter: {fileID: 1686962965}
 --- !u!114 &1686962965
@@ -1744,12 +1749,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!212 &1686962967 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 3798099431680335173, guid: 93e09d4ef61ec9644a4ea3b13a4aaff9,
-    type: 3}
-  m_PrefabInstance: {fileID: 4998986430603547888}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1686962968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5592099207675036222, guid: 93e09d4ef61ec9644a4ea3b13a4aaff9,
@@ -2057,6 +2056,88 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6061569537528517508}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1778697124278065125
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2660922445706179467}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -1188874068023068918, guid: e538118b7b238574ea862024d61099fe,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6392157}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.16}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &2476856259310649229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2660922445706179467}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.004, y: -0.029, z: 0}
+  m_LocalScale: {x: 0.64472413, y: 0.57115567, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1686962968}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2660922445706179467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2476856259310649229}
+  - component: {fileID: 1778697124278065125}
+  m_Layer: 0
+  m_Name: TurretMask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1001 &4998986430603547888
 PrefabInstance:
   m_ObjectHideFlags: 0

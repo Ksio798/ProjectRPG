@@ -22,7 +22,7 @@ public abstract class AttackMethod : MonoBehaviour
     }
 
     // Update is called once per frame
-   protected void Update()
+   protected virtual void Update()
     {
 
 

@@ -35,9 +35,17 @@ public class AttackManager : MonoBehaviour
     {
         if (ActiveAttacks != null && ActiveAttacks.Length != 0)
         {
-            currentActiveIndex = changeAttack(CurrentActiveAttack, ActiveAttacks, KeyCode.Tab, currentActiveIndex);
-            CurrentActiveAttack = ActiveAttacks[currentActiveIndex];
+           
+            int newIndex = changeAttack(CurrentActiveAttack, ActiveAttacks, KeyCode.Tab, currentActiveIndex);
+            if (newIndex != currentActiveIndex)
+            {
 
+                currentActiveIndex = newIndex;
+                CurrentActiveAttack.enabled = false;
+                CurrentActiveAttack = ActiveAttacks[currentActiveIndex];
+                CurrentActiveAttack.enabled = true;
+
+            }
         }
         if (PassiveAttack != null && PassiveAttack.Length != 0)
         {
