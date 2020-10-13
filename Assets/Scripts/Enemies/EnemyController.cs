@@ -23,13 +23,6 @@ public class EnemyController : BaseCharecter
     override protected void Start()
     {
 
-        if (SaveController.saves != null && SaveController.saves.Count != 0)
-        {
-
-            if (SaveController.saves[OneSavePanel.SaveNum].ObjToDestroy.Contains(SaveHelper.CreateVector2D(transform.position))
-                    && GameController.ActiveLevelID == SaveController.saves[OneSavePanel.SaveNum].LevelID)
-                Destroy(gameObject);
-        }
 
 
         base.Start();
@@ -136,7 +129,7 @@ public class EnemyController : BaseCharecter
     public override void Die()
     {
         base.Die();
-        SaveController.Instance.ObjToDesrtoy.Add(SaveHelper.CreateVector2D(transform.position));
+       
     }
 
 }

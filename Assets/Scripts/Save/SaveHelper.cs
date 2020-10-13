@@ -17,6 +17,15 @@ public class SaveHelper : MonoBehaviour
         stats.MaxManna = savedStats.MaxManna;
         stats.Speed = savedStats.Speed;
         stats.health = savedStats.health;
+        stats.AmmoCountUpdate = savedStats.AmmoCountUpdate;
+        stats.DamageCountUpdate = savedStats.DamageCountUpdate;
+        stats.damageResistanceInPercentCountUpdate = savedStats.damageResistanceInPercentCountUpdate;
+        stats.HealthCountUpdate = savedStats.HealthCountUpdate;
+        stats.MedChestCountUpdate = savedStats.MedChestCountUpdate;
+        stats.SpeedCountUpdate = savedStats.SpeedCountUpdate;
+
+
+
     }
     public static void LoadInv(InventoryToSave inventoryToSave, Inventory inventory)
     {
@@ -41,6 +50,13 @@ public class SaveHelper : MonoBehaviour
         statsToSave.MaxManna = stats.MaxManna;
         statsToSave.Speed = stats.Speed;
         statsToSave.health = stats.health;
+        statsToSave.AmmoCountUpdate = stats.AmmoCountUpdate;
+        statsToSave.DamageCountUpdate = stats.DamageCountUpdate;
+        statsToSave.damageResistanceInPercentCountUpdate = stats.damageResistanceInPercentCountUpdate;
+        statsToSave.HealthCountUpdate = stats.HealthCountUpdate;
+        statsToSave.MedChestCountUpdate = stats.MedChestCountUpdate;
+        statsToSave.SpeedCountUpdate = stats.SpeedCountUpdate;
+
         return statsToSave;
     }
     public static InventoryToSave CreateSctructInv(Inventory inventory)
@@ -114,7 +130,7 @@ public class SaveHelper : MonoBehaviour
     {
         Vector2D[] m;
 
-        Debug.Log(OneSavePanel.SaveNum);
+
         if (OneSavePanel.SaveNum>=0)
         {
             m = new Vector2D[SaveController.Instance.ObjToDesrtoy.Count + SaveController.saves[OneSavePanel.SaveNum].ObjToDestroy.Length + 10];

@@ -23,7 +23,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6061569535772541161
 Transform:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 6061569535772541159}
   CanMove: 1
-  CurrentptayerType: 0
+  CurrentptayerType: 1
   crossHair: {fileID: 6061569536939339370}
   ObMask:
     serializedVersion: 2
@@ -190,9 +190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3050cfdb252446847b13c73c6b8b6e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackMethods:
-  - {fileID: 6061569536852162173}
-  CurentAttack: {fileID: 6061569536852162173}
+  ActiveAttacks: []
+  CurrentPassiveAttack: {fileID: 0}
+  PassiveAttack: []
+  CurrentActiveAttack: {fileID: 0}
   CurrentCharacter: {fileID: 6061569535772541166}
 --- !u!114 &6061569535772541152
 MonoBehaviour:
@@ -208,8 +209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxMedicineChestCount: 3
   HealingPercentByMedicineChest: 50
-  Money: 0
   MaxAmmo: 30
+  currentAmmo: 0
   ShildCount: 0
   medicineChestCount: 1
 --- !u!114 &6061569535772541159
@@ -224,13 +225,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7430405e545363242b4fb3f225d1d6de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 70
+  SpeedCountUpdate: 0
   Damage: 10
+  DamageCountUpdate: 0
   MaxHealth: 10
+  HealthCountUpdate: 0
   damageResistanceInPercent: 50
+  damageResistanceInPercentCountUpdate: 0
   manna: 0
   MaxManna: 0
   MannaEarnPerSecond: 0
+  health: 0
+  AmmoCountUpdate: 0
+  MedChestCountUpdate: 0
 --- !u!1 &6061569536852162163
 GameObject:
   m_ObjectHideFlags: 0

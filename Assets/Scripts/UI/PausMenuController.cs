@@ -27,12 +27,12 @@ public class PausMenuController : MonoBehaviour
             if (!PausPanel.activeSelf)
             {
                 Time.timeScale = 1;
-                gameController.CanSelect = true;
+                GameController.CanSelect = true;
             }
             else  if(PausPanel.activeSelf)
             {
                 Time.timeScale = 0;
-                gameController.CanSelect = false;
+                GameController.CanSelect = false;
             }
             texture = getScreenShot();
             
