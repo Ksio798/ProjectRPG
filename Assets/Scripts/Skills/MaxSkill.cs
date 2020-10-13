@@ -11,13 +11,24 @@ public class MaxSkill : AttackMethod
     public GameObject CrossHair;
 
     public int MaxTurretsCount;
+
     int countOfSpawned;
+
+    Stats stas;
+
+
     public override void OnFire(float damage)
     {
+
+        if (MaxTurretsCount > countOfSpawned)
+        { 
         GameObject newTurret = Instantiate(TurretPrefab);
         newTurret.transform.position = TurretMask.transform.position;
-      //  newTurret.transform.localScale = Vector3.one;
-
+            //  newTurret.transform.localScale = Vector3.one;
+            countOfSpawned++;
+        }
+        
+        
     }
 
 
