@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
     public PlayerUIController playerUIController;
     public CarInventory carInventory;
         [HideInInspector]
-   public bool CanSelect = true;
+   public static bool CanSelect = true;
     public static int ActiveLevelID;
     void Start()
     {
@@ -38,6 +38,10 @@ public class GameController : MonoBehaviour
         Dima.playerUIController = playerUIController;
         Max.playerUIController = playerUIController;
         Alex.playerUIController = playerUIController;
+        Egor.stats.SetStartHealth();
+        Dima.stats.SetStartHealth();
+        Max.stats.SetStartHealth();
+        Alex.stats.SetStartHealth();
         if (OneSavePanel.SaveNum==-1)
         {
             Dima.transform.position = StartPoint.position;

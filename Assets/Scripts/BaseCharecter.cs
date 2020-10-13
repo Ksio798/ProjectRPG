@@ -12,7 +12,7 @@ public class BaseCharecter : MonoBehaviour
     
     protected virtual void Start()
     {
-        if(SaveController.saves ==null|| SaveController.saves.Count == 0)
+        //if(SaveController.saves ==null|| SaveController.saves.Count == 0)
         stats.health = stats.MaxHealth;
         StartCoroutine(WaitToMannaRegen());
     }

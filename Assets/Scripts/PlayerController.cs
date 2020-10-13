@@ -40,9 +40,7 @@ public class PlayerController : BaseCharecter
             LoadSave(); 
         }
 
-       // Inventory.Ammo = 10;
-       // playerUIController = FindObjectOfType<PlayerUIController>();
-       // Debug.Log((playerUIController == null)+"    "+CurrentptayerType);
+      
         if (playerUIController != null)
         {
             UpdateUI();

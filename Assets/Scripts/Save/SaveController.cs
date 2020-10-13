@@ -37,13 +37,19 @@ public class SaveData
 public struct statsToSave
 {
     public float Speed;
+    public int SpeedCountUpdate;
     public float Damage;
+    public int DamageCountUpdate;
     public float MaxHealth;
+    public int HealthCountUpdate;
     public float damageResistanceInPercent;
+    public int damageResistanceInPercentCountUpdate;
     public float manna;
     public float MaxManna;
     public float MannaEarnPerSecond;
     public float health;
+    public int AmmoCountUpdate;
+    public int MedChestCountUpdate;
 }
 [System.Serializable]
 public struct InventoryToSave
