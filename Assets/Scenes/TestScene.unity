@@ -1511,11 +1511,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90118091429e8f4ab3e66728b9fbc46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EgorPrefab: {fileID: 2578257753770919492, guid: 5eef18a1720bf18409066f6df1356053,
+  EgorPrefab: {fileID: 9201753710852122437, guid: 872637e8e269d1d438adf5ee637b17c5,
     type: 3}
-  DimaPrefab: {fileID: 6061569535772541166, guid: fe0cd061f56a87b4a906ef32a9c2cacf,
+  DimaPrefab: {fileID: 8152811335202213201, guid: fe0cd061f56a87b4a906ef32a9c2cacf,
     type: 3}
-  MaxPrefab: {fileID: 213176759403986595, guid: c6978780ce468a347b83a984a348e300,
+  MaxPrefab: {fileID: 7831463326511494563, guid: 93e09d4ef61ec9644a4ea3b13a4aaff9,
     type: 3}
   AlexPrefab: {fileID: 5186556991032378305, guid: 42ed0cd9c087dc14aa5c058e43e9f0e1,
     type: 3}
