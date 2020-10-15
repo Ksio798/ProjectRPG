@@ -16,7 +16,7 @@ public class PlayerUIController : MonoBehaviour
     public Image WeaponImagine;
     public Image HPImagine;
   
-    public Image SteelArmsImage;
+
     public void SetHp(float MaxHp, float curentHP)
     {
         HPImagine.fillAmount = curentHP / MaxHp;
@@ -28,9 +28,9 @@ public class PlayerUIController : MonoBehaviour
         BulletsText.text = $"{bullets}";
        
     }
-    public void SetSteelArmsImage(Sprite sprite)
+    public void SetGunImage(Sprite sprite)
     {
-
+        WeaponImagine.sprite = sprite;
     }
     public void SetMoney(int money)
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class GameController : MonoBehaviour
 {
     [SerializeField]
@@ -28,7 +28,19 @@ public class GameController : MonoBehaviour
         [HideInInspector]
    public static bool CanSelect = true;
     public static int ActiveLevelID;
+    public TextMeshProUGUI StartText;
+    public string TextOnStart;
+    Texture2D texture;
+    float TargetTime = 5.5f;
+    float time;
     void Start()
+    {
+        CreateTex();
+        StartText.text = TextOnStart;
+
+        PlayerStart();
+    }
+    void PlayerStart()
     {
         Egor = Instantiate(EgorPrefab);
         Dima = Instantiate(DimaPrefab);
@@ -42,7 +54,7 @@ public class GameController : MonoBehaviour
         Dima.stats.SetStartHealth();
         Max.stats.SetStartHealth();
         Alex.stats.SetStartHealth();
-        if (OneSavePanel.SaveNum==-1)
+        if (OneSavePanel.SaveNum == -1)
         {
             Dima.transform.position = StartPoint.position;
             ActivePlayer = Dima;
@@ -55,7 +67,6 @@ public class GameController : MonoBehaviour
             GetPlayerByType();
         }
     }
-
     void Update()
     {
         PlayerSelect();
@@ -138,10 +149,54 @@ public class GameController : MonoBehaviour
             ActivePlayer = Alex;
         }
     }
+    
+
     IEnumerator WaitToCanS()
     {
         yield return new WaitForSeconds(10);
         CanSelect = true;
     }
+    IEnumerator WaitToTex()
+    {
+        while (time < TargetTime)
+        {
 
+            yield return new WaitForEndOfFrame();
+            time += Time.deltaTime;
+
+            for (int i = 0; i < 16; i++)
+            {
+                for (int j = 0; j < 16; j++)
+                {
+                    texture.SetPixel(i, j, Color.Lerp(Color.black, Color.clear, time / TargetTime));
+                }
+            }
+            texture.Apply();
+           
+        }
+        StartText.GetComponent<Animation>().Play();
+    }
+   void  CreateTex()
+    {
+        texture = new Texture2D(16, 16);
+
+
+        time = 0;
+
+        for (int i = 0; i < 16; i++)
+        {
+            for (int j = 0; j < 16; j++)
+            {
+                texture.SetPixel(i, j, Color.black);
+            }
+        }
+        texture.Apply();
+        StartCoroutine(WaitToTex());
+    }
+
+    private void OnGUI()
+    {
+        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), texture);
+
+    }
 }

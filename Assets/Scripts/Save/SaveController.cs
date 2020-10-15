@@ -123,6 +123,7 @@ public class SaveController : MonoBehaviour
         saves.Add(newSD);
         if (saves.Count > 8)
         {
+            DeleteFile(saves[0].TexturePath);
             saves.RemoveAt(0);
         }
     }
@@ -172,6 +173,8 @@ public class SaveController : MonoBehaviour
     public void DeleteAllSaves()
     {
         saves.Clear();
+        DeleteFile(getFilePath());
+
     }
 
     public void DeleteSave(int levelId)
@@ -221,6 +224,9 @@ public class SaveController : MonoBehaviour
         return filePath;
 
     }
-
+    void DeleteFile(string FilePath)
+    {
+        File.Delete(FilePath);
+    }
 
 }

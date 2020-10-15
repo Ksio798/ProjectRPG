@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEditor.Rendering;
+
 public class EnemyController : BaseCharecter
 {
 
@@ -74,7 +76,16 @@ public class EnemyController : BaseCharecter
             agent.SetDestination(followTarget.position);
         else
             agent.SetDestination(transform.position);
+        if (!followTarget.gameObject.activeSelf)
+        {
+            Transform tr = FindObjectOfType<PlayerController>().transform;
+            if (Vector3.Distance(transform.position, followTarget.position) <= FollowStopDistance)
+            {
 
+                followTarget = tr;
+            }
+           
+        }
 
         if (Vector3.Distance(transform.position, followTarget.position) > FollowStopDistance)
         {

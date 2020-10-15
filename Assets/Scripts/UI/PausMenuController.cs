@@ -14,9 +14,12 @@ public class PausMenuController : MonoBehaviour
     public GameObject CreateSavePanel;
     public GameObject SettingsPanel;
     public Image ScreenShot;
-  public  Texture2D texture;
+    public Texture2D texture;
     public GameController gameController;
-   void Update()
+    public OneSavePanel oneSavePanelPrefab;
+    public GameObject SavePanel;
+    public GameObject SaveButton;
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -29,13 +32,21 @@ public class PausMenuController : MonoBehaviour
                 Time.timeScale = 1;
                 GameController.CanSelect = true;
             }
-            else  if(PausPanel.activeSelf)
+            else if (PausPanel.activeSelf)
             {
                 Time.timeScale = 0;
                 GameController.CanSelect = false;
             }
+            if (SaveController.saves != null && SaveController.saves.Count != 0)
+            {
+                SaveButton.SetActive(true);
+                UpdateSavesPanel();
+            }
+            else
+            {
+                SaveButton.SetActive(false);
+            }
             texture = getScreenShot();
-            
 
         }
     }
@@ -58,9 +69,9 @@ public class PausMenuController : MonoBehaviour
     }
     public void CreateSaveButton()
     {
-    ScreenShot.sprite = Sprite.Create(texture,
-                new Rect(0, 0, resWidth, resHeight),
-                  Vector2.zero, 100);
+        ScreenShot.sprite = Sprite.Create(texture,
+                    new Rect(0, 0, resWidth, resHeight),
+                      Vector2.zero, 100);
         CreateSavePanel.SetActive(true);
         PausPanel.SetActive(false);
     }
@@ -75,7 +86,7 @@ public class PausMenuController : MonoBehaviour
         PausPanel.SetActive(false);
         Time.timeScale = 1;
     }
-        
+
     public void LoadSaveButton()
     {
         LoadSavePanel.SetActive(true);
@@ -86,4 +97,26 @@ public class PausMenuController : MonoBehaviour
         SettingsPanel.SetActive(true);
         PausPanel.SetActive(false);
     }
+    void UpdateSavesPanel()
+    {
+         
+        for (int i = 0; i < SavePanel.gameObject.transform.childCount; i++)
+        {
+            Destroy(SavePanel.transform.GetChild(i).gameObject);
+        }
+
+        if (SaveController.saves != null)
+        {
+            for (int i = SaveController.saves.Count - 1; i > -1; i--)
+            {
+                OneSavePanel panel = Instantiate(oneSavePanelPrefab);
+                panel.SetInfo(SaveController.saves[i].SaveName, SaveController.saves[i].Date, SaveController.saves[i].LevelID, SaveController.saves[i].TexturePath, i);
+                panel.GetComponent<Button>().onClick.AddListener(() => { panel.onClick(); });
+                panel.transform.SetParent(SavePanel.transform);
+            }
+        }
+    }
+
+
+
 }
