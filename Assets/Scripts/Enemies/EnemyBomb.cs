@@ -18,7 +18,7 @@ public class EnemyBomb : EnemyBulletScript
 
 
         float dit = Vector2.Distance(transform.position, PlayerPos);
-        Debug.Log("transform.position = PlayerPos.position"+dit);
+      //  Debug.Log("transform.position = PlayerPos.position"+dit);
 
         if (dit<0.5f && GetComponent<Rigidbody2D>().bodyType != RigidbodyType2D.Static)
         {
