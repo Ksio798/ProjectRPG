@@ -33,13 +33,17 @@ public class GameController : MonoBehaviour
     Texture2D texture;
     float TargetTime = 5.5f;
     float time;
+    public static bool CanCreateSave = true;
+
     void Start()
     {
-        CreateTex();
-        StartText.text = TextOnStart;
+      //  CreateTex();
+      
 
         PlayerStart();
     }
+    
+
     void PlayerStart()
     {
         Egor = Instantiate(EgorPrefab);
@@ -191,7 +195,8 @@ public class GameController : MonoBehaviour
             }
         }
         texture.Apply();
-        StartCoroutine(WaitToTex());
+       // StartCoroutine(WaitToTex());
+        StartText.text = TextOnStart;
     }
 
     private void OnGUI()
