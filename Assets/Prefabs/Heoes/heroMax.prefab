@@ -480,7 +480,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 1
   crossHair: {fileID: 7831463327361257768}
+  CurrentWeapon: {fileID: 0}
   holdPoint: {fileID: 7831463327478669618}
+  deafultWeapon: {fileID: 0}
 --- !u!1001 &7915354888591267459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -498,10 +500,20 @@ PrefabInstance:
       propertyPath: interactionKey
       value: 101
       objectReference: {fileID: 0}
+    - target: {fileID: 105288349612387725, guid: 0a75f40770ab79c43bc50d9b972e7171,
+        type: 3}
+      propertyPath: LocalPosition.x
+      value: 0.1053268
+      objectReference: {fileID: 0}
+    - target: {fileID: 105288349612387725, guid: 0a75f40770ab79c43bc50d9b972e7171,
+        type: 3}
+      propertyPath: LocalPosition.y
+      value: -0.2102842
+      objectReference: {fileID: 0}
     - target: {fileID: 105288349612387727, guid: 0a75f40770ab79c43bc50d9b972e7171,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.061
+      value: 0.060999993
       objectReference: {fileID: 0}
     - target: {fileID: 105288349612387727, guid: 0a75f40770ab79c43bc50d9b972e7171,
         type: 3}
@@ -552,6 +564,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 105288349612387727, guid: 0a75f40770ab79c43bc50d9b972e7171,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.62789494
+      objectReference: {fileID: 0}
+    - target: {fileID: 105288349612387727, guid: 0a75f40770ab79c43bc50d9b972e7171,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6238358
+      objectReference: {fileID: 0}
+    - target: {fileID: 105288349612387727, guid: 0a75f40770ab79c43bc50d9b972e7171,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a75f40770ab79c43bc50d9b972e7171, type: 3}

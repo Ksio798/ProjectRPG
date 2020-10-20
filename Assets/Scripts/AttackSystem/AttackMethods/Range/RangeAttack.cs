@@ -7,12 +7,14 @@ public class RangeAttack : AttackMethod
     public float offset;  
     private Transform shotDir;
     public Transform crossHair;
-    WeaponData CurrentWeapon;
+    public WeaponData CurrentWeapon;
     public Transform holdPoint;
+    public WeaponData deafultWeapon;
+
 
     private void Start()
     {
-        
+        SetNewWeapon(deafultWeapon);
     }
 
     public override void OnFire(float damage)

@@ -26,11 +26,13 @@ public class AmmoBag : MonoBehaviour, IInteractable
     {
         PlayerController pc = other.GetComponent<PlayerController>();
 
-        if(pc != null)
+        if (pc != null)
         {
+            if (SaveController.Instance != null)
             SaveController.Instance.ObjToDesrtoy.Add(SaveHelper.CreateVector2D(transform.position));
             pc.Inventory.AddAmmo(Random.Range(4, 8));
             Destroy(gameObject);
+           
         }
     }
 
