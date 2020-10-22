@@ -14,6 +14,7 @@ public class RangeAttack : AttackMethod
 
     private void Start()
     {
+        if(deafultWeapon != null)
         SetNewWeapon(deafultWeapon);
     }
 

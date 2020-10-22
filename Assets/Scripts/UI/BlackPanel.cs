@@ -8,5 +8,6 @@ public class BlackPanel : MonoBehaviour
    public void TextAnimStart()
     {
         text.GetComponent<Animation>().Play();
+        gameObject.SetActive(false);
     }
 }

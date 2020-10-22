@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Fungus;
+using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     [SerializeField]
@@ -28,17 +30,25 @@ public class GameController : MonoBehaviour
         [HideInInspector]
    public static bool CanSelect = true;
     public static int ActiveLevelID;
+    public static bool CanCreateSave = true;
     public TextMeshProUGUI StartText;
     public string TextOnStart;
     Texture2D texture;
     float TargetTime = 5.5f;
     float time;
-    public static bool CanCreateSave = true;
-
+    public Flowchart chat;
+    public Animator BAnim;
     void Start()
     {
-      //  CreateTex();
-      
+        //  CreateTex();
+        if (OneSavePanel.SaveNum ==-1||ActiveLevelID != SaveController.saves[OneSavePanel.SaveNum].LevelID)
+        {
+            chat.SetBooleanVariable("NeedStartText", true);
+        }
+        else
+        {
+            BAnim.SetTrigger("Start");
+        }
 
         PlayerStart();
     }
@@ -180,28 +190,28 @@ public class GameController : MonoBehaviour
         }
         StartText.GetComponent<Animation>().Play();
     }
-   void  CreateTex()
-    {
-        texture = new Texture2D(16, 16);
+   //void  CreateTex()
+   // {
+   //     texture = new Texture2D(16, 16);
 
 
-        time = 0;
+   //     time = 0;
 
-        for (int i = 0; i < 16; i++)
-        {
-            for (int j = 0; j < 16; j++)
-            {
-                texture.SetPixel(i, j, Color.black);
-            }
-        }
-        texture.Apply();
-       // StartCoroutine(WaitToTex());
-        StartText.text = TextOnStart;
-    }
+   //     for (int i = 0; i < 16; i++)
+   //     {
+   //         for (int j = 0; j < 16; j++)
+   //         {
+   //             texture.SetPixel(i, j, Color.black);
+   //         }
+   //     }
+   //     texture.Apply();
+   //    // StartCoroutine(WaitToTex());
+   //     StartText.text = TextOnStart;
+   // }
 
-    private void OnGUI()
-    {
-        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), texture);
+    //private void OnGUI()
+    //{
+    //    GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), texture);
 
-    }
+    //}
 }

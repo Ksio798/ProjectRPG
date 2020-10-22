@@ -19,6 +19,7 @@ public class SaveData
     public float PlayerPosX;
     public float PlayerPosY;
     public int PlayerType;
+  //  public bool NeedStartText;
     public statsToSave statsEgor;
     public statsToSave statsDima;
     public statsToSave statsMax;
