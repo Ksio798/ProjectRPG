@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: -4897008688914077474}
   m_Layer: 0
   m_Name: heroMax
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,11 +258,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 100
   SpeedCountUpdate: 0
-  Damage: 5
+  Damage: 1
   DamageCountUpdate: 0
   MaxHealth: 10
   HealthCountUpdate: 0
-  damageResistanceInPercent: 50
+  damageResistanceInPercent: 10
   damageResistanceInPercentCountUpdate: 0
   manna: 100
   MaxManna: 100

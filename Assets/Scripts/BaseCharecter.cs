@@ -48,7 +48,7 @@ public class BaseCharecter : MonoBehaviour
     {
         Destroy(gameObject);
     }
- IEnumerator WaitToMannaRegen()
+protected IEnumerator WaitToMannaRegen()
     {
         while (true)
         {

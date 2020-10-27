@@ -12,7 +12,7 @@ public class BulletScipt : MonoBehaviour
     public string GroundTag;
     BaseCharecter damagedCharacter;  // для проверки, в кого попала пуля. Чтобы не был нанесен повторный урон
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.gameObject.tag == TargetTag) // если тег столкновения равен тегу цели, то нанести урон персонажу и уничтожить пулю
@@ -38,15 +38,15 @@ public class BulletScipt : MonoBehaviour
     }
 
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == GroundTag) // если пуля столкнулась с землей, то уничтожить пулю
-        {
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == GroundTag) // если пуля столкнулась с землей, то уничтожить пулю
+    //    {
 
-            Debug.Log("Destroy bullet" + collision.gameObject.tag);
-            // Destroy(gameObject);
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    //        Debug.Log("Destroy bullet" + collision.gameObject.tag);
+    //        // Destroy(gameObject);
+    //        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
-        }
-    }
+    //    }
+    //}
 }

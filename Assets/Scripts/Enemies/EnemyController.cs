@@ -104,7 +104,7 @@ public class EnemyController : BaseCharecter
         if (other.tag == "Player")
         {
             followTarget = other.transform;
-            Debug.Log("followTarget ");
+
         }
 
     }

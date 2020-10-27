@@ -101,7 +101,7 @@ MonoBehaviour:
   CoolDown: 0.1
   Force: 1000
   BulletDestroyTime: 2
-  Damage: 10
+  Damage: 3
   LocalPosition: {x: 0, y: 0, z: 0}
   interactByKey: 0
   interactionKey: 0

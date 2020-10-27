@@ -34,21 +34,37 @@ public class PlayerController : BaseCharecter
 
     protected override void Start()
     {
-        base.Start();
-        if (OneSavePanel.SaveNum != -1)
-        {
-            LoadSave(); 
-        }
+        //  base.Start();
+        //if (OneSavePanel.SaveNum != -1)
+        //{
+        //    LoadSave(); 
+        //}
 
-      
-        if (playerUIController != null)
-        {
-            UpdateUI();
-        }
+
+        //if (playerUIController != null)
+        //{
+        //   // UpdateUI();
+        //}
+        StartCoroutine(WaitToMannaRegen());
         rb = GetComponent<Rigidbody2D>();
     }
 
+    public void  LoadPlayerCOntrollerData()
+    {
+        stats.health = stats.MaxHealth;
+        if (OneSavePanel.SaveNum != -1)
+        {
+            LoadSave();
+        }
 
+
+        //if (playerUIController != null)
+        //{
+        //     UpdateUI();
+        //}
+
+
+    }
     void Update()
     {
 
@@ -210,7 +226,9 @@ public class PlayerController : BaseCharecter
     }
     public override void Die()
     {
+        FindObjectOfType<PausMenuController>().GameOver(); 
         base.Die();
+
         //health = -1;
         //SceneManager.LoadScene(0);
     }

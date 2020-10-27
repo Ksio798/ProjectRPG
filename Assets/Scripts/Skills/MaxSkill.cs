@@ -35,7 +35,7 @@ public class MaxSkill : AttackMethod
     protected override void Update()
     {
       base.Update();
-        Debug.Log("ferfer");
+
         TurretMask.transform.position = CrossHair.transform.position;
     }
 

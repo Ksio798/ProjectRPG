@@ -80,6 +80,13 @@ public class GameController : MonoBehaviour
         {
             GetPlayerByType();
         }
+
+        Egor.LoadPlayerCOntrollerData();
+        Alex.LoadPlayerCOntrollerData();
+        Max.LoadPlayerCOntrollerData();
+        Dima.LoadPlayerCOntrollerData();
+
+        ActivePlayer.UpdateUI();
     }
     void Update()
     {

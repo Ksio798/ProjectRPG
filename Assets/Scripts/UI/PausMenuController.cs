@@ -10,7 +10,7 @@ public class PausMenuController : MonoBehaviour
     public int resWidth = 1920;
     public int resHeight = 1080;
     public GameObject PausPanel;
- 
+    public GameObject LoadSavePanel;
     public GameObject CreateSavePanel;
     public GameObject SettingsPanel;
     public Image ScreenShot;
@@ -18,6 +18,9 @@ public class PausMenuController : MonoBehaviour
     public GameController gameController;
     public OneSavePanel oneSavePanelPrefab;
     public GameObject InfoPanel;
+    public GameObject GameOverPanel;
+
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -94,6 +97,40 @@ public class PausMenuController : MonoBehaviour
         SettingsPanel.SetActive(true);
         PausPanel.SetActive(false);
     }
+
+    public void LoadLastSave()
+    {
+        if (SaveController.saves!=null&& SaveController.saves.Count != 0)
+        {
+
+        if (GameController.ActiveLevelID == SaveController.saves[SaveController.saves.Count - 1].LevelID)
+        {
+            OneSavePanel.SaveNum = SaveController.saves.Count - 1;
+            SceneManager.LoadScene(GameController.ActiveLevelID);
+        }
+        else
+        {
+        GameController.ActiveLevelID = SaveController.saves[SaveController.saves.Count - 1].LevelID;
+            OneSavePanel.SaveNum = SaveController.saves.Count - 1;
+            SceneManager.LoadScene(SaveController.saves[SaveController.saves.Count - 1].LevelID);
+        }
+        }
+
+
+    }
+    public void LoadSaveButton()
+    {
+        LoadSavePanel.SetActive(true);
+    }
+    public void GameOver()
+    {
+        GameOverPanel.SetActive(true);
+        GameController.CanSelect = true;
+    }
+
+
+
+
    IEnumerator WaitToInfoPanel()
     {
         yield return new WaitForSeconds(1);
