@@ -13,16 +13,21 @@ public class PlayerUIController : MonoBehaviour
     public TextMeshProUGUI MutagenText;
     public TextMeshProUGUI SanorinText;
     public TextMeshProUGUI MedText;
+    public TextMeshProUGUI MannaText;
     public Image WeaponImagine;
     public Image HPImagine;
-  
+    public Image MannaImg;
 
     public void SetHp(float MaxHp, float curentHP)
     {
         HPImagine.fillAmount = curentHP / MaxHp;
         HPText.text = $"{(int)Mathematics.GetValueInPercent(MaxHp, curentHP)}%";
     }
-   
+   public void SetManna(float Max, float current)
+    {
+        MannaImg.fillAmount = current / Max;
+        MannaText.text = $"{(int)Mathematics.GetValueInPercent(Max, current)}%";
+    }
     public void SetBullet(int bullets)
     {
         BulletsText.text = $"{bullets}";

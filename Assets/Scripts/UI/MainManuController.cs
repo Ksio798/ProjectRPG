@@ -19,7 +19,7 @@ public class MainManuController : MonoBehaviour
         SaveController.Instance.LoadData();
             FirstStart = false;
         }
-        if (SaveController.saves!=null)
+        if (SaveController.saves!=null&& SaveController.saves.Count !=0)
         {
             for (int i = SaveController.saves.Count-1; i > -1; i--)
             {

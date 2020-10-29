@@ -48,16 +48,16 @@ public class BaseCharecter : MonoBehaviour
     {
         Destroy(gameObject);
     }
-protected IEnumerator WaitToMannaRegen()
+protected virtual IEnumerator WaitToMannaRegen()
     {
         while (true)
         {
             yield return new WaitForSeconds(1);
-            if (stats.manna<stats.MaxHealth)
+            if (stats.manna<stats.MaxManna)
             {
                 stats.manna += stats.MannaEarnPerSecond;
-                if (stats.manna > stats.MaxHealth)
-                    stats.manna = stats.MaxHealth;
+                if (stats.manna > stats.MaxManna)
+                    stats.manna = stats.MaxManna;
             }
          //   Debug.Log(stats.manna+name);
         }

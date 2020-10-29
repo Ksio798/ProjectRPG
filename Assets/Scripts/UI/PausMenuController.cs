@@ -26,8 +26,14 @@ public class PausMenuController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             CreateSavePanel.SetActive(false);
-          //  LoadSavePanel.SetActive(false);
+          // LoadSavePanel.SetActive(false);
             SettingsPanel.SetActive(false);
+            if (LoadSavePanel.activeSelf)
+            {
+                LoadSavePanel.SetActive(false);
+                GameOverPanel.SetActive(true);
+            }
+            if(!GameOverPanel.activeSelf)
             PausPanel.SetActive(!PausPanel.activeSelf);
             if (!PausPanel.activeSelf)
             {
@@ -84,6 +90,7 @@ public class PausMenuController : MonoBehaviour
         OneSavePanel.SaveNum = -1;
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
+        GameController.CanSelect = true;
     }
     public void Continue()
     {
@@ -120,6 +127,17 @@ public class PausMenuController : MonoBehaviour
     }
     public void LoadSaveButton()
     {
+        if (SaveController.saves != null && SaveController.saves.Count != 0)
+        {
+            for (int i = SaveController.saves.Count - 1; i > -1; i--)
+            {
+                OneSavePanel panel = Instantiate(oneSavePanelPrefab);
+                panel.SetInfo(SaveController.saves[i].SaveName, SaveController.saves[i].Date, SaveController.saves[i].LevelID, SaveController.saves[i].TexturePath, i);
+                panel.GetComponent<Button>().onClick.AddListener(() => { panel.onClick(); });
+                panel.transform.SetParent(LoadSavePanel.transform);
+            }
+        }
+        GameOverPanel.SetActive(false);
         LoadSavePanel.SetActive(true);
     }
     public void GameOver()

@@ -267,7 +267,7 @@ public class PlayerController : BaseCharecter
     }
     public void UpdateUI()
     {
-
+        playerUIController.SetManna(stats.MaxManna, stats.manna);
         playerUIController.SetHp(stats.MaxHealth, stats.health);
         playerUIController.SetMedicineCount(Inventory.MedicineChestCount);
         playerUIController.SetBullet(Inventory.Ammo);
@@ -275,6 +275,10 @@ public class PlayerController : BaseCharecter
         playerUIController.SetMutagenCount(CarInventory.MutagenCount);
         playerUIController.SetSanorinCount(CarInventory.SanorinCount);
     }
-
+    protected override IEnumerator WaitToMannaRegen()
+    {
+        playerUIController.SetManna(stats.MaxManna, stats.manna);
+        return base.WaitToMannaRegen();
+    }
 }
 

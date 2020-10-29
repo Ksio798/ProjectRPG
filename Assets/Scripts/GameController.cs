@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
         {
             BAnim.SetTrigger("Start");
         }
-
+        ActiveLevelID = SceneManager.GetActiveScene().buildIndex;
         PlayerStart();
     }
     
