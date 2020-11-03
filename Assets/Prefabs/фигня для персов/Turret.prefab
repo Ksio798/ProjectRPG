@@ -115,7 +115,7 @@ MonoBehaviour:
   viewZone: {fileID: 2048073623493678696}
   TargetTag: Enemy
   turret: {fileID: 2034397955137815612}
-  damage: 5
+  damage: 1
 --- !u!114 &2034397955137815612
 MonoBehaviour:
   m_ObjectHideFlags: 0

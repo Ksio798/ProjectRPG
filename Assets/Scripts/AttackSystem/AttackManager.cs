@@ -84,7 +84,7 @@ public class AttackManager : MonoBehaviour
         {
             if (attackSlot.AttackInput())
             {
-                attackSlot.OnFire(CurrentCharacter.stats.Damage);
+                attackSlot.OnFire(CurrentCharacter.stats);
             }
         }
     }

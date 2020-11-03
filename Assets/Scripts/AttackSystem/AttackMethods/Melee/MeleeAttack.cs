@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MeleeAttack : AttackMethod
 {
-    public override void OnFire(float damage)
+    public override void OnFire(Stats playerStats)
     {
     
     }

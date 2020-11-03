@@ -45,8 +45,10 @@ public class PlayerController : BaseCharecter
         //{
         //   // UpdateUI();
         //}
+
+         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(WaitToMannaRegen());
-        rb = GetComponent<Rigidbody2D>();
+       
     }
 
     public void  LoadPlayerCOntrollerData()
@@ -222,6 +224,7 @@ public class PlayerController : BaseCharecter
         }
         else
             stats.health = stats.MaxHealth;
+        if(playerUIController != null)
         playerUIController.SetHp(stats.MaxHealth, stats.health);
     }
     public override void Die()
@@ -277,6 +280,7 @@ public class PlayerController : BaseCharecter
     }
     protected override IEnumerator WaitToMannaRegen()
     {
+        if(playerUIController != null)
         playerUIController.SetManna(stats.MaxManna, stats.manna);
         return base.WaitToMannaRegen();
     }
