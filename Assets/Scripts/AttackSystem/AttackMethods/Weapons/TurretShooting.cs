@@ -20,7 +20,7 @@ public class TurretShooting : MonoBehaviour
 
   public void Shoot(Vector3 direction,int damage,string TargetTag)
     {
-        if(ShootAttackTimer<=0)
+        //if(ShootAttackTimer<=0)
         {
             Transform bullet = Instantiate(BulletPrefab);
             bullet.GetComponent<BulletScipt>().TargetTag = TargetTag;

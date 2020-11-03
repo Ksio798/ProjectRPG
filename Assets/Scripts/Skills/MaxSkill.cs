@@ -17,7 +17,7 @@ public class MaxSkill : AttackMethod
     Stats stas;
 
 
-    public override void OnFire(float damage)
+    public override void OnFire(Stats playerstats)
     {
 
         if (MaxTurretsCount > countOfSpawned)
@@ -26,6 +26,7 @@ public class MaxSkill : AttackMethod
         newTurret.transform.position = TurretMask.transform.position;
             //  newTurret.transform.localScale = Vector3.one;
             countOfSpawned++;
+            FireAttack?.Invoke();
         }
         
         

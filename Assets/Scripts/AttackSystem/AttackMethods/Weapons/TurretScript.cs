@@ -22,8 +22,11 @@ public class TurretScript : MonoBehaviour
     }
     void Attack()
     {
+
+        Debug.Log(34234);
         Vector3 direction = target.position - transform.position;
         turret.Shoot(direction, damage, TargetTag);
+
     }
     void View(Transform other, bool enter)
     {
@@ -32,14 +35,31 @@ public class TurretScript : MonoBehaviour
             if (other.tag == TargetTag)
             { 
             target = other;
-            Attack();
+                StartCoroutine(shoot());
             }
         }
         else
         {
             if (target == other)
+            {
                 target = null;
+                StopCoroutine(shoot());
+            }
         }
         
     }
+
+    IEnumerator shoot()
+    {
+        while (target!=null)
+        {
+            Attack();
+            yield return new WaitForSeconds(0.1F);
+
+           
+
+        }
+    
+    }
+
 }

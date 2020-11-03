@@ -17,12 +17,14 @@ public class ScphereHealEgor : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-       if (timer <= 0)
+
+        Debug.Log("COLLISION");
+        if (timer <= 0)
         {
             if (collision.tag == "Player")
            {
   
-               Debug.Log("COLLISION");
+           
          
                 charecter = collision.GetComponent<BaseCharecter>();
 

@@ -18,7 +18,7 @@ public class RangeAttack : AttackMethod
         SetNewWeapon(deafultWeapon);
     }
 
-    public override void OnFire(float damage)
+    public override void OnFire(Stats playerStats)
     {
         if (CurrentWeapon != null)
         {
@@ -30,7 +30,7 @@ public class RangeAttack : AttackMethod
                     GameObject bullet = Instantiate(CurrentWeapon.ammo, shotDir.position, transform.rotation);
 
                     bullet.GetComponent<BulletScipt>().TargetTag = "Enemy";
-                    bullet.GetComponent<BulletScipt>().Damage = CurrentWeapon.Damage+(int)damage;
+                    bullet.GetComponent<BulletScipt>().Damage = CurrentWeapon.Damage+(int)playerStats.Damage;
                     if (transform.parent.localScale.x > 0)
                         bullet.GetComponent<Rigidbody2D>().AddForce(direction * CurrentWeapon.Force);// затем прикладываем к  компоненту Rigidbody2D выктор силы: вправо от объекта Shooter с силой shootForce
                     else
