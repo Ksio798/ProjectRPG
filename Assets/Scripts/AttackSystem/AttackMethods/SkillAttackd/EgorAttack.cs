@@ -24,6 +24,7 @@ public class EgorAttack : AttackMethod
         SkillAnimation.Play("SkillAnimation");
 
         timeShot = 2;
+          
             stats.manna -= mannaMinus;
         }
     }

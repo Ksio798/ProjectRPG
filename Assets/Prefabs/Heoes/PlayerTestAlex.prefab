@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5186556991032378304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.39, y: 0.81, z: 0}
-  m_LocalScale: {x: 2.43194, y: 2.43194, z: 2.43194}
+  m_LocalPosition: {x: -0.5165, y: 0.6594, z: 0}
+  m_LocalScale: {x: 1.2267863, y: 1.2267863, z: 1.2267863}
   m_Children:
   - {fileID: 5186556992626815325}
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7839472567634266479, guid: a96ff70a4fbf6fd4a86ca6cc50a854cb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -170,8 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxMedicineChestCount: 1
   HealingPercentByMedicineChest: 30
-  Money: 0
   MaxAmmo: 30
+  currentAmmo: 0
   ShildCount: 0
   medicineChestCount: 1
 --- !u!114 &5186556991032378315
@@ -187,12 +187,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 70
+  SpeedCountUpdate: 0
   Damage: 1
+  DamageCountUpdate: 0
   MaxHealth: 10
+  HealthCountUpdate: 0
   damageResistanceInPercent: 0
+  damageResistanceInPercentCountUpdate: 0
   manna: 0
   MaxManna: 10
   MannaEarnPerSecond: 3
+  health: 0
+  AmmoCountUpdate: 0
+  MedChestCountUpdate: 0
 --- !u!1 &5186556992626815324
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,4 +245,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 1
   crossHair: {fileID: 0}
+  CurrentWeapon: {fileID: 0}
   holdPoint: {fileID: 0}
+  deafultWeapon: {fileID: 0}

@@ -45,7 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 1
   crossHair: {fileID: 8152811335350132742}
+  CurrentWeapon: {fileID: 0}
   holdPoint: {fileID: 8152811335973783134}
+  deafultWeapon: {fileID: 0}
 --- !u!1 &8152811334511314341
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 82313137198256577, guid: e538118b7b238574ea862024d61099fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
