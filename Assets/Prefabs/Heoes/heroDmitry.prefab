@@ -43,6 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6fdd16dc7d2404aa3532a1f86d8741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireAttack:
+    m_PersistentCalls:
+      m_Calls: []
   offset: 1
   crossHair: {fileID: 8152811335350132742}
   CurrentWeapon: {fileID: 0}
@@ -95,6 +98,7 @@ GameObject:
   - component: {fileID: 8152811335202213196}
   - component: {fileID: 8152811335202213197}
   - component: {fileID: 2682913746420706310}
+  - component: {fileID: 5891481042162352098}
   m_Layer: 0
   m_Name: heroDmitry
   m_TagString: Player
@@ -322,6 +326,26 @@ MonoBehaviour:
   health: 0
   AmmoCountUpdate: 0
   MedChestCountUpdate: 0
+--- !u!114 &5891481042162352098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152811335202213194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: Dmitry
+  nameColor: {r: 0.14887887, g: 0.10693307, b: 0.8396226, a: 1}
+  soundEffect: {fileID: 0}
+  portraits:
+  - {fileID: 21300000, guid: c1a82881fd84352449c1d7c1ce1c5f46, type: 3}
+  portraitsFace: 0
+  setSayDialog: {fileID: 0}
+  description: 
 --- !u!1 &8152811335552769347
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,8 +470,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cddaa6207b611a2499ea8069152c4f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireAttack:
+    m_PersistentCalls:
+      m_Calls: []
   PlayerCurrentSkin: {fileID: 2682913746420706313}
-  stats: {fileID: 2682913746420706310}
   ExtraDamage: 10
 --- !u!1 &8152811336062248418
 GameObject:
@@ -492,3 +518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5474e35b3314db478fd3c7dbf695c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireAttack:
+    m_PersistentCalls:
+      m_Calls: []

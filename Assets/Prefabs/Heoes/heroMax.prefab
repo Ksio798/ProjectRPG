@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 7831463326511494562}
   - component: {fileID: 7831463326511494563}
   - component: {fileID: -4897008688914077474}
+  - component: {fileID: 1502716523770513990}
   m_Layer: 0
   m_Name: heroMax
   m_TagString: Player
@@ -239,6 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ed55ed00623864ab1ce8ec1c63f25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireAttack:
+    m_PersistentCalls:
+      m_Calls: []
   TurretPrefab: {fileID: 799913481882627655, guid: abea0c81d774d3e4384db7598fa6de81,
     type: 3}
   TurretMask: {fileID: 5207160328077722941}
@@ -354,6 +358,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &1502716523770513990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7831463326511494566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: Max
+  nameColor: {r: 0.8018868, g: 0.6076046, b: 0.056737266, a: 1}
+  soundEffect: {fileID: 0}
+  portraits:
+  - {fileID: 21300000, guid: fcb7a6799834ddb4786f8669222d7a03, type: 3}
+  portraitsFace: 0
+  setSayDialog: {fileID: 0}
+  description: 
 --- !u!1 &7831463327361257770
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +532,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6fdd16dc7d2404aa3532a1f86d8741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireAttack:
+    m_PersistentCalls:
+      m_Calls: []
   offset: 1
   crossHair: {fileID: 7831463327361257768}
   CurrentWeapon: {fileID: 0}

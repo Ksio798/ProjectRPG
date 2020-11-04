@@ -13,7 +13,7 @@ public class EgorAttack : AttackMethod
     public Stats stats;
 
     public int mannaMinus;
-    public override void OnFire(float damage)
+    public override void OnFire(Stats playerStats)
     {
 
         if (stats.manna > 0)

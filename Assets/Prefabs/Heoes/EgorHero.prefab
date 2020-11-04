@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 9201753710852122460}
   - component: {fileID: 9201753710852122462}
   - component: {fileID: 9201753710852122451}
+  - component: {fileID: 2641091402795021135}
   m_Layer: 0
   m_Name: EgorHero
   m_TagString: Player
@@ -450,6 +451,26 @@ MonoBehaviour:
   health: 0
   AmmoCountUpdate: 0
   MedChestCountUpdate: 0
+--- !u!114 &2641091402795021135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9201753710852122438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: Egor
+  nameColor: {r: 0.3679245, g: 0.36618903, b: 0.3664676, a: 1}
+  soundEffect: {fileID: 0}
+  portraits:
+  - {fileID: 21300000, guid: 4cf050e06c884d84dbfb0eb5bf5ec4f3, type: 3}
+  portraitsFace: 0
+  setSayDialog: {fileID: 0}
+  description: 
 --- !u!1 &9201753710883649381
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,6 +514,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6fdd16dc7d2404aa3532a1f86d8741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireAttack:
+    m_PersistentCalls:
+      m_Calls: []
   offset: 1
   crossHair: {fileID: 9201753710815422448}
   CurrentWeapon: {fileID: 0}
@@ -657,6 +681,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4cc09a868a89f4d9425c992808d49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireAttack:
+    m_PersistentCalls:
+      m_Calls: []
   crossHair: {fileID: 9201753710815422448}
   SkillAnimation: {fileID: 9201753711415871065}
   stats: {fileID: 9201753710852122451}

@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Fungus;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 public class GameController : MonoBehaviour
 {
     [SerializeField]
@@ -38,6 +39,7 @@ public class GameController : MonoBehaviour
     float time;
     public Flowchart chat;
     public Animator BAnim;
+    public CinemachineVirtualCamera camera2D;
     void Start()
     {
         //  CreateTex();
@@ -87,6 +89,7 @@ public class GameController : MonoBehaviour
         Dima.LoadPlayerCOntrollerData();
 
         ActivePlayer.UpdateUI();
+        camera2D.Follow = ActivePlayer.transform;
     }
     void Update()
     {
@@ -148,6 +151,7 @@ public class GameController : MonoBehaviour
             }
 
             ActivePlayer.UpdateUI();
+            camera2D.Follow = ActivePlayer.transform;
         }
     }
 
