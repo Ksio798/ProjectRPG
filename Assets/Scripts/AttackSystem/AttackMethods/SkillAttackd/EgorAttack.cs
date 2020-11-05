@@ -26,6 +26,8 @@ public class EgorAttack : AttackMethod
         timeShot = 2;
           
             stats.manna -= mannaMinus;
+
+            FireAttack?.Invoke();
         }
     }
 }

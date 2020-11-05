@@ -2,24 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScphereHealEgor : MonoBehaviour
+public class ScphereHealEgor : AttackMethod
 {
     public BaseCharecter charecter;
     public int AddHealth = 1;
     public float Waittime;
-    private float timer;
-    private void Update()
-    {
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-        }
-    }
+
+
+    public CircleCollider2D HealBoundaryCollider;
+  
     private void OnTriggerStay2D(Collider2D collision)
     {
 
         Debug.Log("COLLISION");
-        if (timer <= 0)
+        if (timeShot <= 0)
         {
             if (collision.tag == "Player")
            {
@@ -31,8 +27,21 @@ public class ScphereHealEgor : MonoBehaviour
 
                 Debug.Log(charecter);
                 charecter.addHealth(AddHealth);
-                timer = Waittime;
+                timeShot = Waittime;
             }
         }
+    }
+
+    public override void OnFire(Stats playerStats)
+    {
+        HealBoundaryCollider.enabled = true;
+    }
+    public override bool AttackInput()
+    {
+        return Input.GetKey(KeyCode.Space);
+    }
+    public override void ClearAttackEffects()
+    {
+        HealBoundaryCollider.enabled = false;
     }
 }

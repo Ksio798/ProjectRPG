@@ -28,7 +28,7 @@ public class PlayerController : BaseCharecter
     public PlayerUIController playerUIController;
 
 
-
+    public float CrossHairRadius=4;
 
     public Inventory Inventory;
 
@@ -108,14 +108,14 @@ public class PlayerController : BaseCharecter
 
 
 
-            if (dist > 2)
+            if (dist > CrossHairRadius)
             {
 
                 Vector3 offset = aim - transform.position;
                 offset = offset.normalized;
 
-                aim.x = offset.x * 2 + transform.position.x;
-                aim.y = offset.y * 2 + transform.position.y;
+                aim.x = offset.x* CrossHairRadius + transform.position.x;
+                aim.y = offset.y* CrossHairRadius + transform.position.y;
 
             }
             crossHair.transform.position = Vector2.Lerp(crossHair.transform.position, aim, 10);

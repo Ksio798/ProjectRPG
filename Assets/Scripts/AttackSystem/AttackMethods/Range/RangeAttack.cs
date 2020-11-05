@@ -40,7 +40,7 @@ public class RangeAttack : AttackMethod
                     timeShot = CurrentWeapon.CoolDown;
 
                     GetComponentInParent<Inventory>().Ammo--;
-
+                    FireAttack?.Invoke();
                 }
 
             }

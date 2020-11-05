@@ -26,7 +26,10 @@ public class ChlimaSkill : AttackMethod
         }
         playerStats.Damage = BaseDamageLevel + ExtraDamage;
         playerStats.manna--;
+        FireAttack?.Invoke();
     }
+    
+    
     public override bool AttackInput()
     {
         return Input.GetKey(KeyCode.Space);

@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 9201753710189597007}
   - component: {fileID: 9201753710189597005}
   - component: {fileID: 9201753710189597006}
+  - component: {fileID: 1421115710}
   m_Layer: 0
   m_Name: ScphereHeal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9201753710189597007
 Transform:
   m_ObjectHideFlags: 0
@@ -39,7 +40,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9201753710189597000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -60,9 +61,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7873fa0ef4ad77c429316f065fac7aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charecter: {fileID: 0}
+  FireAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  charecter: {fileID: 9201753710852122437}
   AddHealth: 1
   Waittime: 1
+  HealBoundaryCollider: {fileID: 9201753710189597005}
+--- !u!50 &1421115710
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9201753710189597000}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &9201753710381118564
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,8 +214,6 @@ GameObject:
   - component: {fileID: 9201753710852122437}
   - component: {fileID: 9201753710852122456}
   - component: {fileID: 9201753710852122463}
-  - component: {fileID: 9201753710852122461}
-  - component: {fileID: 9201753710852122457}
   - component: {fileID: 9201753710852122460}
   - component: {fileID: 9201753710852122462}
   - component: {fileID: 9201753710852122451}
@@ -311,6 +335,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   playerUIController: {fileID: 0}
+  CrossHairRadius: 4
   Inventory: {fileID: 9201753710852122462}
 --- !u!95 &9201753710852122456
 Animator:
@@ -357,37 +382,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08032179, y: 0.21069622}
   m_EdgeRadius: 0
---- !u!58 &9201753710852122461
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9201753710852122438}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0043957713, y: -0.0007326365}
-  serializedVersion: 2
-  m_Radius: 0.4
---- !u!114 &9201753710852122457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9201753710852122438}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7873fa0ef4ad77c429316f065fac7aed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charecter: {fileID: 0}
-  AddHealth: 1
-  Waittime: 1
 --- !u!114 &9201753710852122460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,7 +398,8 @@ MonoBehaviour:
   - {fileID: 9201753710883649380}
   - {fileID: 2685562603326739004}
   CurrentPassiveAttack: {fileID: 0}
-  PassiveAttack: []
+  PassiveAttack:
+  - {fileID: 9201753710189597006}
   CurrentActiveAttack: {fileID: 0}
   CurrentCharacter: {fileID: 9201753710852122437}
 --- !u!114 &9201753710852122462
@@ -437,7 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7430405e545363242b4fb3f225d1d6de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 50
+  Speed: 150
   SpeedCountUpdate: 0
   Damage: 2
   DamageCountUpdate: 0
@@ -516,7 +511,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireAttack:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9201753710852122437}
+        m_MethodName: UpdateUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   offset: 1
   crossHair: {fileID: 9201753710815422448}
   CurrentWeapon: {fileID: 0}
@@ -683,7 +689,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireAttack:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9201753710852122437}
+        m_MethodName: UpdateUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   crossHair: {fileID: 9201753710815422448}
   SkillAnimation: {fileID: 9201753711415871065}
   stats: {fileID: 9201753710852122451}

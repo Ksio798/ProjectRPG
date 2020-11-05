@@ -86,6 +86,8 @@ public class AttackManager : MonoBehaviour
             {
                 attackSlot.OnFire(CurrentCharacter.stats);
             }
+            else
+                attackSlot.ClearAttackEffects();
         }
     }
     
