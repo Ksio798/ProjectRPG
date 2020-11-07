@@ -9,12 +9,12 @@ public class ChlimaSkill : AttackMethod
     public SpriteRenderer PlayerCurrentSkin;
   
     public int ExtraDamage = 10;
-    float BaseDamageLevel;
+    float BaseDamageLevel =0;
 
     Stats stats;
     public override void ClearAttackEffects()
     {
-        stats.Damage = BaseDamageLevel;
+       // stats.Damage = BaseDamageLevel;
         BaseDamageLevel = 0;
     }
     public override void OnFire(Stats playerStats)

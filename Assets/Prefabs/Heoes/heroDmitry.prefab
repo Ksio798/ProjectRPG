@@ -216,6 +216,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   playerUIController: {fileID: 0}
+  CrossHairRadius: 4
   Inventory: {fileID: 8152811335202213197}
 --- !u!95 &8152811335202213198
 Animator:

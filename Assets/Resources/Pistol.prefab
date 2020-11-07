@@ -152,7 +152,7 @@ MonoBehaviour:
   Damage: 5
   LocalPosition: {x: 0, y: 0, z: 0}
   interactByKey: 1
-  interactionKey: 0
+  interactionKey: 102
 --- !u!1 &4862766926550365054
 GameObject:
   m_ObjectHideFlags: 0
