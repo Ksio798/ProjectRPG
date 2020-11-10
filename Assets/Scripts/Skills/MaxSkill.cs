@@ -24,9 +24,13 @@ public class MaxSkill : AttackMethod
         { 
         GameObject newTurret = Instantiate(TurretPrefab);
         newTurret.transform.position = TurretMask.transform.position;
+
+            newTurret.GetComponent<TurretScript>().OnTurretDestroyed.AddListener(() => countOfSpawned--);
             //  newTurret.transform.localScale = Vector3.one;
             countOfSpawned++;
             FireAttack?.Invoke();
+
+
         }
         
         
