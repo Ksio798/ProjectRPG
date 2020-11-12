@@ -28,20 +28,28 @@ public class EnemyController : BaseCharecter
 
 
         base.Start();
-        for (int i = 0; i < PointParent.childCount; i++)
-        {
-            WalkingPoints.Add(PointParent.GetChild(i));
-        }
+        
         EnemyViewZone evz = GetComponentInChildren<EnemyViewZone>();
         evz.OnObjEnterZone += OnObjEnterZone;
         agent = GetComponent<NavMeshAgent>();
-
+        //if (PointParent!=null)
+        //{
+        //    SetWalkingPoints();
+        //}
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.speed = stats.Speed;
         transform.position = WalkingPoints[currentWalkingPoint].position;
         currentWalkingPoint++;
 
+    }
+    public void SetWalkingPoints()
+    {
+        for (int i = 0; i < PointParent.childCount; i++)
+        {
+            WalkingPoints.Add(PointParent.GetChild(i));
+            Debug.Log("setted");
+        }
     }
     virtual protected void Update()
     {
@@ -55,9 +63,10 @@ public class EnemyController : BaseCharecter
     protected virtual void MoveByRoute()
     {
 
+    
         if (Vector2.Distance(transform.position, WalkingPoints[currentWalkingPoint].position) > movementDelta)
         {
-
+            Debug.Log("move by route");
             agent.SetDestination(WalkingPoints[currentWalkingPoint].position);
         }
         else
