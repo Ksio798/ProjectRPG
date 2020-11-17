@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: 550616892245785750, guid: e538118b7b238574ea862024d61099fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -105,9 +105,9 @@ MonoBehaviour:
   stats: {fileID: 7505154380699039189}
   CanMove: 1
   PointParent: {fileID: 0}
-  FollowStopDistance: 5
+  FollowStopDistance: 3
   agent: {fileID: 0}
-  PlayerAttackDistance: 4
+  PlayerAttackDistance: 2
   TimeToAttack: 5
   image: {fileID: 7505154380827143016}
   PlayerTeg: Player
@@ -132,7 +132,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 0.16
   m_BaseOffset: 0.08
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
 --- !u!50 &7505154380699039191
 Rigidbody2D:

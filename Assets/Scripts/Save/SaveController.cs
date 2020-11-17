@@ -30,7 +30,7 @@ public class SaveData
     public InventoryToSave InvAlex;
     public CarInvToSave carInv;
     public Vector2D[] ObjToDestroy;
-
+    public bool IsQSave;
 
 
 }
@@ -101,7 +101,7 @@ public class SaveController : MonoBehaviour
     }
     
     public void CreateSave(int levelId, string SaveName, string date, string TexturePath, Vector2 pos, int playerType,
-        Stats EgorS, Stats DimaS, Stats MaxS, Stats AlexS, Inventory EgorInv, Inventory DimaInv, Inventory MaxInv, Inventory AlexInv)
+        Stats EgorS, Stats DimaS, Stats MaxS, Stats AlexS, Inventory EgorInv, Inventory DimaInv, Inventory MaxInv, Inventory AlexInv, bool IsQSave)
     {
         SaveData newSD = new SaveData();
         newSD.LevelID = levelId;
@@ -121,6 +121,7 @@ public class SaveController : MonoBehaviour
         newSD.InvAlex = SaveHelper.CreateSctructInv(AlexInv);
         newSD.carInv = SaveHelper.CreateSctructCarInv();
         newSD.ObjToDestroy = SaveHelper.CreateM();
+        newSD.IsQSave = IsQSave;
         saves.Add(newSD);
         if (saves.Count > 8)
         {

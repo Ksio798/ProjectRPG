@@ -4039,6 +4039,7 @@ GameObject:
   - component: {fileID: 7588729872447517402}
   - component: {fileID: 7588729872447517404}
   - component: {fileID: 7588729872447517405}
+  - component: {fileID: 6237659525828579887}
   m_Layer: 5
   m_Name: LoadSavePanel
   m_TagString: Untagged
@@ -4102,6 +4103,30 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6237659525828579887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7588729872447517403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 140
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 3
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 100, y: 100}
+  m_Spacing: {x: 141.5, y: 200}
+  m_Constraint: 1
+  m_ConstraintCount: 4
 --- !u!1 &7588729872464644000
 GameObject:
   m_ObjectHideFlags: 0
@@ -5787,6 +5812,7 @@ MonoBehaviour:
   chat: {fileID: 7588729872876106487}
   BAnim: {fileID: 7588729872494078975}
   camera2D: {fileID: 3540491837581629041}
+  SaveCreator: {fileID: 7588729872277697009}
 --- !u!1 &7588729872761061279
 GameObject:
   m_ObjectHideFlags: 0

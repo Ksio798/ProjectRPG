@@ -40,10 +40,11 @@ public class GameController : MonoBehaviour
     public Flowchart chat;
     public Animator BAnim;
     public CinemachineVirtualCamera camera2D;
+    public PausMenuSaveCreator SaveCreator;
     void Start()
     {
         //  CreateTex();
-        if (OneSavePanel.SaveNum ==-1||ActiveLevelID != SaveController.saves[OneSavePanel.SaveNum].LevelID)
+        if (OneSavePanel.SaveNum ==-1||ActiveLevelID != SaveController.saves[OneSavePanel.SaveNum].LevelID|| SaveController.saves[OneSavePanel.SaveNum].IsQSave == true)
         {
             chat.SetBooleanVariable("NeedStartText", true);
         }
@@ -82,6 +83,11 @@ public class GameController : MonoBehaviour
         {
             GetPlayerByType();
         }
+        if (OneSavePanel.SaveNum!=-1&& SaveController.saves[OneSavePanel.SaveNum].IsQSave == true)
+        {
+        ActivePlayer.transform.position = StartPoint.position;
+        }
+
 
         Egor.LoadPlayerCOntrollerData();
         Alex.LoadPlayerCOntrollerData();
@@ -201,6 +207,15 @@ public class GameController : MonoBehaviour
         }
         StartText.GetComponent<Animation>().Play();
     }
+    public void LoadS(int index)
+    {
+        SaveCreator.CreateQuickSave(index);
+        OneSavePanel.SaveNum = SaveController.saves.Count-1;
+        ActiveLevelID = index;
+        SceneManager.LoadScene(index);
+    }
+
+
    //void  CreateTex()
    // {
    //     texture = new Texture2D(16, 16);

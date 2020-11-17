@@ -26,12 +26,23 @@ public class PausMenuSaveCreator : MonoBehaviour
            (int)pausMenuController.gameController.ActivePlayer.CurrentptayerType, pausMenuController.gameController.Egor.stats, pausMenuController.gameController.Dima.stats,
            pausMenuController.gameController.Max.stats, pausMenuController.gameController.Alex.stats,
             pausMenuController.gameController.Egor.Inventory, pausMenuController.gameController.Dima.Inventory, pausMenuController.gameController.Max.Inventory,
-            pausMenuController.gameController.Alex.Inventory);
+            pausMenuController.gameController.Alex.Inventory, false);
          
             inputField.text = "";
             gameObject.SetActive(false);
             Time.timeScale = 1;
         }
     }
-    
+    public void CreateQuickSave(int index)
+    {
+        string path = "QuickSave";
+        SaveController.Instance.CreateSave(index, path, DateTime.Today.ToString("dd.MM.yyyy"), path,
+            pausMenuController.gameController.ActivePlayer.transform.position,
+       (int)pausMenuController.gameController.ActivePlayer.CurrentptayerType, pausMenuController.gameController.Egor.stats, pausMenuController.gameController.Dima.stats,
+       pausMenuController.gameController.Max.stats, pausMenuController.gameController.Alex.stats,
+        pausMenuController.gameController.Egor.Inventory, pausMenuController.gameController.Dima.Inventory, pausMenuController.gameController.Max.Inventory,
+        pausMenuController.gameController.Alex.Inventory, true);
+    }
+
+
 }

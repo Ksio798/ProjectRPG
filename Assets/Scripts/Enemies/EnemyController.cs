@@ -32,7 +32,7 @@ public class EnemyController : BaseCharecter
         EnemyViewZone evz = GetComponentInChildren<EnemyViewZone>();
         evz.OnObjEnterZone += OnObjEnterZone;
         agent = GetComponent<NavMeshAgent>();
-        //if (PointParent!=null)
+        //if (PointParent != null)
         //{
         //    SetWalkingPoints();
         //}
@@ -48,7 +48,7 @@ public class EnemyController : BaseCharecter
         for (int i = 0; i < PointParent.childCount; i++)
         {
             WalkingPoints.Add(PointParent.GetChild(i));
-            Debug.Log("setted");
+          
         }
     }
     virtual protected void Update()
@@ -127,7 +127,7 @@ public class EnemyController : BaseCharecter
             FollowTarget();
 
         }
-        else
+        else if(WalkingPoints != null&& WalkingPoints.Count != 0)
             MoveByRoute();
     }
     protected virtual void TimerMath()

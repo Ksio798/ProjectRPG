@@ -259,7 +259,11 @@ public class PlayerController : BaseCharecter
     }
     void LoadSave()
     {
+          //  Debug.Log(SaveController.saves[OneSavePanel.SaveNum].IsQSave +"     "+ OneSavePanel.SaveNum);
+        if(SaveController.saves[OneSavePanel.SaveNum].IsQSave==false)
+        {
         transform.position = new Vector2(SaveController.saves[OneSavePanel.SaveNum].PlayerPosX, SaveController.saves[OneSavePanel.SaveNum].PlayerPosY);
+        }
         SaveHelper.loadStats(SaveHelper.GetStats(CurrentptayerType), stats);
         SaveHelper.LoadInv(SaveHelper.GetInv(CurrentptayerType), Inventory);
         if ((PlayerType)SaveController.saves[OneSavePanel.SaveNum].PlayerType != CurrentptayerType)
