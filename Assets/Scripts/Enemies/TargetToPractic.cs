@@ -5,9 +5,11 @@ using UnityEngine.UI;
 public class TargetToPractic : BaseCharecter
 {
     public Image image;
+    public ParticleSystem particleSystem;
     public override void TakeDamage(float Dmg)
     {
         base.TakeDamage(Dmg);
+        particleSystem.Play();
         UpdateHp();
     }
 

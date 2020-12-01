@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseCharecter : MonoBehaviour
-{
+{//доделать проверку повторного попадания
     //protected float health;
     //public float Health { get { return health; } }
     public Stats stats;

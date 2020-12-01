@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEditor.Rendering;
+using System;
 
 public class EnemyController : BaseCharecter
 {
@@ -21,14 +22,16 @@ public class EnemyController : BaseCharecter
     public float TimeToAttack;
     public Image image;
     protected float timer;
-    //  В МЕТОДЕ СТАРТ ПОСТАВИМ ВРАГА В НАЧАЛЬНУЮ ТОЧКУ МАРШРУТА
+     ParticleSystem particleSystem;
+    public event System.Action OnDie;
+
     override protected void Start()
     {
 
 
 
         base.Start();
-        
+        particleSystem = GetComponentInChildren<ParticleSystem>();
         EnemyViewZone evz = GetComponentInChildren<EnemyViewZone>();
         evz.OnObjEnterZone += OnObjEnterZone;
         agent = GetComponent<NavMeshAgent>();
@@ -66,7 +69,7 @@ public class EnemyController : BaseCharecter
     
         if (Vector2.Distance(transform.position, WalkingPoints[currentWalkingPoint].position) > movementDelta)
         {
-            Debug.Log("move by route");
+
             agent.SetDestination(WalkingPoints[currentWalkingPoint].position);
         }
         else
@@ -140,6 +143,7 @@ public class EnemyController : BaseCharecter
     public override void TakeDamage(float Dmg)
     {
         base.TakeDamage(Dmg);
+        particleSystem.Play();
         UpdateHp();
     }
     protected void UpdateHp()
@@ -148,8 +152,10 @@ public class EnemyController : BaseCharecter
     }
     public override void Die()
     {
+
+        Debug.Log(gameObject.name + "enemy die");
+        OnDie?.Invoke();
         base.Die();
-       
     }
 
 }
