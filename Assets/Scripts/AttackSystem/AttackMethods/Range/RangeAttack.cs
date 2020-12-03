@@ -17,6 +17,15 @@ public class RangeAttack : AttackMethod
         if(deafultWeapon != null)
         SetNewWeapon(deafultWeapon);
     }
+    private void Update()
+    {
+        Vector3 pointerPosition = Input.mousePosition;
+        Vector3 diffrences = Camera.main.ScreenToWorldPoint(pointerPosition) - transform.position;
+        float scaleX = Mathf.Sign(transform.parent.localScale.x);
+        if (scaleX < 0)
+            diffrences = transform.position - Camera.main.ScreenToWorldPoint(pointerPosition);
+        float rotateZ = Mathf.Atan2(diffrences.y, diffrences.x) * Mathf.Rad2Deg;
+    }
 
     public override void OnFire(Stats playerStats)
     {

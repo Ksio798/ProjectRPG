@@ -26,7 +26,7 @@ public class PlayerController : BaseCharecter
     Collider2D currentCollider;
     GameObject interactingObject;
     public PlayerUIController playerUIController;
-
+    float Lastside = 1;
 
     public float CrossHairRadius=4;
 
@@ -85,6 +85,12 @@ public class PlayerController : BaseCharecter
 
         Vector2 moveInput = new Vector2(hInput, vInput);
         moveVelocity = moveInput.normalized * stats.Speed;
+        if (hInput != 0)
+            Lastside = hInput;
+                if(Lastside<0)
+            transform.localScale = new Vector3(-2, 2, 2);
+        else
+            transform.localScale = new Vector3(2, 2, 2);
     }
     void FixedUpdate()
     {
