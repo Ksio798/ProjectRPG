@@ -289,7 +289,7 @@ MonoBehaviour:
   MaxMedicineChestCount: 1
   HealingPercentByMedicineChest: 30
   MaxAmmo: 30
-  currentAmmo: 10
+  currentAmmo: 100
   ShildCount: 0
   medicineChestCount: 1
 --- !u!114 &7831463326511494562
@@ -331,6 +331,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   playerUIController: {fileID: 0}
+  CrossHairRadius: 4
   Inventory: {fileID: 7831463326511494565}
 --- !u!61 &-4897008688914077474
 BoxCollider2D:

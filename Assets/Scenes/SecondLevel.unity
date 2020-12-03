@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 712255879}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5707,6 +5707,8 @@ MonoBehaviour:
   - {fileID: 413479019}
   - {fileID: 1359994226}
   - {fileID: 1737244915}
+  ammoBags:
+  - {fileID: 2866245837529663033, guid: 74aaafd22a4605b42b7f02aeec57cfef, type: 3}
   Chart: {fileID: 8434575331711614225}
   HeroPoint: {fileID: 3540491837364278542}
 --- !u!4 &1110724477

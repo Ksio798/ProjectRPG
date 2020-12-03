@@ -19,12 +19,12 @@ public class HealingEnemy : EnemyController
 
        // healtLevelBehave();
         base.Update();
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            TakeDamage(6);
-        }
+        //if (Input.GetKeyDown(KeyCode.X))
+        //{
+        //    TakeDamage(6);
+        //}
     }
-    public override void TakeDamage(float Dmg)
+    public override void TakeDamage(float Dmg )
     {
         base.TakeDamage(Dmg);
         canHealing = false;

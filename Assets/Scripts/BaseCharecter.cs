@@ -9,7 +9,7 @@ public class BaseCharecter : MonoBehaviour
     public Stats stats;
     
     public bool CanMove = true;
-    
+   
     protected virtual void Start()
     {
         //if(SaveController.saves ==null|| SaveController.saves.Count == 0)
@@ -33,6 +33,7 @@ public class BaseCharecter : MonoBehaviour
     }
     public virtual void TakeDamage(float Dmg)
     {
+       
         float a = Dmg;
         if(stats!=null)
         Dmg -= Mathematics.GetPercent(stats.damageResistanceInPercent, a);
@@ -43,6 +44,7 @@ public class BaseCharecter : MonoBehaviour
            
             Die();
         }
+           
     }
     public virtual void Die()
     {

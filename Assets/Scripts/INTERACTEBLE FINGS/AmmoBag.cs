@@ -4,8 +4,8 @@ using UnityEngine;
 using System.Linq;
 public class AmmoBag : MonoBehaviour, IInteractable
 {
-    
-
+    //доделать выпадение предметов
+    //public Vector2 Pos;
     public KeyCode InteractableKey { get ; set ; }
 
     public bool InteractingByKeyPressing { get { return false; } }
@@ -22,6 +22,22 @@ public class AmmoBag : MonoBehaviour, IInteractable
         }
 
     }
+    //void FixedUpdate()
+    //{
+
+
+    //    float dit = Vector2.Distance(transform.position, Pos);
+    //    //  Debug.Log("transform.position = PlayerPos.position"+dit);
+
+    //    if (dit < 0.5f && GetComponent<Rigidbody2D>().bodyType != RigidbodyType2D.Static)
+    //    {
+    //        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+    //        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    //        transform.rotation = Quaternion.Euler(0, 0, 0);
+    //    }
+           
+         
+    //}
     public void Interact(Transform other)
     {
         PlayerController pc = other.GetComponent<PlayerController>();
@@ -35,6 +51,13 @@ public class AmmoBag : MonoBehaviour, IInteractable
            
         }
     }
-
+    public IEnumerator WaitToStop()
+    {
+        yield return new WaitForSeconds(0.3f);
+        //Debug.Log("Stopped");
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+       transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
 
 }

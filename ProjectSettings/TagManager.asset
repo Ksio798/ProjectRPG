@@ -7,6 +7,7 @@ TagManager:
   - 'Gun '
   - Money
   - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX

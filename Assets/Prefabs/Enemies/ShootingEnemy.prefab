@@ -425,7 +425,7 @@ MonoBehaviour:
   SpeedCountUpdate: 0
   Damage: 1
   DamageCountUpdate: 0
-  MaxHealth: 50
+  MaxHealth: 10
   HealthCountUpdate: 0
   damageResistanceInPercent: 0
   damageResistanceInPercentCountUpdate: 0

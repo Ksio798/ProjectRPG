@@ -21,15 +21,15 @@ public class EnemyBulletScript : MonoBehaviour
 
 
           
-            PlayerController Player = collision.transform.GetComponentInParent<PlayerController>();
 
+            PlayerController Player = collision.transform.GetComponentInParent<PlayerController>();
             if (Player != damagedPlayer)// если пуля продолжает сталкиваться с тем же персонажем, то не надо повторно наносить урон
             {
                 damagedPlayer = Player;
 
-            }
             if (Player != null)
                 Player.TakeDamage(Damage);
+            }
             // Destroy(gameObject);
             StartCoroutine(WaitToDestroy());
         }

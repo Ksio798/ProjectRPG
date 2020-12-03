@@ -24,7 +24,8 @@ public class EnemyController : BaseCharecter
     protected float timer;
      ParticleSystem particleSystem;
     public event System.Action OnDie;
-
+    bool isDied = false;
+    public AmmoBag Drop;
     override protected void Start()
     {
 
@@ -152,12 +153,26 @@ public class EnemyController : BaseCharecter
     }
     public override void Die()
     {
-
-        Debug.Log(gameObject.name + "enemy die");
+        if (!isDied)
+        {
         OnDie?.Invoke();
+            DropResurses();
+            isDied = true;
+        }
         base.Die();
     }
-
+void DropResurses()
+    {
+        AmmoBag d = Instantiate(Drop);
+        d.transform.position = transform.position;
+       // d.Pos = gameObject.transform.position;
+        float time = 30 * Time.fixedDeltaTime;
+        Vector2 start = Vector2.up+Vector2.right / time - 0.5f * Physics2D.gravity * time;
+    
+        d.GetComponent<Rigidbody2D>().velocity = start;
+        d.GetComponent<Rigidbody2D>().AddTorque(500);
+        d.StartCoroutine(d.WaitToStop());
+    }
 }
 
 
