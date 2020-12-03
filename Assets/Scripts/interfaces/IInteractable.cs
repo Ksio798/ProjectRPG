@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,6 @@ public interface IInteractable
     KeyCode InteractableKey { get; set; }
      void Interact(Transform other);
     bool InteractingByKeyPressing { get; }
-
+   
 }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-public class Money : MonoBehaviour, IInteractable
+public class Money : Dropping, IInteractable
 {
     int cost;
     void Start()
@@ -36,4 +36,5 @@ public class Money : MonoBehaviour, IInteractable
     public bool InteractingByKeyPressing { get { return false; } }
 
     public KeyCode InteractableKey { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+   
 }

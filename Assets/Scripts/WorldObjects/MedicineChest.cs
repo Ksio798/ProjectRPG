@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-public class MedicineChest : MonoBehaviour, IInteractable,IMedicineChest
+public class MedicineChest : Dropping, IInteractable,IMedicineChest
 {
     [SerializeField]
     int count;
@@ -26,4 +26,5 @@ public class MedicineChest : MonoBehaviour, IInteractable,IMedicineChest
     public bool InteractingByKeyPressing { get { return false; } }
 
     public KeyCode InteractableKey { get ; set; }
+    
 }
