@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-public class AmmoBag : MonoBehaviour, IInteractable
+public class AmmoBag : Dropping, IInteractable
 {
     //доделать выпадение предметов
     //public Vector2 Pos;
@@ -51,13 +51,8 @@ public class AmmoBag : MonoBehaviour, IInteractable
            
         }
     }
-    public IEnumerator WaitToStop()
-    {
-        yield return new WaitForSeconds(0.3f);
-        //Debug.Log("Stopped");
-        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-       transform.rotation = Quaternion.Euler(0, 0, 0);
-    }
+   
+     
+     
 
 }
