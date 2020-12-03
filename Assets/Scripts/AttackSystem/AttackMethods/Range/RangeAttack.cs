@@ -19,14 +19,28 @@ public class RangeAttack : AttackMethod
     }
     private void Update()
     {
-        Vector3 pointerPosition = Input.mousePosition;
-        Vector3 diffrences = Camera.main.ScreenToWorldPoint(pointerPosition) - transform.position;
-        float scaleX = Mathf.Sign(transform.parent.localScale.x);
-        if (scaleX < 0)
-            diffrences = transform.position - Camera.main.ScreenToWorldPoint(pointerPosition);
-        float rotateZ = Mathf.Atan2(diffrences.y, diffrences.x) * Mathf.Rad2Deg;
-    }
+        //Vector3 pointerPosition = Input.mousePosition;
+        //Vector3 diffrences = Camera.main.ScreenToWorldPoint(pointerPosition) - transform.position;
+        //float scaleX = Mathf.Sign(transform.parent.localScale.x);
+        //if (scaleX < 0)
+        //    diffrences = transform.position - Camera.main.ScreenToWorldPoint(pointerPosition);
+        //float rotateZ = Mathf.Atan2(diffrences.y, diffrences.x) * Mathf.Rad2Deg;
+        GunMoving();
 
+
+    }
+    void GunMoving()
+    {
+        Vector3 pointerPosition = Input.mousePosition;
+        Vector3 difference = Camera.main.ScreenToWorldPoint(pointerPosition) - transform.position;
+        float scaleX = Mathf.Sign(transform.parent.localPosition.x);
+        if (scaleX < 0)
+            difference = transform.position - Camera.main.ScreenToWorldPoint(pointerPosition);
+        float rotateZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rotateZ);
+
+        Debug.Log("rotatiob");
+    }
     public override void OnFire(Stats playerStats)
     {
         if (CurrentWeapon != null)

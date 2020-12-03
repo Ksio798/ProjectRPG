@@ -16,7 +16,7 @@ public enum PlayerType
 public class PlayerController : BaseCharecter
 {
 
-
+    public float offset;
     public PlayerType CurrentptayerType = PlayerType.Egor;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
@@ -74,8 +74,7 @@ public class PlayerController : BaseCharecter
         Interact();
         UseSkills();
         moveCrossHair();
-
-
+      
 
     }
     void Move()
@@ -294,5 +293,17 @@ public class PlayerController : BaseCharecter
         playerUIController.SetManna(stats.MaxManna, stats.manna);
         return base.WaitToMannaRegen();
     }
+    //void GunMoving()
+    //{
+    //    Vector3 pointerPosition = Input.mousePosition;
+    //    Vector3 difference = Camera.main.ScreenToWorldPoint(pointerPosition) - transform.position;
+    //    float scaleX = Mathf.Sign(transform.parent.localPosition.x);
+    //    if (scaleX < 0)
+    //        difference = transform.position - Camera.main.ScreenToWorldPoint(pointerPosition);
+    //    float rotateZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+    //    transform.rotation = Quaternion.Euler(0f, 0f, rotateZ );
+
+    //    Debug.Log("rotatiob");
+    //}
 }
 
