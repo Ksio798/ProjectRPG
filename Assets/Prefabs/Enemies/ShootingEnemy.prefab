@@ -240,8 +240,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4797813620478944952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.163, y: -3.284, z: -0.4915853}
-  m_LocalScale: {x: 0.6109268, y: 0.6109268, z: 0.6109268}
+  m_LocalPosition: {x: -4.163, y: -3.284, z: -0.4383323}
+  m_LocalScale: {x: 0.6109268, y: 0.6109268, z: 1}
   m_Children:
   - {fileID: 3192265440216841886}
   - {fileID: 4797813620284140803}
@@ -321,6 +321,7 @@ MonoBehaviour:
   PlayerAttackDistance: 3.62
   TimeToAttack: 3
   image: {fileID: 4797813619340005918}
+  Drop: {fileID: 0}
   PlayerTeg: Player
   shooter: {fileID: 4797813620478944903}
 --- !u!61 &4797813620478944955
@@ -389,7 +390,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1.0099999
-  m_BaseOffset: 0.50499994
+  m_BaseOffset: 0.08
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &4797813620478944903

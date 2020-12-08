@@ -4,7 +4,8 @@ using UnityEngine;
 using Fungus;
 public class EnemySpawner : MonoBehaviour
 {
-    //доделать событие со смертью врагов
+    public bool NeedDialog;
+    public bool NeedCreteSave;
     public List<EnemyController> EnemyPrefabs = new List<EnemyController>();
     public int SpawnCount;
     public float Interval;
@@ -12,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     public List<Dropping> Drops = new List<Dropping>();
     int DeathCount;
     public Flowchart Chart;
-    public Transform HeroPoint;
+  //  public Transform HeroPoint;
     public void StartSpawn()
     {
        
@@ -21,9 +22,9 @@ public class EnemySpawner : MonoBehaviour
     }
     void Spawn()
     {
-        EnemyController en = Instantiate(EnemyPrefabs[Random.Range(0, EnemyPrefabs.Count-1)]);
-        Transform tr = transforms[Random.Range(0, transforms.Count - 1)];
-        en.Drop = Drops[Random.Range(0, Drops.Count - 1)];
+        EnemyController en = Instantiate(EnemyPrefabs[Random.Range(0, EnemyPrefabs.Count)]);
+        Transform tr = transforms[Random.Range(0, transforms.Count)];
+        en.Drop = Drops[Random.Range(0, Drops.Count)];
         en.gameObject.name += Random.Range(100, 1000).ToString();
         en.PointParent = tr;
         en.SetWalkingPoints();
@@ -32,20 +33,23 @@ public class EnemySpawner : MonoBehaviour
     void EnemyDied()
     {
         DeathCount++;
-        //Debug.Log(DeathCount);
+      
         if (DeathCount == SpawnCount)
         {
             //Вызов блока
             //Chart.ExecuteBlock("");
+            if(NeedDialog)
             SpawnHeroAfterAttack();
-            Debug.Log("AllEnemyDied"); 
-        //GameController.CanCreateSave = true;
+            if(NeedCreteSave)
+        GameController.CanCreateSave = true;
+          
         }
     }
     void SpawnHeroAfterAttack()
     {
+        if(Chart!=null)
         Chart.gameObject.SetActive(true) ;
-        //Chart.transform.position = HeroPoint.position;
+       
     }
     IEnumerator WaitToSpawn()
     {

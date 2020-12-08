@@ -35,17 +35,17 @@ public class EnemyController : BaseCharecter
         particleSystem = GetComponentInChildren<ParticleSystem>();
         EnemyViewZone evz = GetComponentInChildren<EnemyViewZone>();
         evz.OnObjEnterZone += OnObjEnterZone;
-        agent = GetComponent<NavMeshAgent>();
+       // agent = GetComponent<NavMeshAgent>();
         //if (PointParent != null)
         //{
         //    SetWalkingPoints();
         //}
+        transform.position = WalkingPoints[currentWalkingPoint].position;
+        currentWalkingPoint++;
+        agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.speed = stats.Speed;
-        transform.position = WalkingPoints[currentWalkingPoint].position;
-        currentWalkingPoint++;
-
     }
     public void SetWalkingPoints()
     {
