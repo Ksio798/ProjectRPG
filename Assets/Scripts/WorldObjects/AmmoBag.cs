@@ -9,6 +9,9 @@ public class AmmoBag : Dropping, IInteractable
     public KeyCode InteractableKey { get ; set ; }
 
     public bool InteractingByKeyPressing { get { return false; } }
+
+    public int MinCount=4;
+    public int MaxCount=8;
     void Start()
     {
         if (OneSavePanel.SaveNum != -1)
@@ -46,7 +49,7 @@ public class AmmoBag : Dropping, IInteractable
         {
             if (SaveController.Instance != null)
             SaveController.Instance.ObjToDesrtoy.Add(SaveHelper.CreateVector2D(transform.position));
-            pc.Inventory.AddAmmo(Random.Range(4, 8));
+            pc.Inventory.AddAmmo(Random.Range(MinCount, MaxCount));
             Destroy(gameObject);
            
         }

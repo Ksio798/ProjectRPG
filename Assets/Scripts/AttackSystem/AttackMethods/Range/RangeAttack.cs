@@ -17,14 +17,10 @@ public class RangeAttack : AttackMethod
         if(deafultWeapon != null)
         SetNewWeapon(deafultWeapon);
     }
-    private void Update()
+    protected override void Update()
     {
-        //Vector3 pointerPosition = Input.mousePosition;
-        //Vector3 diffrences = Camera.main.ScreenToWorldPoint(pointerPosition) - transform.position;
-        //float scaleX = Mathf.Sign(transform.parent.localScale.x);
-        //if (scaleX < 0)
-        //    diffrences = transform.position - Camera.main.ScreenToWorldPoint(pointerPosition);
-        //float rotateZ = Mathf.Atan2(diffrences.y, diffrences.x) * Mathf.Rad2Deg;
+        base.Update();
+
         GunMoving();
 
 
@@ -33,23 +29,51 @@ public class RangeAttack : AttackMethod
     {
         Vector3 pointerPosition = Input.mousePosition;
         Vector3 difference = Camera.main.ScreenToWorldPoint(pointerPosition) - transform.position;
-        float scaleX = Mathf.Sign(transform.parent.localPosition.x);
+        float scaleX = Mathf.Sign(transform.parent.localScale.x);
         if (scaleX < 0)
             difference = transform.position - Camera.main.ScreenToWorldPoint(pointerPosition);
         float rotateZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+             if (scaleX == 1)
+             {
+                 if (rotateZ <= -80f)
+                 {
+                     rotateZ = -80f;
+                 }
+                 if (rotateZ >= 80f)
+                 {
+                     rotateZ = 80f;
+                 }
+             }
+        if (scaleX == -1)
+        {
+            if (rotateZ <= -80f)
+            {
+                rotateZ = -80f;
+            }
+            if (rotateZ >= 80f)
+            {
+                rotateZ = 80f;
+            }
+        }
         transform.rotation = Quaternion.Euler(0f, 0f, rotateZ);
+      
 
-        Debug.Log("rotatiob");
+            Debug.Log("rotatiob");
     }
     public override void OnFire(Stats playerStats)
     {
+        Debug.Log("fire");
         if (CurrentWeapon != null)
         {
+            Debug.Log("fire2");
             if (timeShot <= 0)
             {
+                Debug.Log("fire3");
                 if (GetComponentInParent<Inventory>().Ammo > 0)
                 {
-                    Vector3 direction = crossHair.position - shotDir.position;
+
+                    Debug.Log("fire");
+                    Vector3 direction = shotDir.right ;
                     GameObject bullet = Instantiate(CurrentWeapon.ammo, shotDir.position, transform.rotation);
 
                     bullet.GetComponent<BulletScipt>().TargetTag = "Enemy";
@@ -76,14 +100,19 @@ public class RangeAttack : AttackMethod
     {
 
         //1 удаляем предыдущее
-
+      
         if (CurrentWeapon != null)
         {
-            Destroy(CurrentWeapon.gameObject);
+            CurrentWeapon.GetComponent<Collider2D>().enabled = true;
+            Debug.Log(CurrentWeapon.name + "    " + newWeapon.name);
+            CurrentWeapon.transform.parent = null;
+           // Destroy(CurrentWeapon.gameObject);
         }
         CurrentWeapon = newWeapon;
         newWeapon.transform.SetParent(transform);
+        newWeapon.GetComponent<Collider2D>().enabled = false;
         newWeapon.transform.localPosition = newWeapon.LocalPosition;
+        newWeapon.transform.localScale = new Vector3(Mathf.Abs(newWeapon.transform.localScale.x), newWeapon.transform.localScale.y,1);
         newWeapon.transform.right = transform.right;
         shotDir = newWeapon.transform.GetChild(0);
 
