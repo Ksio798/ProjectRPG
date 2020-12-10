@@ -109,10 +109,11 @@ public class RangeAttack : AttackMethod
            // Destroy(CurrentWeapon.gameObject);
         }
         CurrentWeapon = newWeapon;
+        Vector3 scale = newWeapon.transform.localScale;
         newWeapon.transform.SetParent(transform);
         newWeapon.GetComponent<Collider2D>().enabled = false;
         newWeapon.transform.localPosition = newWeapon.LocalPosition;
-        newWeapon.transform.localScale = new Vector3(Mathf.Abs(newWeapon.transform.localScale.x), newWeapon.transform.localScale.y,1);
+        newWeapon.transform.localScale = new Vector3(Mathf.Abs(scale.x), scale.y,1);
         newWeapon.transform.right = transform.right;
         shotDir = newWeapon.transform.GetChild(0);
 
