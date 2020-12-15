@@ -129,8 +129,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3086785909988527512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.731, y: 0.1957, z: -0.43833232}
-  m_LocalScale: {x: 0.5529674, y: 0.5529674, z: 0.5529674}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5529674, y: 0.5529674, z: 1}
   m_Children:
   - {fileID: 1315417271602908299}
   - {fileID: 3086785910892093595}
@@ -235,6 +235,7 @@ MonoBehaviour:
   PlayerAttackDistance: 0.7
   TimeToAttack: 5
   image: {fileID: 3086785910133986643}
+  Drop: {fileID: 0}
 --- !u!50 &3086785909988527506
 Rigidbody2D:
   serializedVersion: 4

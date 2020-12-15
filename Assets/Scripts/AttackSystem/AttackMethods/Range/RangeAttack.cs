@@ -75,7 +75,11 @@ public class RangeAttack : AttackMethod
                     Debug.Log("fire");
                     Vector3 direction = shotDir.right ;
                     GameObject bullet = Instantiate(CurrentWeapon.ammo, shotDir.position, transform.rotation);
+                    //Debug.Log(bullet.transform.position +"   "+shotDir.position);
 
+                    Vector3 pos = bullet.transform.position;
+                    pos.z = 0;
+                    bullet.transform.position = pos;
                     bullet.GetComponent<BulletScipt>().TargetTag = "Enemy";
                     bullet.GetComponent<BulletScipt>().Damage = CurrentWeapon.Damage+(int)playerStats.Damage;
                     if (transform.parent.localScale.x > 0)

@@ -607,7 +607,6 @@ MonoBehaviour:
   - {fileID: 7505154380699039193, guid: 816cf36420d3e044d850b93d571e6d5e, type: 3}
   - {fileID: 3086785909988527519, guid: a5675c88d65c2164b994d44aa700b8a6, type: 3}
   - {fileID: 4797813620478944900, guid: 5698f5f4c41a44c4abfe6190dbe507f1, type: 3}
-  - {fileID: 1585628901312665781, guid: 63721c8f420b9134baaefb52a79a3602, type: 3}
   SpawnCount: 50
   Interval: 3
   transforms:
@@ -820,7 +819,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &366756735
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1248,7 +1247,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -16815,7 +16814,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 0
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

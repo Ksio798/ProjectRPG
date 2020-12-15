@@ -31,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7505154380699039187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.77, y: -1.64, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 7505154381012356034}
   - {fileID: 4386559030545619220}
@@ -111,6 +111,7 @@ MonoBehaviour:
   PlayerAttackDistance: 2
   TimeToAttack: 5
   image: {fileID: 7505154380827143016}
+  Drop: {fileID: 0}
   PlayerTeg: Player
   shooter: {fileID: 7505154380699039188}
 --- !u!195 &7505154380699039192

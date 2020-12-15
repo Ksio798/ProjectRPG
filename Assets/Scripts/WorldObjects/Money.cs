@@ -35,6 +35,6 @@ public class Money : Dropping, IInteractable
     }
     public bool InteractingByKeyPressing { get { return false; } }
 
-    public KeyCode InteractableKey { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public KeyCode InteractableKey { get; set; }
    
 }

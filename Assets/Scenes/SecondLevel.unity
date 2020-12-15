@@ -4189,7 +4189,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 0
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5515,7 +5518,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 9123d318ad71d6045ab3e50c41e62c98, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 285eedb2de0c2ed4991be81370ccc996, type: 2}
 --- !u!4 &911330580
 Transform:
   m_ObjectHideFlags: 0
@@ -5695,6 +5698,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4c2b078e781ea41a0802f588bae37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NeedDialog: 1
+  NeedCreteSave: 0
   EnemyPrefabs:
   - {fileID: 7505154380699039193, guid: 816cf36420d3e044d850b93d571e6d5e, type: 3}
   - {fileID: 3086785909988527519, guid: a5675c88d65c2164b994d44aa700b8a6, type: 3}
@@ -5712,7 +5717,6 @@ MonoBehaviour:
   - {fileID: 5616538531196680324, guid: 9adc0f6eb0a3bba40a38d102973901b8, type: 3}
   - {fileID: 1062034906391834780, guid: c3959c0135d5e94498a426482d6ed3bb, type: 3}
   Chart: {fileID: 8434575331711614225}
-  HeroPoint: {fileID: 3540491837364278542}
 --- !u!4 &1110724477
 Transform:
   m_ObjectHideFlags: 0

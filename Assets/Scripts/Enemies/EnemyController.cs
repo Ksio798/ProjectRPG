@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-using System.Linq;
-using UnityEditor.Rendering;
+//using System.Linq;
+//using UnityEditor.Rendering;
 using System;
 
 public class EnemyController : BaseCharecter
