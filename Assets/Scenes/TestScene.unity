@@ -1570,6 +1570,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550e2eceb0dbd194cab5e1e228bcb5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinCount: 4
+  MaxCount: 8
 --- !u!212 &322426950
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3937,6 +3939,7 @@ MonoBehaviour:
   PlayerAttackDistance: 0.7
   TimeToAttack: 5
   image: {fileID: 483906233}
+  Drop: {fileID: 0}
   HealinInSecond: 1
   HomePoint: {fileID: 912796412}
 --- !u!212 &569690204
@@ -10609,6 +10612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550e2eceb0dbd194cab5e1e228bcb5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinCount: 4
+  MaxCount: 8
 --- !u!212 &1483877755
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10783,6 +10788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 1504997385}
   CanMove: 1
+  offset: 0
   CurrentptayerType: 3
   crossHair: {fileID: 0}
   ObMask:
@@ -13688,6 +13694,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550e2eceb0dbd194cab5e1e228bcb5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinCount: 4
+  MaxCount: 8
 --- !u!212 &2079469319
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17741,7 +17749,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3540491836686139836}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -17853,6 +17861,7 @@ MonoBehaviour:
   chat: {fileID: 3540491836580294180}
   BAnim: {fileID: 3540491837003446060}
   camera2D: {fileID: 7588729872010971810}
+  SaveCreator: {fileID: 0}
 --- !u!1 &3540491836725955429
 GameObject:
   m_ObjectHideFlags: 0
@@ -19765,7 +19774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &3540491837003446060
 Animator:
   serializedVersion: 3
@@ -23625,7 +23634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &3540491837981841040
 CanvasRenderer:
   m_ObjectHideFlags: 0
