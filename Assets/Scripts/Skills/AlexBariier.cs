@@ -19,9 +19,9 @@ public class AlexBariier : AttackMethod
             Destroy(newBarrier.gameObject, 5);
         }
     }
-    public void Update()
+    public new void Update()
     {
         Barrier.transform.position = CrossHair.transform.position;
     }
-   
+
 }

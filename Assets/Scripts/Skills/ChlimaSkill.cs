@@ -7,14 +7,14 @@ public class ChlimaSkill : AttackMethod
     int SkinIndex;
     List<Sprite> skins;
     public SpriteRenderer PlayerCurrentSkin;
-  
+
     public int ExtraDamage = 10;
-    float BaseDamageLevel =0;
+    float BaseDamageLevel = 0;
 
     Stats stats;
     public override void ClearAttackEffects()
     {
-       // stats.Damage = BaseDamageLevel;
+        // stats.Damage = BaseDamageLevel;
         BaseDamageLevel = 0;
     }
     public override void OnFire(Stats playerStats)
@@ -28,8 +28,8 @@ public class ChlimaSkill : AttackMethod
         playerStats.manna--;
         FireAttack?.Invoke();
     }
-    
-    
+
+
     public override bool AttackInput()
     {
         return Input.GetKey(KeyCode.Space);
@@ -41,6 +41,6 @@ public class ChlimaSkill : AttackMethod
         SkinIndex++;
         PlayerCurrentSkin.sprite = skins[SkinIndex];
     }
-  
+
 
 }
