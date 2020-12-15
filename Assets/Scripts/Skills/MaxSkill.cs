@@ -21,9 +21,9 @@ public class MaxSkill : AttackMethod
     {
 
         if (MaxTurretsCount > countOfSpawned)
-        { 
-        GameObject newTurret = Instantiate(TurretPrefab);
-        newTurret.transform.position = TurretMask.transform.position;
+        {
+            GameObject newTurret = Instantiate(TurretPrefab);
+            newTurret.transform.position = TurretMask.transform.position;
 
             newTurret.GetComponent<TurretScript>().OnTurretDestroyed.AddListener(() => countOfSpawned--);
             //  newTurret.transform.localScale = Vector3.one;
@@ -32,19 +32,19 @@ public class MaxSkill : AttackMethod
 
 
         }
-        
-        
+
+
     }
 
 
     protected override void Update()
     {
-      base.Update();
+        base.Update();
 
         TurretMask.transform.position = CrossHair.transform.position;
     }
 
-  void  onTurretDied()
+    void onTurretDied()
     { }
     private void OnEnable()
     {

@@ -131,23 +131,23 @@ public class SaveHelper : MonoBehaviour
         Vector2D[] m;
 
 
-        if (OneSavePanel.SaveNum>=0)
+        if (OneSavePanel.SaveNum >= 0)
         {
             m = new Vector2D[SaveController.Instance.ObjToDesrtoy.Count + SaveController.saves[OneSavePanel.SaveNum].ObjToDestroy.Length + 10];
             for (int i = 0; i < SaveController.saves[OneSavePanel.SaveNum].ObjToDestroy.Length; i++)
             {
-                SaveController.Instance.ObjToDesrtoy.Add ( SaveController.saves[OneSavePanel.SaveNum].ObjToDestroy[i]);
+                SaveController.Instance.ObjToDesrtoy.Add(SaveController.saves[OneSavePanel.SaveNum].ObjToDestroy[i]);
 
             }
             Debug.Log("Added");
         }
         else
             m = new Vector2D[SaveController.Instance.ObjToDesrtoy.Count + 1];
-           
-       
 
 
-        
+
+
+
         for (int i = 0; i < SaveController.Instance.ObjToDesrtoy.Count; i++)
         {
             m[i] = SaveController.Instance.ObjToDesrtoy[i];

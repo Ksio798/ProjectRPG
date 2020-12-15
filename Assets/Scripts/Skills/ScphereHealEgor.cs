@@ -10,7 +10,7 @@ public class ScphereHealEgor : AttackMethod
 
 
     public CircleCollider2D HealBoundaryCollider;
-  
+
     private void OnTriggerStay2D(Collider2D collision)
     {
 
@@ -18,10 +18,10 @@ public class ScphereHealEgor : AttackMethod
         if (timeShot <= 0)
         {
             if (collision.tag == "Player")
-           {
-  
-           
-         
+            {
+
+
+
                 charecter = collision.GetComponent<BaseCharecter>();
 
 

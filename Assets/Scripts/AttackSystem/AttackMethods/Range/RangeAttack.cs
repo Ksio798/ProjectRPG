@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RangeAttack : AttackMethod
 {
-    public float offset;  
+    public float offset;
     private Transform shotDir;
     public Transform crossHair;
     public WeaponData CurrentWeapon;
@@ -12,10 +12,10 @@ public class RangeAttack : AttackMethod
     public WeaponData deafultWeapon;
 
 
-    private void Start()
+    private new void Start()
     {
-        if(deafultWeapon != null)
-        SetNewWeapon(deafultWeapon);
+        if (deafultWeapon != null)
+            SetNewWeapon(deafultWeapon);
     }
     protected override void Update()
     {
@@ -33,17 +33,17 @@ public class RangeAttack : AttackMethod
         if (scaleX < 0)
             difference = transform.position - Camera.main.ScreenToWorldPoint(pointerPosition);
         float rotateZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-             if (scaleX == 1)
-             {
-                 if (rotateZ <= -80f)
-                 {
-                     rotateZ = -80f;
-                 }
-                 if (rotateZ >= 80f)
-                 {
-                     rotateZ = 80f;
-                 }
-             }
+        if (scaleX == 1)
+        {
+            if (rotateZ <= -80f)
+            {
+                rotateZ = -80f;
+            }
+            if (rotateZ >= 80f)
+            {
+                rotateZ = 80f;
+            }
+        }
         if (scaleX == -1)
         {
             if (rotateZ <= -80f)
@@ -56,9 +56,9 @@ public class RangeAttack : AttackMethod
             }
         }
         transform.rotation = Quaternion.Euler(0f, 0f, rotateZ);
-      
 
-            Debug.Log("rotatiob");
+
+        Debug.Log("rotatiob");
     }
     public override void OnFire(Stats playerStats)
     {
@@ -73,11 +73,11 @@ public class RangeAttack : AttackMethod
                 {
 
                     Debug.Log("fire");
-                    Vector3 direction = shotDir.right ;
+                    Vector3 direction = shotDir.right;
                     GameObject bullet = Instantiate(CurrentWeapon.ammo, shotDir.position, transform.rotation);
 
                     bullet.GetComponent<BulletScipt>().TargetTag = "Enemy";
-                    bullet.GetComponent<BulletScipt>().Damage = CurrentWeapon.Damage+(int)playerStats.Damage;
+                    bullet.GetComponent<BulletScipt>().Damage = CurrentWeapon.Damage + (int)playerStats.Damage;
                     if (transform.parent.localScale.x > 0)
                         bullet.GetComponent<Rigidbody2D>().AddForce(direction * CurrentWeapon.Force);// затем прикладываем к  компоненту Rigidbody2D выктор силы: вправо от объекта Shooter с силой shootForce
                     else
@@ -100,20 +100,20 @@ public class RangeAttack : AttackMethod
     {
 
         //1 удаляем предыдущее
-      
+
         if (CurrentWeapon != null)
         {
             CurrentWeapon.GetComponent<Collider2D>().enabled = true;
             Debug.Log(CurrentWeapon.name + "    " + newWeapon.name);
             CurrentWeapon.transform.parent = null;
-           // Destroy(CurrentWeapon.gameObject);
+            // Destroy(CurrentWeapon.gameObject);
         }
         CurrentWeapon = newWeapon;
         Vector3 scale = newWeapon.transform.localScale;
         newWeapon.transform.SetParent(transform);
         newWeapon.GetComponent<Collider2D>().enabled = false;
         newWeapon.transform.localPosition = newWeapon.LocalPosition;
-        newWeapon.transform.localScale = new Vector3(Mathf.Abs(scale.x), scale.y,1);
+        newWeapon.transform.localScale = new Vector3(Mathf.Abs(scale.x), scale.y, 1);
         newWeapon.transform.right = transform.right;
         shotDir = newWeapon.transform.GetChild(0);
 
