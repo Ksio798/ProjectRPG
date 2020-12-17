@@ -78,13 +78,14 @@ public struct Vector2D
     public float Y;
 }
 
+
 public class SaveController : MonoBehaviour
 {
     public string FileName = "saves.svs";
     public static List<SaveData> saves = new List<SaveData>();
     public static SaveController Instance;
     public List<Vector2D> ObjToDesrtoy = new List<Vector2D>();
-
+    public Action OnDeliteAllSaves;
 
     void Awake()
     {
@@ -172,11 +173,19 @@ public class SaveController : MonoBehaviour
 
 
     }
+
+
+    public void Unsubscribe()
+    {
+
+        SaveController.Instance.OnDeliteAllSaves = null;
+
+    }
     public void DeleteAllSaves()
     {
         saves.Clear();
         DeleteFile(getFilePath());
-
+        OnDeliteAllSaves?.Invoke();
     }
 
     public void DeleteSave(int levelId)

@@ -5699,7 +5699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeedDialog: 1
-  NeedCreteSave: 0
+  NeedCreteSave: 1
   EnemyPrefabs:
   - {fileID: 7505154380699039193, guid: 816cf36420d3e044d850b93d571e6d5e, type: 3}
   - {fileID: 3086785909988527519, guid: a5675c88d65c2164b994d44aa700b8a6, type: 3}

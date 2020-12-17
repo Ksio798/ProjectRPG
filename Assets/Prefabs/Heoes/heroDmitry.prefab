@@ -116,7 +116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2682913746420706311
 Transform:
   m_ObjectHideFlags: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: Alex
+  nameText: Dmitry
   nameColor: {r: 0.14887887, g: 0.10693307, b: 0.8396226, a: 1}
   soundEffect: {fileID: 0}
   portraits:
@@ -534,3 +534,6 @@ MonoBehaviour:
   FireAttack:
     m_PersistentCalls:
       m_Calls: []
+  ColliderAttackZone: {fileID: 0}
+  TargetTag: 
+  damage: 0

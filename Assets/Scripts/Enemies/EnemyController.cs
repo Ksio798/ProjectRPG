@@ -146,6 +146,11 @@ public class EnemyController : BaseCharecter
         base.TakeDamage(Dmg);
         particleSystem.Play();
         UpdateHp();
+        PlayerController player = FindObjectOfType<PlayerController>();
+        if (player!= null)
+        {
+            followTarget = player.transform;
+        }
     }
     protected void UpdateHp()
     {
