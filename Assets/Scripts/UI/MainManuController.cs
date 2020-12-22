@@ -15,8 +15,8 @@ public class MainManuController : MonoBehaviour
     void Start()
     {
 
-        Debug.Log(SavePanel);
-        Debug.Log(SavePanel.transform);
+        //Debug.Log(SavePanel);
+        //Debug.Log(SavePanel.transform);
         if (FirstStart)
         {
         SaveController.Instance.LoadData();
@@ -31,7 +31,7 @@ public class MainManuController : MonoBehaviour
 
     void LoadSavesOnPanel()
     {
-        Debug.Log(SaveController.saves.Count);
+        //Debug.Log(SaveController.saves.Count);
         ClearSaveP();
       
         if (SaveController.saves != null && SaveController.saves.Count != 0)
@@ -53,6 +53,7 @@ public class MainManuController : MonoBehaviour
    public void LoadS(int index)
     {
         StartCoroutine(WaitToLoad(index));
+        Cursor.visible = false;
     }
     public void SavePanelA()
     {
@@ -79,8 +80,8 @@ public class MainManuController : MonoBehaviour
    void ClearSaveP()
     {
         List<Transform> transforms = new List<Transform>();
-        Debug.Log(SavePanel);
-        Debug.Log(SavePanel.transform);
+        //Debug.Log(SavePanel);
+        //Debug.Log(SavePanel.transform);
         for (int i = 1; i < SavePanel.transform.childCount; i++)
         {
             transforms.Add(SavePanel.transform.GetChild(i));

@@ -15191,7 +15191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b85556abd314f3f870c18c013fdcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickMode: 1
+  clickMode: 0
   nextClickDelay: 0
   cancelEnabled: 1
   ignoreMenuClicks: 1
@@ -15382,7 +15382,7 @@ MonoBehaviour:
   targetTextObject: {fileID: 3540491836738265932}
   punchObject: {fileID: 3540491836238980313}
   writingSpeed: 60
-  punctuationPause: 0.25
+  punctuationPause: 0.04
   hiddenTextColor: {r: 1, g: 1, b: 1, a: 0}
   writeWholeWords: 0
   forceRichText: 1
@@ -24202,7 +24202,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 0
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

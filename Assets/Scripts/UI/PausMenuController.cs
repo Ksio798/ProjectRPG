@@ -39,11 +39,13 @@ public class PausMenuController : MonoBehaviour
             {
                 Time.timeScale = 1;
                 GameController.CanSelect = true;
+                Cursor.visible = false;
             }
             else if (PausPanel.activeSelf)
             {
                 Time.timeScale = 0;
                 GameController.CanSelect = false;
+                Cursor.visible = true;
             }
            
             texture = getScreenShot();
@@ -96,6 +98,7 @@ public class PausMenuController : MonoBehaviour
     {
         PausPanel.SetActive(false);
         Time.timeScale = 1;
+        Cursor.visible = false;
     }
 
    
@@ -143,6 +146,7 @@ public class PausMenuController : MonoBehaviour
     public void GameOver()
     {
         GameOverPanel.SetActive(true);
+        Cursor.visible = true;
         GameController.CanSelect = true;
     }
 
